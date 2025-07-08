@@ -34,6 +34,7 @@
             this.txtbxContrasena = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnRegistrarse = new System.Windows.Forms.Button();
+            this.LbErrorLogin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -46,7 +47,6 @@
             this.label1.Size = new System.Drawing.Size(99, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Identificación";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -66,7 +66,6 @@
             this.txtbxIdentificacion.Name = "txtbxIdentificacion";
             this.txtbxIdentificacion.Size = new System.Drawing.Size(198, 22);
             this.txtbxIdentificacion.TabIndex = 2;
-            this.txtbxIdentificacion.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtbxContrasena
             // 
@@ -74,7 +73,6 @@
             this.txtbxContrasena.Name = "txtbxContrasena";
             this.txtbxContrasena.Size = new System.Drawing.Size(198, 22);
             this.txtbxContrasena.TabIndex = 3;
-            this.txtbxContrasena.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // btnLogin
             // 
@@ -98,12 +96,22 @@
             this.btnRegistrarse.UseVisualStyleBackColor = false;
             this.btnRegistrarse.Click += new System.EventHandler(this.button2_Click);
             // 
+            // LbErrorLogin
+            // 
+            this.LbErrorLogin.AutoSize = true;
+            this.LbErrorLogin.ForeColor = System.Drawing.Color.Red;
+            this.LbErrorLogin.Location = new System.Drawing.Point(315, 344);
+            this.LbErrorLogin.Name = "LbErrorLogin";
+            this.LbErrorLogin.Size = new System.Drawing.Size(0, 16);
+            this.LbErrorLogin.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.LbErrorLogin);
             this.Controls.Add(this.btnRegistrarse);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtbxContrasena);
@@ -112,7 +120,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,6 +133,7 @@
         private System.Windows.Forms.TextBox txtbxContrasena;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnRegistrarse;
+        private System.Windows.Forms.Label LbErrorLogin;
     }
 }
 
