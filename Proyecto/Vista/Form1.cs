@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Projecto.Controlador;
+using System;
 using System.Windows.Forms;
-using Projecto.Controlador;
 
 namespace Projecto
 {
@@ -18,38 +11,27 @@ namespace Projecto
             InitializeComponent();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string identificacion = txtbxIdentificacion.Text;
             string password = txtbxContrasena.Text;
+
             //Validar si el usuario es valido
-            LoginControlador login = new LoginControlador();
-            login.ValidarLogin(identificacion, password);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            bool usuarioValido=LoginControlador.ValidarLogin(identificacion, password);
+            if (usuarioValido) {
+                this.LbErrorLogin.ForeColor = System.Drawing.Color.Green;
+                LbErrorLogin.Text = "Login existoso";
+                
+            }
+            else {
+                this.LbErrorLogin.ForeColor = System.Drawing.Color.Red;
+                LbErrorLogin.Text = "Login fallido verifique la identificacion y la contraseña";
+            }
         }
     }
 }
