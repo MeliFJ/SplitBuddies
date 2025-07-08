@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Projecto.Controlador;
 
 namespace Projecto
 {
@@ -39,7 +40,11 @@ namespace Projecto
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            string identificacion = txtbxIdentificacion.Text;
+            string password = txtbxContrasena.Text;
+            //Validar si el usuario es valido
+            LoginControlador login = new LoginControlador();
+            login.ValidarLogin(identificacion, password);
         }
 
         private void Form1_Load(object sender, EventArgs e)
