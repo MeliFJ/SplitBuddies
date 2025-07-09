@@ -1,4 +1,5 @@
 ﻿using Projecto.Controlador;
+using Projecto.Vista;
 using System;
 using System.Windows.Forms;
 
@@ -13,7 +14,7 @@ namespace Projecto
 
         private void button2_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            new RegistrarUsuario().Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,6 +33,11 @@ namespace Projecto
                 this.LbErrorLogin.ForeColor = System.Drawing.Color.Red;
                 LbErrorLogin.Text = "Login fallido verifique la identificacion y la contraseña";
             }
+        }
+
+        private void txtbxIdentificacion_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

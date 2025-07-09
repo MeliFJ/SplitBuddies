@@ -30,12 +30,14 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtCedula = new System.Windows.Forms.MaskedTextBox();
+            this.txtIdentificacion = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtContrasenia = new System.Windows.Forms.MaskedTextBox();
+            this.txtContrasena = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnguardar = new System.Windows.Forms.Button();
+            this.TxtApellido = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -54,16 +56,16 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(23, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 20);
+            this.label2.Size = new System.Drawing.Size(103, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Cédula";
+            this.label2.Text = "Identificacion";
             // 
-            // txtCedula
+            // txtIdentificacion
             // 
-            this.txtCedula.Location = new System.Drawing.Point(27, 84);
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(761, 26);
-            this.txtCedula.TabIndex = 2;
+            this.txtIdentificacion.Location = new System.Drawing.Point(27, 84);
+            this.txtIdentificacion.Name = "txtIdentificacion";
+            this.txtIdentificacion.Size = new System.Drawing.Size(761, 26);
+            this.txtIdentificacion.TabIndex = 2;
             // 
             // label3
             // 
@@ -75,18 +77,18 @@
             this.label3.Text = "Nombre";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // txtContrasenia
+            // txtContrasena
             // 
-            this.txtContrasenia.Location = new System.Drawing.Point(27, 224);
-            this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.Size = new System.Drawing.Size(761, 26);
-            this.txtContrasenia.TabIndex = 6;
-            this.txtContrasenia.UseSystemPasswordChar = true;
+            this.txtContrasena.Location = new System.Drawing.Point(27, 280);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.Size = new System.Drawing.Size(761, 26);
+            this.txtContrasena.TabIndex = 6;
+            this.txtContrasena.UseSystemPasswordChar = true;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 201);
+            this.label4.Location = new System.Drawing.Point(23, 242);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 20);
             this.label4.TabIndex = 5;
@@ -102,7 +104,7 @@
             // 
             // btnguardar
             // 
-            this.btnguardar.Location = new System.Drawing.Point(673, 301);
+            this.btnguardar.Location = new System.Drawing.Point(674, 342);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(92, 37);
             this.btnguardar.TabIndex = 8;
@@ -110,17 +112,36 @@
             this.btnguardar.UseVisualStyleBackColor = true;
             this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
+            // TxtApellido
+            // 
+            this.TxtApellido.Location = new System.Drawing.Point(27, 213);
+            this.TxtApellido.Name = "TxtApellido";
+            this.TxtApellido.Size = new System.Drawing.Size(756, 26);
+            this.TxtApellido.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(23, 190);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 20);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Apellido";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // RegistrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.TxtApellido);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtContrasenia);
+            this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtCedula);
+            this.Controls.Add(this.txtIdentificacion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "RegistrarUsuario";
@@ -134,11 +155,13 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox txtCedula;
+        private System.Windows.Forms.MaskedTextBox txtIdentificacion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox txtContrasenia;
+        private System.Windows.Forms.MaskedTextBox txtContrasena;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnguardar;
+        private System.Windows.Forms.TextBox TxtApellido;
+        private System.Windows.Forms.Label label5;
     }
 }
