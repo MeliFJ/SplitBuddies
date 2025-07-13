@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projecto.Modelo;
+using System;
 using Projecto.Controlador;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,7 +47,7 @@ namespace Projecto.Vista
         {
 
         }
-        
+
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string Identificacion = txtIdentificacion.Text;
@@ -57,7 +58,7 @@ namespace Projecto.Vista
             bool resultado = RegistroControlador.GuardaUsuario(usuarionuevo);
             if (resultado)
             {
-                
+
                 MessageBox.Show ( "Registro éxitoso","Registro de Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Limpiar();
                 this.Close();
