@@ -9,16 +9,16 @@ namespace Projecto.Controlador
 
         }
 
-        public static bool ValidarLogin(string identificacion, string password)
+        public static Usuario ValidarLogin(string identificacion, string password)
         {
             GestorDatos servicio = new GestorDatos();
 
             // Se busca si el usuario existe con la identificacion
             Usuario usuario=servicio.BuscarUsuario(identificacion);
             if(usuario != null && usuario.Password.Equals(password)) {
-                return true;
+                return usuario;
             }
-            return false;
+            return null;
         }
     }
 }
