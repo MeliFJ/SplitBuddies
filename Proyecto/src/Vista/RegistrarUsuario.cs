@@ -1,14 +1,6 @@
-﻿using System;
-using Projecto.Controlador;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Projecto.Modelo;
+using System;
 using System.Windows.Forms;
-using Projecto.Modelo;
 
 namespace Projecto.Vista
 {
@@ -45,7 +37,7 @@ namespace Projecto.Vista
         {
 
         }
-        
+
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string Identificacion = txtIdentificacion.Text;
@@ -53,13 +45,13 @@ namespace Projecto.Vista
             string apellido = TxtApellido.Text;
             string password = txtContrasena.Text;
             GestorDatos gestorDatos = new GestorDatos();
-            Usuario NuevoUsuario = new Usuario (Identificacion,password,nombre,apellido);
- 
+            Usuario NuevoUsuario = new Usuario(Identificacion, password, nombre, apellido);
+
             var usuario = gestorDatos.BuscarUsuario(Identificacion);
             if (usuario is null)
             {
                 gestorDatos.GuardarUsuario(NuevoUsuario);
-                MessageBox.Show ( "Registro éxitoso","Registro de Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Registro éxitoso", "Registro de Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Limpiar();
                 this.Close();
             }

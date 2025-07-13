@@ -44,9 +44,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 9);
+            this.label1.Location = new System.Drawing.Point(20, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 25);
+            this.label1.Size = new System.Drawing.Size(174, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Registro de usuario";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -54,59 +54,63 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 61);
+            this.label2.Location = new System.Drawing.Point(20, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 20);
+            this.label2.Size = new System.Drawing.Size(85, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Identificacion";
             // 
             // txtIdentificacion
             // 
-            this.txtIdentificacion.Location = new System.Drawing.Point(27, 84);
+            this.txtIdentificacion.Location = new System.Drawing.Point(24, 67);
+            this.txtIdentificacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(761, 26);
+            this.txtIdentificacion.Size = new System.Drawing.Size(677, 22);
             this.txtIdentificacion.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 129);
+            this.label3.Location = new System.Drawing.Point(20, 103);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 20);
+            this.label3.Size = new System.Drawing.Size(56, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Nombre";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtContrasena
             // 
-            this.txtContrasena.Location = new System.Drawing.Point(27, 280);
+            this.txtContrasena.Location = new System.Drawing.Point(24, 224);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(761, 26);
+            this.txtContrasena.Size = new System.Drawing.Size(677, 22);
             this.txtContrasena.TabIndex = 6;
             this.txtContrasena.UseSystemPasswordChar = true;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 242);
+            this.label4.Location = new System.Drawing.Point(20, 194);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 20);
+            this.label4.Size = new System.Drawing.Size(76, 16);
             this.label4.TabIndex = 5;
             this.label4.Text = "Contraseña";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(27, 153);
+            this.txtNombre.Location = new System.Drawing.Point(24, 122);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(756, 26);
+            this.txtNombre.Size = new System.Drawing.Size(672, 22);
             this.txtNombre.TabIndex = 7;
             // 
             // btnguardar
             // 
-            this.btnguardar.Location = new System.Drawing.Point(674, 342);
+            this.btnguardar.Location = new System.Drawing.Point(599, 274);
+            this.btnguardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(92, 37);
+            this.btnguardar.Size = new System.Drawing.Size(82, 30);
             this.btnguardar.TabIndex = 8;
             this.btnguardar.Text = "Guardar";
             this.btnguardar.UseVisualStyleBackColor = true;
@@ -114,26 +118,28 @@
             // 
             // TxtApellido
             // 
-            this.TxtApellido.Location = new System.Drawing.Point(27, 213);
+            this.TxtApellido.Location = new System.Drawing.Point(24, 170);
+            this.TxtApellido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtApellido.Name = "TxtApellido";
-            this.TxtApellido.Size = new System.Drawing.Size(756, 26);
+            this.TxtApellido.Size = new System.Drawing.Size(672, 22);
             this.TxtApellido.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 190);
+            this.label5.Location = new System.Drawing.Point(20, 152);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 20);
+            this.label5.Size = new System.Drawing.Size(57, 16);
             this.label5.TabIndex = 10;
             this.label5.Text = "Apellido";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // RegistrarUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(711, 360);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TxtApellido);
             this.Controls.Add(this.btnguardar);
@@ -144,6 +150,7 @@
             this.Controls.Add(this.txtIdentificacion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RegistrarUsuario";
             this.Text = "RegistrarUsuario";
             this.ResumeLayout(false);

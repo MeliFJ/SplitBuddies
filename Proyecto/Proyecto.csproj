@@ -94,6 +94,12 @@
     <Compile Include="src\Vista\FormGrupo.Designer.cs">
       <DependentUpon>FormGrupo.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Vista\RegistrarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Vista\RegistrarUsuario.Designer.cs">
+      <DependentUpon>RegistrarUsuario.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="src\Vista\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,7 +115,9 @@
     <EmbeddedResource Include="src\Vista\FormGrupo.resx">
       <DependentUpon>FormGrupo.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="datos.json" />
+    <EmbeddedResource Include="src\Vista\RegistrarUsuario.resx">
+      <DependentUpon>RegistrarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="src\assets\datos.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
