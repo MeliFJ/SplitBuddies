@@ -77,18 +77,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Controlador\RegistroControlador.cs" />
     <Compile Include="Controlador\LoginControlador.cs" />
     <Compile Include="Modelo\GestorDatos.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Vista\Form1.cs">
+=======
+    <Compile Include="src\Controlador\LoginControlador.cs" />
+    <Compile Include="src\Modelo\GestorDatos.cs" />
+    <Compile Include="src\Modelo\Usuario.cs" />
+    <Compile Include="src\Vista\Form1.cs">
+>>>>>>> 2ea88d5b8ccb5dacc578fe84a1d3f97cb4bafd82
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\Form1.Designer.cs">
+    <Compile Include="src\Vista\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Vista\RegistrarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +104,21 @@
       <DependentUpon>RegistrarUsuario.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Vista\Form1.resx">
+=======
+    <Compile Include="src\Vista\FormGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Vista\FormGrupo.Designer.cs">
+      <DependentUpon>FormGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Vista\RegistrarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Vista\RegistrarUsuario.Designer.cs">
+      <DependentUpon>RegistrarUsuario.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="src\Vista\Form1.resx">
+>>>>>>> 2ea88d5b8ccb5dacc578fe84a1d3f97cb4bafd82
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -107,11 +130,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <EmbeddedResource Include="Vista\RegistrarUsuario.resx">
       <DependentUpon>RegistrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="datos.json" />
     <None Include="Modelo\datos.json" />
+=======
+    <EmbeddedResource Include="src\Vista\FormGrupo.resx">
+      <DependentUpon>FormGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Vista\RegistrarUsuario.resx">
+      <DependentUpon>RegistrarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="src\assets\datos.json" />
+>>>>>>> 2ea88d5b8ccb5dacc578fe84a1d3f97cb4bafd82
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

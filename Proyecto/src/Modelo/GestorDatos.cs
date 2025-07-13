@@ -8,7 +8,7 @@ namespace Projecto.Modelo
 {
     public class GestorDatos
     {
-        private readonly string rutaArchivo = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\Modelo\datos.json"));
+        private readonly string rutaArchivo = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\datos.json"));
         public void GuardarUsuario(Usuario usuario)
         {
             Dictionary<string, Usuario > usuarios = CargarUsuarios();
