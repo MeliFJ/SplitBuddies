@@ -11,7 +11,7 @@ namespace Projecto.Modelo
         private readonly string rutaArchivo = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\Modelo\datos.json"));
         public void GuardarUsuario(Usuario usuario)
         {
-            Dictionary<string, Usuario> usuarios = CargarUsuarios();
+            Dictionary<string, Usuario > usuarios = CargarUsuarios();
 
             if (usuarios.ContainsKey(usuario.Identificacion))
             {

@@ -77,6 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\RegistroControlador.cs" />
     <Compile Include="Controlador\LoginControlador.cs" />
     <Compile Include="Modelo\GestorDatos.cs" />
     <Compile Include="Modelo\Usuario.cs" />
