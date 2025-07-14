@@ -10,7 +10,7 @@ namespace Projecto.src.Controlador
     public class GrupoControlador
     {
         private IGestorDatos gestorDatos;
-        private string carpetaDestino = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\"));
+        private string carpetaDestino = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\img\"));
 
 
         public GrupoControlador(IGestorDatos gestorDatos)
@@ -40,14 +40,14 @@ namespace Projecto.src.Controlador
 
         }
 
-        public void guardaGrupo(string identificacion, string nombreGrupo, OpenFileDialog logoSelecionado, List<string> integrantes)
+        public bool guardaGrupo(string identificacion, string nombreGrupo, OpenFileDialog logoSelecionado, List<string> integrantes)
         {
             string nuevoNombreLogo = identificacion + nombreGrupo;
             this.guardaLogo(identificacion, nombreGrupo, logoSelecionado, nuevoNombreLogo);
 
             Grupo nuevoGrupo = new Grupo(identificacion, nuevoNombreLogo, nombreGrupo);
 
-            gestorDatos.GuardarGrupos(nuevoGrupo, integrantes);
+           return gestorDatos.GuardarGrupos(nuevoGrupo, integrantes);
         }
 
         public Dictionary<string, Usuario> cargarPosiblesIntegrantes()

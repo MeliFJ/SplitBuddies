@@ -8,7 +8,7 @@ using System.Text.Json;
 
 namespace Projecto.Modelo
 {
-    public class GestorDatos: IGestorDatos
+    public class GestorDatos : IGestorDatos
     {
         private readonly string rutaArchivo = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\datos.json"));
         private readonly string rutaArchivoGrupos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\grupos.json"));
@@ -27,7 +27,7 @@ namespace Projecto.Modelo
                 File.WriteAllText(rutaArchivo, json);
             }
         }
-        public void GuardarGrupos(Grupo grupo, List<string> integrantes)
+        public bool GuardarGrupos(Grupo grupo, List<string> integrantes)
         {
             List<Grupo> grupos = CargarGrupos();
 
@@ -35,29 +35,38 @@ namespace Projecto.Modelo
             if (EsNombreGrupoUnico(grupo.Nombre, grupo.CreadorId, grupos))
             {
                 // Busca el id mas grande y le agrega 1 para el nuevo
-                int nuevoId = grupos.Max(g => g.Id) + 1;
-                grupo.Id= nuevoId;
+                int nuevoId = 1;
+                if (grupos.Count > 0)
+                {
+                    nuevoId = grupos.Max(g => g.Id) + 1;
+                }
+                grupo.Id = nuevoId;
 
                 grupos.Add(grupo);
                 var opciones = new JsonSerializerOptions { WriteIndented = true };
                 string json = JsonSerializer.Serialize(grupos, opciones);
-                File.WriteAllText(rutaArchivo, json);
+                File.WriteAllText(rutaArchivoGrupos, json);
+
+                return this.GuardarUsuarioGrupo(grupo, integrantes);
             }
+
+            return false;
         }
 
 
-        public void GuardarUsuarioGrupo(Grupo grupo, List<string> integrantes)
+        public bool GuardarUsuarioGrupo(Grupo grupo, List<string> integrantes)
         {
             List<RelacionUsuarioGrupo> relaciones = CargarUsuarioGrupos();
 
             foreach (string integranteId in integrantes)
             {
-                relaciones.Add(new RelacionUsuarioGrupo(integranteId,grupo.Id));
+                relaciones.Add(new RelacionUsuarioGrupo(integranteId, grupo.Id));
             }
-            
-                var opciones = new JsonSerializerOptions { WriteIndented = true };
-                string json = JsonSerializer.Serialize(relaciones, opciones);
-                File.WriteAllText(rutaArchivo, json);
+
+            var opciones = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(relaciones, opciones);
+            File.WriteAllText(rutaArchivoUsuarioGrupos, json);
+            return true;
         }
 
 
@@ -108,8 +117,8 @@ namespace Projecto.Modelo
         public bool EsNombreGrupoUnico(string nuevoNombreGrupo, string creadorId, List<Grupo> grupos)
         {
             return !grupos.Any(g =>
-                g.Id.Equals(creadorId)  &&
-                string.Equals(g.Nombre.Trim(), nuevoNombreGrupo.Trim(), StringComparison.OrdinalIgnoreCase)
+                g.CreadorId.Equals(creadorId) &&
+                string.Equals(g.Nombre.Trim(), nuevoNombreGrupo.Trim())
             );
         }
     }

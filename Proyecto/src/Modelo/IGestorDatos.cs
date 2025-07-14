@@ -7,8 +7,8 @@ namespace Projecto.Modelo
     public interface IGestorDatos
     {
         void GuardarUsuario(Usuario usuario);
-        void GuardarGrupos(Grupo grupo, List<string> integrantes);
-        void GuardarUsuarioGrupo(Grupo grupo, List<string> integrantes);
+        bool GuardarGrupos(Grupo grupo, List<string> integrantes);
+        bool GuardarUsuarioGrupo(Grupo grupo, List<string> integrantes);
 
         Dictionary<string, Usuario> CargarUsuarios();
         List<Grupo> CargarGrupos();

@@ -17,5 +17,16 @@ namespace Projecto.src.Modelo
             NombreLogo = nombreLogo;
             Nombre = nombre;
         }
+
+        public Grupo(int id, string identificadorUsuario, string nombreLogo, string nombre)
+        {
+            Id= id;
+            CreadorId = identificadorUsuario;
+            NombreLogo = nombreLogo;
+            Nombre = nombre;
+        }
+
+        // ✅ Constructor sin parámetros (requerido para deserialización)
+        public Grupo() { }
     }
 }

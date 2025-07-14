@@ -11,5 +11,9 @@
             this.UsuarioId = UsuarioId;
             this.GrupoId = GrupoId;
         }
+
+        public RelacionUsuarioGrupo()
+        {
+        }
     }
 }
