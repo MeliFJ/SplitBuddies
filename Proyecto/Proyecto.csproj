@@ -135,6 +135,11 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="src\assets\grupos.json" />
+    <None Include="src\assets\usuario-grupo.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\assets\img\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
