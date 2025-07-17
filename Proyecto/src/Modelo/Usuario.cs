@@ -15,5 +15,12 @@
             Nombre = nombre;
             Apellido = apellido;
         }
+
+
+        public override string ToString()
+        {
+            return Nombre; // Esto es lo que se muestra en el CheckedListBox
+        }
+
     }
 }

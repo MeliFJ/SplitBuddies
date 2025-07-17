@@ -77,9 +77,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\Controlador\GrupoControlador.cs" />
     <Compile Include="src\Controlador\LoginControlador.cs" />
     <Compile Include="src\Controlador\RegistroControlador.cs" />
     <Compile Include="src\Modelo\GestorDatos.cs" />
+    <Compile Include="src\Modelo\Grupo.cs" />
+    <Compile Include="src\Modelo\IGestorDatos.cs" />
+    <Compile Include="src\Modelo\RelacionUsuarioGrupo.cs" />
     <Compile Include="src\Modelo\Usuario.cs" />
     <Compile Include="src\Vista\Form1.cs">
       <SubType>Form</SubType>

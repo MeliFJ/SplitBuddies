@@ -1,4 +1,6 @@
 ﻿using Projecto.Controlador;
+using Projecto.Modelo;
+using Projecto.src.Vista;
 using Projecto.Vista;
 using System;
 using System.Windows.Forms;
@@ -7,9 +9,12 @@ namespace Projecto
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private readonly IGestorDatos gestorDatos;
+
+        public Form1(IGestorDatos gestorDatos)
         {
             InitializeComponent();
+            this.gestorDatos = gestorDatos;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -23,11 +28,12 @@ namespace Projecto
             string password = txtbxContrasena.Text;
 
             //Validar si el usuario es valido
-            bool usuarioValido=LoginControlador.ValidarLogin(identificacion, password);
-            if (usuarioValido) {
-                this.LbErrorLogin.ForeColor = System.Drawing.Color.Green;
-                LbErrorLogin.Text = "Login existoso";
-                
+            Usuario usuarioValido = LoginControlador.ValidarLogin(identificacion, password);
+            if (usuarioValido != null)
+            {
+                FormGrupo form = new FormGrupo(usuarioValido, gestorDatos);
+                form.Show();
+                this.Hide();
             }
             else {
                 this.LbErrorLogin.ForeColor = System.Drawing.Color.Red;
@@ -35,9 +41,12 @@ namespace Projecto
             }
         }
 
-        private void txtbxIdentificacion_TextChanged(object sender, EventArgs e)
+        private void btnTest_Click(object sender, EventArgs e)
         {
-
+            Usuario usuarioValido = new Usuario("116640546", "1234", "Melissa", "Fallas");
+            FormGrupo form = new FormGrupo(usuarioValido, gestorDatos);
+            form.Show();
+            this.Hide();
         }
     }
 }
