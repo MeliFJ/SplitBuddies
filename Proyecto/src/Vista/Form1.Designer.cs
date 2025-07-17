@@ -67,7 +67,6 @@
             this.txtbxIdentificacion.Name = "txtbxIdentificacion";
             this.txtbxIdentificacion.Size = new System.Drawing.Size(222, 26);
             this.txtbxIdentificacion.TabIndex = 2;
-            this.txtbxIdentificacion.TextChanged += new System.EventHandler(this.txtbxIdentificacion_TextChanged);
             // 
             // txtbxContrasena
             // 

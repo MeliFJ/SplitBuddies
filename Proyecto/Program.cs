@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projecto.Modelo;
+using System;
 using System.Windows.Forms;
 
 namespace Projecto
@@ -13,7 +14,10 @@ namespace Projecto
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            // Crear la instancia concreta
+            IGestorDatos gestorDatos = new GestorDatos();
+
+            Application.Run(new Form1(gestorDatos));
         }
     }
 }
