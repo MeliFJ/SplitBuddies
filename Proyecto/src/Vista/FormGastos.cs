@@ -79,6 +79,14 @@ namespace Projecto.src.Vista
                 this.cbBxQuienPago.Items.Add(usuario);
             }
 
+            // Selecciona el primer integrante por defecto
+            if (cbBxQuienPago.Items.Count > 0)
+            {
+                cbBxQuienPago.SelectedIndex = 0;
+            }
+
+
+
         }
 
         private void txtBmonto_KeyPress(object sender, KeyPressEventArgs e)

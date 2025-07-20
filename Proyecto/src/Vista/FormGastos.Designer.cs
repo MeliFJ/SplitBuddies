@@ -146,7 +146,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(865, 925);
+            this.label6.Location = new System.Drawing.Point(860, 865);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(187, 37);
             this.label6.TabIndex = 11;
@@ -156,7 +156,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(893, 1113);
+            this.label7.Location = new System.Drawing.Point(888, 1053);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(111, 37);
             this.label7.TabIndex = 13;
@@ -164,7 +164,7 @@
             // 
             // dtPckFecha
             // 
-            this.dtPckFecha.Location = new System.Drawing.Point(682, 1179);
+            this.dtPckFecha.Location = new System.Drawing.Point(677, 1119);
             this.dtPckFecha.Name = "dtPckFecha";
             this.dtPckFecha.Size = new System.Drawing.Size(562, 31);
             this.dtPckFecha.TabIndex = 15;
@@ -172,14 +172,14 @@
             // chckListBoxIntegrantes
             // 
             this.chckListBoxIntegrantes.FormattingEnabled = true;
-            this.chckListBoxIntegrantes.Location = new System.Drawing.Point(682, 967);
+            this.chckListBoxIntegrantes.Location = new System.Drawing.Point(677, 907);
             this.chckListBoxIntegrantes.Name = "chckListBoxIntegrantes";
             this.chckListBoxIntegrantes.Size = new System.Drawing.Size(558, 116);
             this.chckListBoxIntegrantes.TabIndex = 16;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(682, 1257);
+            this.btnGuardar.Location = new System.Drawing.Point(677, 1197);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(260, 56);
             this.btnGuardar.TabIndex = 17;
@@ -189,7 +189,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(970, 1256);
+            this.btnCancelar.Location = new System.Drawing.Point(965, 1196);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(270, 56);
             this.btnCancelar.TabIndex = 18;
@@ -207,7 +207,7 @@
             // 
             // lbGuardado
             // 
-            this.lbGuardado.Location = new System.Drawing.Point(682, 1327);
+            this.lbGuardado.Location = new System.Drawing.Point(677, 1267);
             this.lbGuardado.Name = "lbGuardado";
             this.lbGuardado.Size = new System.Drawing.Size(1116, 46);
             this.lbGuardado.TabIndex = 21;
