@@ -1,5 +1,6 @@
 ﻿using Projecto.Controlador;
 using Projecto.Modelo;
+using Projecto.src.Modelo;
 using Projecto.src.Vista;
 using Projecto.Vista;
 using System;
@@ -41,10 +42,11 @@ namespace Projecto
             }
         }
 
-        private void btnTest_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             Usuario usuarioValido = new Usuario("116640546", "1234", "Melissa", "Fallas");
-            FormGrupo form = new FormGrupo(usuarioValido, gestorDatos);
+            Grupo grupo = new Grupo(1, "116640546", "116640546Inversion1", "Inversion1");
+            FormGastos form = new FormGastos(grupo, usuarioValido, gestorDatos);
             form.Show();
             this.Hide();
         }

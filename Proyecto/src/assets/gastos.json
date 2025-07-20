@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "NombreGasto": "Compre impresora",
+    "DescripcionGasto": "Cambio de impresora danada",
+    "EnlaceGasto": "https://www.amazon.com.mx/Epson-Impresora-Multifuncional-Continua-conectividad/dp/B09WX4TLBP",
+    "MontoGasto": 275000,
+    "QuienPagoId": "116640546",
+    "FechaSeleccionada": "2025-07-20T11:07:16"
+  },
+  {
+    "Id": 2,
+    "NombreGasto": "Compra de silla ergonomica",
+    "DescripcionGasto": "Hay nuevo integrante que requiere una silla",
+    "EnlaceGasto": "https://www.amazon.com.mx/SEATING-ejecutiva-ajustable-escritorio-ergonomica/dp/B089QV97F1",
+    "MontoGasto": 250000,
+    "QuienPagoId": "116640546",
+    "FechaSeleccionada": "2025-07-14T11:19:42"
+  }
+]
