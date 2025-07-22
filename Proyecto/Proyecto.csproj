@@ -99,6 +99,12 @@
     <Compile Include="src\Vista\FormGrupo.Designer.cs">
       <DependentUpon>FormGrupo.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Vista\MostrarGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Vista\MostrarGrupos.Designer.cs">
+      <DependentUpon>MostrarGrupos.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Vista\RegistrarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\Vista\FormGrupo.resx">
       <DependentUpon>FormGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Vista\MostrarGrupos.resx">
+      <DependentUpon>MostrarGrupos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Vista\RegistrarUsuario.resx">
       <DependentUpon>RegistrarUsuario.cs</DependentUpon>

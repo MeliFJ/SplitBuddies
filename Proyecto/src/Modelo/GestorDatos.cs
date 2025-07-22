@@ -114,6 +114,8 @@ namespace Projecto.Modelo
             return usuario;
         }
 
+      
+
         public bool EsNombreGrupoUnico(string nuevoNombreGrupo, string creadorId, List<Grupo> grupos)
         {
             return !grupos.Any(g =>
