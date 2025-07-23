@@ -115,5 +115,10 @@ namespace Projecto.src.Vista
                 chckListBoxIntegrantes.SetItemChecked(i, false);
             }
         }
+
+        private void FormGrupo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
