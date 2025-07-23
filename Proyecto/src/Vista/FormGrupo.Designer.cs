@@ -45,10 +45,10 @@
             // btnCrearGrupo
             // 
             this.btnCrearGrupo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCrearGrupo.Location = new System.Drawing.Point(323, 417);
-            this.btnCrearGrupo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCrearGrupo.Location = new System.Drawing.Point(484, 642);
+            this.btnCrearGrupo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnCrearGrupo.Name = "btnCrearGrupo";
-            this.btnCrearGrupo.Size = new System.Drawing.Size(72, 24);
+            this.btnCrearGrupo.Size = new System.Drawing.Size(108, 37);
             this.btnCrearGrupo.TabIndex = 9;
             this.btnCrearGrupo.Text = "Crear";
             this.btnCrearGrupo.UseVisualStyleBackColor = false;
@@ -58,20 +58,19 @@
             // 
             this.txtNombreGrupo.AccessibleDescription = "";
             this.txtNombreGrupo.AccessibleName = "";
-            this.txtNombreGrupo.Location = new System.Drawing.Point(317, 119);
-            this.txtNombreGrupo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtNombreGrupo.Location = new System.Drawing.Point(476, 183);
+            this.txtNombreGrupo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtNombreGrupo.Name = "txtNombreGrupo";
-            this.txtNombreGrupo.Size = new System.Drawing.Size(150, 20);
+            this.txtNombreGrupo.Size = new System.Drawing.Size(223, 26);
             this.txtNombreGrupo.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(315, 152);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(472, 234);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(185, 13);
+            this.label2.Size = new System.Drawing.Size(259, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Seleccione la imagen del grupo";
             // 
@@ -79,11 +78,10 @@
             // 
             this.lbNombreGrupo.AutoSize = true;
             this.lbNombreGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNombreGrupo.Location = new System.Drawing.Point(315, 96);
-            this.lbNombreGrupo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbNombreGrupo.Location = new System.Drawing.Point(472, 148);
             this.lbNombreGrupo.Name = "lbNombreGrupo";
             this.lbNombreGrupo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbNombreGrupo.Size = new System.Drawing.Size(107, 13);
+            this.lbNombreGrupo.Size = new System.Drawing.Size(151, 20);
             this.lbNombreGrupo.TabIndex = 5;
             this.lbNombreGrupo.Text = "Nombre del grupo";
             // 
@@ -91,11 +89,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(236, 42);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(354, 65);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(376, 29);
+            this.label1.Size = new System.Drawing.Size(545, 40);
             this.label1.TabIndex = 10;
             this.label1.Text = "Formulario para crear un grupo";
             // 
@@ -103,20 +100,19 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(315, 313);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(472, 482);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 13);
+            this.label3.Size = new System.Drawing.Size(227, 20);
             this.label3.TabIndex = 11;
             this.label3.Text = "Seleccionar los integrantes";
             // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancelar.Location = new System.Drawing.Point(400, 417);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCancelar.Location = new System.Drawing.Point(600, 642);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(72, 24);
+            this.btnCancelar.Size = new System.Drawing.Size(108, 37);
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -125,10 +121,9 @@
             // pcBoxCarga
             // 
             this.pcBoxCarga.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcBoxCarga.Location = new System.Drawing.Point(323, 166);
-            this.pcBoxCarga.Margin = new System.Windows.Forms.Padding(2);
+            this.pcBoxCarga.Location = new System.Drawing.Point(484, 255);
             this.pcBoxCarga.Name = "pcBoxCarga";
-            this.pcBoxCarga.Size = new System.Drawing.Size(154, 83);
+            this.pcBoxCarga.Size = new System.Drawing.Size(230, 127);
             this.pcBoxCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcBoxCarga.TabIndex = 13;
             this.pcBoxCarga.TabStop = false;
@@ -136,10 +131,10 @@
             // btnCargaImagen
             // 
             this.btnCargaImagen.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCargaImagen.Location = new System.Drawing.Point(323, 269);
-            this.btnCargaImagen.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCargaImagen.Location = new System.Drawing.Point(484, 414);
+            this.btnCargaImagen.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnCargaImagen.Name = "btnCargaImagen";
-            this.btnCargaImagen.Size = new System.Drawing.Size(72, 24);
+            this.btnCargaImagen.Size = new System.Drawing.Size(108, 37);
             this.btnCargaImagen.TabIndex = 14;
             this.btnCargaImagen.Text = "Seleccionar imagen";
             this.btnCargaImagen.UseVisualStyleBackColor = false;
@@ -148,26 +143,26 @@
             // chckListBoxIntegrantes
             // 
             this.chckListBoxIntegrantes.FormattingEnabled = true;
-            this.chckListBoxIntegrantes.Location = new System.Drawing.Point(250, 332);
-            this.chckListBoxIntegrantes.Margin = new System.Windows.Forms.Padding(2);
+            this.chckListBoxIntegrantes.Location = new System.Drawing.Point(375, 511);
             this.chckListBoxIntegrantes.Name = "chckListBoxIntegrantes";
-            this.chckListBoxIntegrantes.Size = new System.Drawing.Size(347, 64);
+            this.chckListBoxIntegrantes.Size = new System.Drawing.Size(518, 96);
             this.chckListBoxIntegrantes.TabIndex = 15;
             // 
             // lbGuardado
             // 
             this.lbGuardado.AutoSize = true;
-            this.lbGuardado.Location = new System.Drawing.Point(320, 444);
+            this.lbGuardado.Location = new System.Drawing.Point(480, 683);
+            this.lbGuardado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbGuardado.Name = "lbGuardado";
-            this.lbGuardado.Size = new System.Drawing.Size(0, 13);
+            this.lbGuardado.Size = new System.Drawing.Size(0, 20);
             this.lbGuardado.TabIndex = 16;
             // 
             // FormGrupo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(796, 494);
+            this.ClientSize = new System.Drawing.Size(1194, 760);
             this.Controls.Add(this.lbGuardado);
             this.Controls.Add(this.chckListBoxIntegrantes);
             this.Controls.Add(this.btnCargaImagen);
@@ -179,9 +174,10 @@
             this.Controls.Add(this.txtNombreGrupo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbNombreGrupo);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "FormGrupo";
             this.Text = "FormGrupo";
+            this.Load += new System.EventHandler(this.FormGrupo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcBoxCarga)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

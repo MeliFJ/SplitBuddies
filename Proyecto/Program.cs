@@ -1,4 +1,5 @@
 ﻿using Projecto.Modelo;
+using Projecto.src.Vista;
 using System;
 using System.Windows.Forms;
 
@@ -17,7 +18,8 @@ namespace Projecto
             // Crear la instancia concreta
             IGestorDatos gestorDatos = new GestorDatos();
 
-            Application.Run(new Form1(gestorDatos));
+            // Application.Run(new Form1(gestorDatos));
+            Application.Run(new MostrarGrupos(gestorDatos));
         }
     }
 }

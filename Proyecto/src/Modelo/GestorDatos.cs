@@ -114,12 +114,32 @@ namespace Projecto.Modelo
             return usuario;
         }
 
+      
+
         public bool EsNombreGrupoUnico(string nuevoNombreGrupo, string creadorId, List<Grupo> grupos)
         {
             return !grupos.Any(g =>
                 g.CreadorId.Equals(creadorId) &&
                 string.Equals(g.Nombre.Trim(), nuevoNombreGrupo.Trim())
             );
+        }
+        public List<Usuario> CargarUsuarioPorGrupos(int idgrupo)
+        {
+            if (!File.Exists(rutaArchivoGrupos))
+                return new List<Usuario>();
+
+            string json = File.ReadAllText(rutaArchivoUsuarioGrupos);
+            if (string.IsNullOrWhiteSpace(json))
+                return new List<Usuario>();
+            var relacionusuariosgrupo = JsonSerializer.Deserialize<List<RelacionUsuarioGrupo>>(json)?.Where(x => x.GrupoId == idgrupo).ToList();
+            var usuarios = CargarUsuarios().ToList();
+            var resul = from usuario
+                        in usuarios
+                        join relacion in relacionusuariosgrupo
+                        on usuario.Key equals relacion.UsuarioId
+                        select usuario.Value;
+       
+            return resul?.ToList();
         }
     }
 }

@@ -47,12 +47,21 @@ namespace Projecto.src.Controlador
 
             Grupo nuevoGrupo = new Grupo(identificacion, nuevoNombreLogo, nombreGrupo);
 
-           return gestorDatos.GuardarGrupos(nuevoGrupo, integrantes);
+            return gestorDatos.GuardarGrupos(nuevoGrupo, integrantes);
         }
 
         public Dictionary<string, Usuario> cargarPosiblesIntegrantes()
         {
             return gestorDatos.CargarUsuarios();
+        }
+        public List<Usuario> CargarUsuarioPorGrupos(int idgrupo)
+        {
+            return gestorDatos.CargarUsuarioPorGrupos(idgrupo);
+        }
+
+        public List<Grupo> CargarGrupos()
+        {
+            return gestorDatos.CargarGrupos();
         }
     }
 }
