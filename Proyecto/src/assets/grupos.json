@@ -4,5 +4,11 @@
     "CreadorId": "116640546",
     "NombreLogo": "116640546Inversion1.png",
     "Nombre": "Inversion1"
+  },
+  {
+    "Id": 2,
+    "CreadorId": "116640546",
+    "NombreLogo": "116640546Viaje.png",
+    "Nombre": "Viaje"
   }
 ]

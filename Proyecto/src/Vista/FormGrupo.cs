@@ -94,6 +94,8 @@ namespace Projecto.src.Vista
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            MostrarGrupos form = new MostrarGrupos(gestorDatos, usuarioLogeado);
+            form.Show();
             this.Close();
         }
 

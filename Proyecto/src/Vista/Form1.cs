@@ -32,7 +32,7 @@ namespace Projecto
             Usuario usuarioValido = LoginControlador.ValidarLogin(identificacion, password);
             if (usuarioValido != null)
             {
-                FormGrupo form = new FormGrupo(usuarioValido, gestorDatos);
+                MostrarGrupos form= new MostrarGrupos(gestorDatos, usuarioValido);
                 form.Show();
                 this.Hide();
             }

@@ -17,15 +17,17 @@ namespace Projecto.src.Vista
         private readonly IGestorDatos gestorDatos;
         private string carpetaDestino = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\img\"));
         private readonly GrupoControlador grupoControlador;
+        private readonly Usuario usuarioLogeado;
 
         #endregion
 
         #region Constructor
-        public MostrarGrupos(IGestorDatos gestorDatos)
+        public MostrarGrupos(IGestorDatos gestorDatos, Usuario usuarioValido)
         {
             InitializeComponent();
             this.gestorDatos = gestorDatos;
             grupoControlador = new GrupoControlador(gestorDatos);
+            this.usuarioLogeado = usuarioValido;
         }
         #endregion
 
@@ -90,6 +92,7 @@ namespace Projecto.src.Vista
         }
         internal void CargarMiembros(Grupo grupo)
         {
+            listMiembros.Items.Clear();
             var usuarios = grupoControlador.CargarUsuarioPorGrupos(grupo.Id);
             foreach (var usuario in usuarios)
             {
@@ -107,9 +110,15 @@ namespace Projecto.src.Vista
             listMostrarGrupos.SelectedItems.Clear();
             listMiembros.Items.Clear();
         }
+
+
         #endregion
 
-
-
+        private void btnCrearGrupo_Click(object sender, EventArgs e)
+        {
+            FormGrupo form = new FormGrupo(this.usuarioLogeado,gestorDatos);
+            form.Show();
+            this.Close();
+        }
     }
 }

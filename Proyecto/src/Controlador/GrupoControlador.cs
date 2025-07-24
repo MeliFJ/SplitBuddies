@@ -17,10 +17,8 @@ namespace Projecto.src.Controlador
         {
             this.gestorDatos = gestorDatos;
         }
-        public void guardaLogo(string identificacion, string nombreGrupo, OpenFileDialog logoSelecionado, string nuevoNombreLogo)
+        public void guardaLogo(OpenFileDialog logoSelecionado, string nuevoNombre)
         {
-            //Ruta donde esta la imagen
-            string rutaImagenSeleccionada = logoSelecionado.FileName;
 
             // Crear la carpeta si no existe
             if (!Directory.Exists(carpetaDestino))
@@ -28,13 +26,10 @@ namespace Projecto.src.Controlador
                 Directory.CreateDirectory(carpetaDestino);
             }
 
-            // Quitar espacios al nombre del grupo para usarlo en el nombre la de imagen
-            nombreGrupo = nombreGrupo.Replace(" ", "");
-
-            // Cambiar el nombre de la imagen
-            string nuevoNombre = identificacion + nombreGrupo + Path.GetExtension(rutaImagenSeleccionada);
-
             string rutaDestino = Path.Combine(carpetaDestino, nuevoNombre);
+
+            //Ruta donde esta la imagen
+            string rutaImagenSeleccionada = logoSelecionado.FileName;
 
             File.Copy(rutaImagenSeleccionada, rutaDestino, true);
 
@@ -42,8 +37,12 @@ namespace Projecto.src.Controlador
 
         public bool guardaGrupo(string identificacion, string nombreGrupo, OpenFileDialog logoSelecionado, List<string> integrantes)
         {
-            string nuevoNombreLogo = identificacion + nombreGrupo;
-            this.guardaLogo(identificacion, nombreGrupo, logoSelecionado, nuevoNombreLogo);
+            // Quitar espacios al nombre del grupo para usarlo en el nombre la de imagen
+            nombreGrupo = nombreGrupo.Replace(" ", "");
+
+            string nuevoNombreLogo = identificacion + nombreGrupo + Path.GetExtension(logoSelecionado.FileName);
+
+            this.guardaLogo(logoSelecionado, nuevoNombreLogo);
 
             Grupo nuevoGrupo = new Grupo(identificacion, nuevoNombreLogo, nombreGrupo);
 
@@ -62,6 +61,26 @@ namespace Projecto.src.Controlador
         public List<Grupo> CargarGrupos()
         {
             return gestorDatos.CargarGrupos();
+        }
+
+        /// Guardar un gasto en el grupo
+        public bool guardarGasto(Grupo grupo, Usuario quienPago, string nombreGasto, string descripcionGasto, string enlaceGasto, double montoGasto, List<string> integrantes, DateTime fechaSeleccionada)
+        {
+            Gasto nuevoGasto = new Gasto(nombreGasto, descripcionGasto, enlaceGasto, montoGasto, quienPago.Identificacion, fechaSeleccionada);
+            //Verificar si el que pago esta como integrante del grupo
+            integrantes = validarIntegrantes(integrantes, quienPago);
+
+            return gestorDatos.GuardarGasto(nuevoGasto, integrantes, quienPago.Identificacion, grupo);
+        }
+
+        private List<string> validarIntegrantes(List<string> integrantes, Usuario usuarioLogeado)
+        {
+            // Validar que el usuario logueado esté en la lista de integrantes
+            if (!integrantes.Contains(usuarioLogeado.Identificacion))
+            {
+                integrantes.Add(usuarioLogeado.Identificacion);
+            }
+            return integrantes;
         }
     }
 }
