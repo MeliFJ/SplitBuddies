@@ -35,8 +35,6 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnRegistrarse = new System.Windows.Forms.Button();
             this.LbErrorLogin = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -69,7 +67,7 @@
             this.txtbxIdentificacion.Location = new System.Drawing.Point(477, 226);
             this.txtbxIdentificacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtbxIdentificacion.Name = "txtbxIdentificacion";
-            this.txtbxIdentificacion.Size = new System.Drawing.Size(295, 31);
+            this.txtbxIdentificacion.Size = new System.Drawing.Size(295, 20);
             this.txtbxIdentificacion.TabIndex = 2;
             // 
             // txtbxContrasena
@@ -77,7 +75,7 @@
             this.txtbxContrasena.Location = new System.Drawing.Point(477, 392);
             this.txtbxContrasena.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtbxContrasena.Name = "txtbxContrasena";
-            this.txtbxContrasena.Size = new System.Drawing.Size(295, 31);
+            this.txtbxContrasena.Size = new System.Drawing.Size(295, 20);
             this.txtbxContrasena.TabIndex = 3;
             // 
             // btnLogin
@@ -111,27 +109,8 @@
             this.LbErrorLogin.Location = new System.Drawing.Point(472, 538);
             this.LbErrorLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LbErrorLogin.Name = "LbErrorLogin";
-            this.LbErrorLogin.Size = new System.Drawing.Size(0, 25);
+            this.LbErrorLogin.Size = new System.Drawing.Size(0, 13);
             this.LbErrorLogin.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 62);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // btnTest
-            // 
-            this.btnTest.Location = new System.Drawing.Point(87, 47);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(8, 8);
-            this.btnTest.TabIndex = 8;
-            this.btnTest.Text = "button2";
-            this.btnTest.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -139,8 +118,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1200, 702);
-            this.Controls.Add(this.btnTest);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.LbErrorLogin);
             this.Controls.Add(this.btnRegistrarse);
             this.Controls.Add(this.btnLogin);
@@ -165,8 +142,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnRegistrarse;
         private System.Windows.Forms.Label LbErrorLogin;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnTest;
     }
 }
 
