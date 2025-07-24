@@ -66,6 +66,7 @@
     <Reference Include="System.ValueTuple">
       <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -108,6 +109,12 @@
     <Compile Include="src\Vista\FormGrupo.Designer.cs">
       <DependentUpon>FormGrupo.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Vista\FormReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Vista\FormReporte.Designer.cs">
+      <DependentUpon>FormReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Vista\MostrarGrupos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\Vista\FormGrupo.resx">
       <DependentUpon>FormGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Vista\FormReporte.resx">
+      <DependentUpon>FormReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Vista\MostrarGrupos.resx">
       <DependentUpon>MostrarGrupos.cs</DependentUpon>

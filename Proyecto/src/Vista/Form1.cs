@@ -46,7 +46,7 @@ namespace Projecto
         {
             Usuario usuarioValido = new Usuario("116640546", "1234", "Melissa", "Fallas");
             Grupo grupo = new Grupo(1, "116640546", "116640546Inversion1", "Inversion1");
-            FormGastos form = new FormGastos(grupo, usuarioValido, gestorDatos);
+            FormReporte form = new FormReporte();
             form.Show();
             this.Hide();
         }
