@@ -6,5 +6,9 @@
   {
     "GastoId": 2,
     "GrupoId": 1
+  },
+  {
+    "GastoId": 3,
+    "GrupoId": 1
   }
 ]

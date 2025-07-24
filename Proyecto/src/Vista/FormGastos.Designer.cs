@@ -46,6 +46,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.cbBxQuienPago = new System.Windows.Forms.ComboBox();
             this.lbGuardado = new System.Windows.Forms.Label();
+            this.btnAgregarGasto = new System.Windows.Forms.Button();
+            this.lbMonto = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbtitulo
@@ -128,7 +130,7 @@
             this.txtBmonto.Location = new System.Drawing.Point(682, 663);
             this.txtBmonto.Multiline = true;
             this.txtBmonto.Name = "txtBmonto";
-            this.txtBmonto.Size = new System.Drawing.Size(557, 62);
+            this.txtBmonto.Size = new System.Drawing.Size(557, 47);
             this.txtBmonto.TabIndex = 8;
             this.txtBmonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBmonto_KeyPress);
             // 
@@ -166,7 +168,7 @@
             // 
             this.dtPckFecha.Location = new System.Drawing.Point(677, 1119);
             this.dtPckFecha.Name = "dtPckFecha";
-            this.dtPckFecha.Size = new System.Drawing.Size(562, 31);
+            this.dtPckFecha.Size = new System.Drawing.Size(562, 20);
             this.dtPckFecha.TabIndex = 15;
             // 
             // chckListBoxIntegrantes
@@ -174,7 +176,7 @@
             this.chckListBoxIntegrantes.FormattingEnabled = true;
             this.chckListBoxIntegrantes.Location = new System.Drawing.Point(677, 907);
             this.chckListBoxIntegrantes.Name = "chckListBoxIntegrantes";
-            this.chckListBoxIntegrantes.Size = new System.Drawing.Size(558, 116);
+            this.chckListBoxIntegrantes.Size = new System.Drawing.Size(558, 106);
             this.chckListBoxIntegrantes.TabIndex = 16;
             // 
             // btnGuardar
@@ -213,12 +215,34 @@
             this.lbGuardado.TabIndex = 21;
             this.lbGuardado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnAgregarGasto
+            // 
+            this.btnAgregarGasto.Location = new System.Drawing.Point(682, 716);
+            this.btnAgregarGasto.Name = "btnAgregarGasto";
+            this.btnAgregarGasto.Size = new System.Drawing.Size(156, 52);
+            this.btnAgregarGasto.TabIndex = 22;
+            this.btnAgregarGasto.Text = "Agregar";
+            this.btnAgregarGasto.UseVisualStyleBackColor = true;
+            this.btnAgregarGasto.Click += new System.EventHandler(this.btnAgregarGasto_Click);
+            // 
+            // lbMonto
+            // 
+            this.lbMonto.AccessibleName = "";
+            this.lbMonto.AutoSize = true;
+            this.lbMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMonto.Location = new System.Drawing.Point(1268, 668);
+            this.lbMonto.Name = "lbMonto";
+            this.lbMonto.Size = new System.Drawing.Size(0, 42);
+            this.lbMonto.TabIndex = 24;
+            // 
             // FormGastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1945, 1458);
+            this.Controls.Add(this.lbMonto);
+            this.Controls.Add(this.btnAgregarGasto);
             this.Controls.Add(this.lbGuardado);
             this.Controls.Add(this.cbBxQuienPago);
             this.Controls.Add(this.btnCancelar);
@@ -264,5 +288,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox cbBxQuienPago;
         private System.Windows.Forms.Label lbGuardado;
+        public System.Windows.Forms.Button btnAgregarGasto;
+        private System.Windows.Forms.Label lbMonto;
     }
 }

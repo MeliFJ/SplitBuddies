@@ -4,7 +4,6 @@ using Projecto.src.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Projecto.src.Vista
 {
@@ -15,6 +14,7 @@ namespace Projecto.src.Vista
         private readonly IGestorDatos gestorDatos;
         private Usuario usuarioLogeado;
         private GrupoControlador grupoControlador;
+        private double montoTotal;
 
         // Constructor para crear un nuevo grupo
         public FormGastos(Grupo grupo, Usuario usuario, IGestorDatos gestorDatos)
@@ -26,6 +26,7 @@ namespace Projecto.src.Vista
             this.grupoControlador = new GrupoControlador(gestorDatos);
             mostrarPosiblesIntegrantes();
             mostrarQuienPago();
+            montoTotal = 0.0;
         }
 
         private void btnGuardar_Click(object sender, System.EventArgs e)
@@ -33,12 +34,11 @@ namespace Projecto.src.Vista
             string nombreGasto = txtBnombre.Text;
             string descripcionGasto = txtBdescripcion.Text;
             string enlaceGasto = txtBenlace.Text;
-            double montoGasto = txtBmonto.Text == string.Empty ? 0 : double.Parse(txtBmonto.Text);
             Usuario quienPago = (Usuario)cbBxQuienPago.SelectedItem;
             List<string> integrantes = obtenerIntegrantes();
             DateTime fechaSeleccionada = dtPckFecha.Value;
 
-            bool guardado = this.grupoControlador.guardarGasto(Grupo, quienPago, nombreGasto, descripcionGasto, enlaceGasto, montoGasto, integrantes, fechaSeleccionada);
+            bool guardado = this.grupoControlador.guardarGasto(Grupo, quienPago, nombreGasto, descripcionGasto, enlaceGasto, montoTotal, integrantes, fechaSeleccionada);
 
             if (guardado)
             {
@@ -136,7 +136,14 @@ namespace Projecto.src.Vista
             {
                 chckListBoxIntegrantes.SetItemChecked(i, false);
             }
+            montoTotal = 0.0;
         }
 
+        private void btnAgregarGasto_Click(object sender, EventArgs e)
+        {
+            montoTotal += txtBmonto.Text == string.Empty ? 0 : double.Parse(txtBmonto.Text);
+            lbMonto.Text = $"Monto Total: {montoTotal:C}"; // Formatea el monto total como moneda
+            txtBmonto.Text = string.Empty;
+        }
     }
 }

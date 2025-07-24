@@ -16,5 +16,14 @@
     "MontoGasto": 250000,
     "QuienPagoId": "116640546",
     "FechaSeleccionada": "2025-07-14T11:19:42"
+  },
+  {
+    "Id": 3,
+    "NombreGasto": "Compre de laptops",
+    "DescripcionGasto": "se compraron 2 laptops para desarrollo",
+    "EnlaceGasto": "https://www.amazon.ca/Acer-Aspire-RadeonTM-Graphics-Windows/dp/B0BS4BP8FB",
+    "MontoGasto": 465000,
+    "QuienPagoId": "116640546",
+    "FechaSeleccionada": "2025-07-23T18:31:01"
   }
 ]
