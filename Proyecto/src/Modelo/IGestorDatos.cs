@@ -17,5 +17,6 @@ namespace Projecto.Modelo
         Usuario BuscarUsuario(string identificacion);
         bool EsNombreGrupoUnico(string nuevoNombreGrupo, string creadorId, List<Grupo> grupos);
         List<Usuario> CargarUsuarioPorGrupos(int idgrupo);
+        bool GuardarGasto(Gasto gasto, List<string> integrantes, string quienPagoId, Grupo grupo);
     }
 }

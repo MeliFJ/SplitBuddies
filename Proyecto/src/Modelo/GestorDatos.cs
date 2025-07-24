@@ -13,6 +13,9 @@ namespace Projecto.Modelo
         private readonly string rutaArchivo = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\datos.json"));
         private readonly string rutaArchivoGrupos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\grupos.json"));
         private readonly string rutaArchivoUsuarioGrupos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\usuario-grupo.json"));
+        private readonly string rutaArchivoGastos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\gastos.json"));
+        private readonly string rutaRelacionGrupoGasto = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\grupo-gasto.json"));
+        private readonly string rutaRelacionUsuarioGasto = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\usuario-gasto.json"));
         public void GuardarUsuario(Usuario usuario)
         {
             Dictionary<string, Usuario > usuarios = CargarUsuarios();
@@ -140,6 +143,97 @@ namespace Projecto.Modelo
                         select usuario.Value;
        
             return resul?.ToList();
+        }
+
+        public bool GuardarGasto(Gasto gasto, List<string> integrantes, string quienPagoId, Grupo grupo)
+        {
+            List<Grupo> grupos = CargarDesdeJson<Grupo>(rutaArchivoGrupos);
+            if (!grupos.Any(g => g.Id == grupo.Id))
+            {
+                return false; // El grupo no existe
+            }
+
+            List<Gasto> gastos = CargarDesdeJson<Gasto>(rutaArchivoGastos);
+
+            //Obetener el id del nuevo
+            int nuevoId = 1;
+            if (gastos.Count > 0)
+            {
+                nuevoId = gastos.Max(g => g.Id) + 1;
+            }
+            gasto.Id = nuevoId;
+
+            gastos.Add(gasto);
+
+            // Se guarda el gasto en el archivo JSON
+            this.EscribirEnJson(rutaArchivoGastos, gastos);
+
+            // Se guarda la relacion entre el gasto y el grupo
+            this.guardarGrupoGasto(grupo, gasto);
+
+            this.guardarUsuarioGasto(gasto, integrantes);
+
+            return true;
+        }
+
+        private void guardarUsuarioGasto(Gasto gasto, List<string> integrantes)
+        {
+            List<RelacionUsuarioGasto> relacionGrupoGastos = CargarDesdeJson<RelacionUsuarioGasto>(rutaRelacionUsuarioGasto);
+
+            foreach (string integranteId in integrantes)
+            {
+                // Se crea una nueva relacion entre el usuario y el gasto
+                RelacionUsuarioGasto nuevaRelacion = new RelacionUsuarioGasto(integranteId, gasto.Id);
+                relacionGrupoGastos.Add(nuevaRelacion);
+            }
+
+            this.EscribirEnJson(rutaRelacionUsuarioGasto, relacionGrupoGastos);
+        }
+
+        public void guardarGrupoGasto(Grupo grupo, Gasto gasto)
+        {
+            List<RelacionGrupoGasto> relacionGrupoGastos = CargarDesdeJson<RelacionGrupoGasto>(rutaRelacionGrupoGasto);
+            RelacionGrupoGasto nuevaRelacion = new RelacionGrupoGasto(grupo.Id, gasto.Id);
+            relacionGrupoGastos.Add(nuevaRelacion);
+
+            this.EscribirEnJson(rutaRelacionGrupoGasto, relacionGrupoGastos);
+
+        }
+
+        /// <summary>
+        /// Serializa una lista de objetos a formato JSON y la guarda en un archivo.
+        /// </summary>
+        /// <typeparam name="T">El tipo de los objetos contenidos en la lista.</typeparam>
+        /// <param name="rutaArchivo">Ruta completa del archivo donde se guardará el JSON.</param>
+        /// <param name="lista">Lista de objetos que se desea serializar.</param>
+        /// <remarks>
+        /// Si el archivo ya existe, será sobrescrito. El JSON se guarda con formato indentado para facilitar su lectura.
+        /// </remarks>
+
+        private void EscribirEnJson<T>(string rutaArchivo, List<T> lista)
+        {
+            var opciones = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(lista, opciones);
+            File.WriteAllText(rutaArchivo, json);
+        }
+
+        /// <summary>
+        /// Carga una lista de objetos desde un archivo JSON.
+        /// </summary>
+        /// <typeparam name="T">El tipo de objeto que contiene la lista.</typeparam>
+        /// <param name="rutaArchivo">Ruta completa del archivo JSON.</param>
+        /// <returns>Una lista de objetos del tipo especificado. Si el archivo no existe o está vacío, retorna una lista vacía.</returns
+
+        public static List<T> CargarDesdeJson<T>(string rutaArchivo)
+        {
+            if (!File.Exists(rutaArchivo))
+                return new List<T>();
+
+            string json = File.ReadAllText(rutaArchivo);
+            if (string.IsNullOrWhiteSpace(json))
+                return new List<T>();
+
+            return JsonSerializer.Deserialize<List<T>>(json);
         }
     }
 }

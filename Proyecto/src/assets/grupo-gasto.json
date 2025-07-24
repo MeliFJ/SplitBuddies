@@ -1,0 +1,14 @@
+[
+  {
+    "GastoId": 1,
+    "GrupoId": 1
+  },
+  {
+    "GastoId": 2,
+    "GrupoId": 1
+  },
+  {
+    "GastoId": 3,
+    "GrupoId": 1
+  }
+]
