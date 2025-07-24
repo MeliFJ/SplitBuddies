@@ -8,3 +8,5 @@
 /src/GestorDatos/obj
 /src/Modelo/bin/Debug/netstandard2.1
 /src/Modelo/obj
+/packages
+/Proyecto/obj

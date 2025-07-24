@@ -1,4 +1,4 @@
-﻿namespace Projecto.src.Vista
+﻿namespace WfVistaSplitBuddies.Vista
 {
     partial class FormGrupo
     {

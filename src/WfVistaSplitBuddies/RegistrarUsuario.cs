@@ -1,10 +1,11 @@
-﻿using Projecto.Controlador;
-using Projecto.Modelo;
+﻿
+using Modelo;
 using System;
 using System.Windows.Forms;
+using Controlador;
 
 
-namespace Projecto.Vista
+namespace WfVistaSplitBuddies.Vista
 {
     public partial class RegistrarUsuario : Form
     {
@@ -64,6 +65,11 @@ namespace Projecto.Vista
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegistrarUsuario_Load(object sender, EventArgs e)
         {
 
         }

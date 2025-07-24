@@ -1,7 +1,7 @@
 ﻿using Modelo;
 using System.Linq;
 
-namespace Projecto.Controlador
+namespace Controlador
 {
     public class RegistroControlador
     {

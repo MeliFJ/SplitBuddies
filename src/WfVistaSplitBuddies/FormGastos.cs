@@ -1,11 +1,11 @@
-﻿using Projecto.Modelo;
-using Projecto.src.Controlador;
-using Projecto.src.Modelo;
+﻿using Controlador;
+using GestorDatos;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace Projecto.src.Vista
+namespace WfVistaSplitBuddies.Vista
 {
     public partial class FormGastos : Form
     {
@@ -144,6 +144,11 @@ namespace Projecto.src.Vista
             montoTotal += txtBmonto.Text == string.Empty ? 0 : double.Parse(txtBmonto.Text);
             lbMonto.Text = $"Monto Total: {montoTotal:C}"; // Formatea el monto total como moneda
             txtBmonto.Text = string.Empty;
+        }
+
+        private void FormGastos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

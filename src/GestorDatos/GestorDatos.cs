@@ -10,12 +10,12 @@ namespace GestorDatos
 {
     public class GestorDatos : IGestorDatos
     {
-        private readonly string rutaArchivo = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\datos.json"));
-        private readonly string rutaArchivoGrupos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\grupos.json"));
-        private readonly string rutaArchivoUsuarioGrupos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\usuario-grupo.json"));
-        private readonly string rutaArchivoGastos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\gastos.json"));
-        private readonly string rutaRelacionGrupoGasto = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\grupo-gasto.json"));
-        private readonly string rutaRelacionUsuarioGasto = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\usuario-gasto.json"));
+        private readonly string rutaArchivo = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\datos.json"));
+        private readonly string rutaArchivoGrupos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\grupos.json"));
+        private readonly string rutaArchivoUsuarioGrupos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\usuario-grupo.json"));
+        private readonly string rutaArchivoGastos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\gastos.json"));
+        private readonly string rutaRelacionGrupoGasto = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\grupo-gasto.json"));
+        private readonly string rutaRelacionUsuarioGasto = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\usuario-gasto.json"));
         public void GuardarUsuario(Usuario usuario)
         {
             Dictionary<string, Usuario > usuarios = CargarUsuarios();

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Projecto.src.Controlador
+namespace Controlador
 {
     public class GrupoControlador
     {

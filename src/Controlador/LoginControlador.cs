@@ -1,6 +1,6 @@
 ﻿using Modelo;
 
-namespace Projecto.Controlador
+namespace Controlador
 {
     public class LoginControlador
     {

@@ -1,11 +1,12 @@
-﻿using Projecto.Modelo;
-using Projecto.src.Controlador;
+﻿using Modelo;
+using Controlador;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using GestorDatos;
 
-namespace Projecto.src.Vista
+namespace WfVistaSplitBuddies.Vista
 {
     public partial class FormGrupo : Form
     {
@@ -49,7 +50,7 @@ namespace Projecto.src.Vista
             // Validamos si lleno todos los campos
             if (logoSelecionado && !nombreGrupo.Equals(string.Empty))
             {
-                bool resultado=grupoControlador.guardaGrupo(usuarioLogeado.Identificacion, nombreGrupo, archivo, integrantes);
+                bool resultado=grupoControlador.guardaGrupo(usuarioLogeado.Identificacion, nombreGrupo, archivo.FileName, integrantes);
 
                 if (resultado)
                 {

@@ -1,12 +1,12 @@
-﻿using Projecto.Controlador;
-using Projecto.Modelo;
-using Projecto.src.Modelo;
-using Projecto.src.Vista;
-using Projecto.Vista;
+﻿
+using Controlador;
+using GestorDatos;
+using Modelo;
+
 using System;
 using System.Windows.Forms;
-
-namespace Projecto
+using WfVistaSplitBuddies.Vista;
+namespace WfVistaSplitBuddies
 {
     public partial class Form1 : Form
     {
@@ -49,6 +49,11 @@ namespace Projecto
             FormGastos form = new FormGastos(grupo, usuarioValido, gestorDatos);
             form.Show();
             this.Hide();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

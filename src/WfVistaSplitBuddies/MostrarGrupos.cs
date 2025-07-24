@@ -1,6 +1,6 @@
-﻿using Projecto.Modelo;
-using Projecto.src.Controlador;
-using Projecto.src.Modelo;
+﻿using Controlador;
+using GestorDatos;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.ListViewItem;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace Projecto.src.Vista
+namespace WfVistaSplitBuddies.Vista
 {
     public partial class MostrarGrupos : Form
     {
