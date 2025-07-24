@@ -1,2 +1,10 @@
 .vs/
 /SlitBuddies/SlitBuddies/obj/Debug/net8.0-windows
+*.dll
+*.pdb
+/src/Controlador/bin/Debug/netstandard2.1
+/src/Controlador/obj
+/src/GestorDatos/bin/Debug/netstandard2.1
+/src/GestorDatos/obj
+/src/Modelo/bin/Debug/netstandard2.1
+/src/Modelo/obj
