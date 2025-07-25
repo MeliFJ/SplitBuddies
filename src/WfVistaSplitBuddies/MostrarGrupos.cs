@@ -1,5 +1,6 @@
 ﻿using Controlador;
 using Controlador.Interfaces;
+using GestorDatos;
 using GestorDatos.Interfaces;
 using Modelo;
 using System;
@@ -17,20 +18,25 @@ namespace WfVistaSplitBuddies.Vista
         #region Variables
       
         private string carpetaDestino = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\img\"));
-        private readonly IGrupoControlador GrupoControlador;
+        private readonly IGrupoControlador grupoControlador;
         private readonly IUsuarioControlador usuarioControlador;
-
+        private readonly IGastosControlador gastosControlador;
         private readonly Usuario usuarioLogeado;
 
+        private Usuario UsuarioSeleccionado;
+        private List<Grupo> ListaGruposCargada;
+        Grupo gruposSeleccionado;
         #endregion
 
         #region Constructor
         public MostrarGrupos(IGrupoControlador grupoControlador,  Usuario usuarioValido, IUsuarioControlador usuarioControlador )
         {
             InitializeComponent();
-            GrupoControlador = grupoControlador;
+            this.grupoControlador = grupoControlador;
             this.usuarioLogeado = usuarioValido;
             this.usuarioControlador = usuarioControlador;
+            this.gastosControlador = new GastosControlador( new GestorDatosGastos());
+
         }
         #endregion
 
@@ -51,14 +57,18 @@ namespace WfVistaSplitBuddies.Vista
             if (itemgrupo.Count > 0)
             {
                 Grupo gruposeleccionado = (Grupo)itemgrupo[0].Tag;
+                this.gruposSeleccionado = gruposeleccionado;
                 CargarMiembros(gruposeleccionado);
             }
+            else
+                gruposSeleccionado = null;
         }
         private void MostrarGrupos_Load(object sender, EventArgs e)
         {
             ConfigurarListViewDeGrupos();
 
-            List<Grupo> grupos = GrupoControlador.CargarGrupos();
+            List<Grupo> grupos = grupoControlador.CargarGrupos();
+            ListaGruposCargada = grupos;
             grupos.ForEach(x =>
             {
                 var img = new Bitmap(Path.Combine(carpetaDestino, x.NombreLogo));
@@ -113,15 +123,36 @@ namespace WfVistaSplitBuddies.Vista
             listMostrarGrupos.SelectedItems.Clear();
             listMiembros.Items.Clear();
         }
-
+        private void listMiembros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var itemMiembro = listMiembros.SelectedItems;
+            if (itemMiembro.Count > 0)
+            {
+                UsuarioSeleccionado = (Usuario)itemMiembro[0].Tag;
+            }
+        }
 
         #endregion
 
         private void btnCrearGrupo_Click(object sender, EventArgs e)
         {
-            FormGrupo form = new FormGrupo(this.usuarioLogeado, GrupoControlador,usuarioControlador);
+            FormGrupo form = new FormGrupo(this.usuarioLogeado, grupoControlador, usuarioControlador);
             form.Show();
             this.Close();
+        }
+
+        private void btnGastos_Click(object sender, EventArgs e)
+        {
+            new FrmReporteGastosUsuario(UsuarioSeleccionado, ListaGruposCargada).ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Usuario usuarioValido = new Usuario("116640546", "1234", "Melissa", "Fallas");
+            //Grupo grupo = new Grupo(1, "116640546", "116640546Inversion1", "Inversion1");
+            FormGastos form = new FormGastos(gruposSeleccionado,UsuarioSeleccionado,gastosControlador,grupoControlador);
+            form.ShowDialog();
+            //this.Hide();
         }
     }
 }

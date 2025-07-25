@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Controlador
 {
-    public class GastosControlador 
+    public class GastosControlador :IGastosControlador
     {
         IGestorDatosGastos gestorGastos;
         public GastosControlador(IGestorDatosGastos gestorGastos )
@@ -26,9 +26,9 @@ namespace Controlador
             return gestorGastos.GuardarGasto(nuevoGasto, integrantes, quienPago.Identificacion, grupo);
         }
 
-        public void guardarGrupoGasto(Grupo grupo, Gasto gasto)
+        public List<Gasto> ConsultarGastosPorUsuario(string idUsuario)
         {
-
+            return gestorGastos.ConsultarGastosPorUsuario(idUsuario);
         }
         private List<string> validarIntegrantes(List<string> integrantes, Usuario usuarioLogeado)
         {
@@ -38,6 +38,11 @@ namespace Controlador
                 integrantes.Add(usuarioLogeado.Identificacion);
             }
             return integrantes;
+        }
+
+        public void guardarGrupoGasto(Grupo grupo, Gasto gasto)
+        {
+            throw new NotImplementedException();
         }
     }
 }

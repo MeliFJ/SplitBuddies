@@ -13,7 +13,7 @@ namespace Controlador.Interfaces
             Usuario BuscarUsuario(string identificacion);
             List<Usuario> CargarUsuarioPorGrupos(int idgrupo);
             Dictionary<string, Usuario> CargarUsuarios();
-        bool GuardaUsuario(Usuario usuario);
+          bool GuardaUsuario(Usuario usuario);
 
 
 

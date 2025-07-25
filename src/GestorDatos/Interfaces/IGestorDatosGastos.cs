@@ -7,5 +7,7 @@ namespace GestorDatos.Interfaces
     {
         bool GuardarGasto(Gasto gasto, List<string> integrantes, string quienPagoId, Grupo grupo);
         void guardarGrupoGasto(Grupo grupo, Gasto gasto);
+        List<Gasto> ConsultarGastosPorUsuario(string idUsuario);
+        List<Gasto> CargarGastos();
     }
 }

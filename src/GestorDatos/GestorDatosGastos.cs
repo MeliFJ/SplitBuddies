@@ -2,8 +2,10 @@
 using Modelo;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace GestorDatos
@@ -66,6 +68,39 @@ namespace GestorDatos
 
         }
 
+        public List<Gasto> ConsultarGastosPorUsuario(string idUsuario)
+        {
+            if (!File.Exists(rutaRelacionUsuarioGasto))
+                return new List<Gasto>();
+
+            string json = File.ReadAllText(rutaRelacionUsuarioGasto);
+            if (string.IsNullOrWhiteSpace(json))
+                return new List<Gasto>();
+            var relacionUsuarioGasto = JsonSerializer.Deserialize<List<RelacionUsuarioGasto>>(json)?.Where(x => x.UsuarioId == idUsuario).ToList();
+
+            var gastos = CargarGastos();
+            var resul = from gasto
+                        in gastos
+                        join relaciongastousuario in relacionUsuarioGasto
+                        on gasto.QuienPagoId equals relaciongastousuario.UsuarioId
+                        select gasto;
+
+            return resul?.ToList();
+        }
+        public List<Gasto> CargarGastos()
+        {
+            if (!File.Exists(rutaArchivoGrupos))
+                return new List<Gasto>();
+
+            string json = File.ReadAllText(rutaArchivoGastos);
+            if (string.IsNullOrWhiteSpace(json))
+                return new List<Gasto>();
+            var gastos = JsonSerializer.Deserialize<List<Gasto>>(json);
+            if(gastos is null)
+                return new List<Gasto>();
+            else
+                return gastos;
+        }
 
     }
 }
