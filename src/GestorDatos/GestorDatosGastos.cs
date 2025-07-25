@@ -4,9 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace GestorDatos
 {
@@ -68,7 +66,7 @@ namespace GestorDatos
 
         }
 
-        public List<Gasto> ConsultarGastosPorUsuario(string idUsuario)
+        public List<Gasto>? ConsultarGastosPorUsuario(string idUsuario)
         {
             if (!File.Exists(rutaRelacionUsuarioGasto))
                 return new List<Gasto>();
@@ -89,7 +87,7 @@ namespace GestorDatos
         }
         public List<Gasto> CargarGastos()
         {
-            if (!File.Exists(rutaArchivoGrupos))
+            if (!File.Exists(rutaArchivoGastos))
                 return new List<Gasto>();
 
             string json = File.ReadAllText(rutaArchivoGastos);
@@ -102,5 +100,48 @@ namespace GestorDatos
                 return gastos;
         }
 
+        public Reporte ObtenerReportePorUsuario(string idUsuario, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            if (!File.Exists(rutaRelacionUsuarioGasto))
+                return new Reporte();
+
+            string json = File.ReadAllText(rutaRelacionUsuarioGasto);
+            if (string.IsNullOrWhiteSpace(json))
+                return new Reporte();
+
+            var gastoDelUsuario = JsonSerializer.Deserialize<List<RelacionUsuarioGasto>>(json)
+                                  ?.Where(x => x.UsuarioId == idUsuario)
+                                  .ToList();
+
+            // Busc gastos del usuario en el rango de fechas
+            var gastos = CargarGastos()
+                         .Where(g => g.FechaSeleccionada >= fechaDesde && g.FechaSeleccionada <= fechaHasta)
+                         .ToList();
+
+            // Gastos pagados por el usuario
+            var gastosPagados =
+                (from gasto in gastos
+                join gastoUsuario in gastoDelUsuario
+                on gasto.QuienPagoId equals gastoUsuario.UsuarioId
+                select gasto).Distinct().ToList(); //Se hace un Distinct para evitar duplicados y dess convertir a lista
+
+            List<Gasto> gastosPagos = gastosPagados;
+
+            // Gastos adeudados por el usuario
+            var gastosAdeudados = (from gasto in gastos
+                                  join gastoUsuario in gastoDelUsuario
+                                  on gasto.Id equals gastoUsuario.GastoId
+                                  where gasto.QuienPagoId != gastoUsuario.UsuarioId
+                                  select gasto).Distinct().ToList();
+
+            List<Gasto> gastosAdeudadosList = gastosAdeudados.ToList();
+
+            // Totales
+            double totalPagados = gastosPagos.Sum(gasto => gasto.MontoGasto);
+            double totalAdeudados = gastosAdeudadosList.Sum(gasto => gasto.MontoGasto);
+
+            Reporte reporte = new Reporte(totalPagados, totalAdeudados);
+            return reporte;
+        }
     }
 }

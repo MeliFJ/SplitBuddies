@@ -154,5 +154,12 @@ namespace WfVistaSplitBuddies.Vista
             form.ShowDialog();
             //this.Hide();
         }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            FormReporte form = new FormReporte(this.usuarioLogeado, this.gastosControlador);
+            form.Show();
+
+        }
     }
 }

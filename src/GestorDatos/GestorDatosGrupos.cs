@@ -48,7 +48,8 @@ namespace GestorDatos
             if (string.IsNullOrWhiteSpace(json))
                 return new List<Grupo>();
 
-            return JsonSerializer.Deserialize<List<Grupo>>(json);
+            var grupos = JsonSerializer.Deserialize<List<Grupo>>(json);
+            return grupos ?? new List<Grupo>();
         }
 
         public bool EsNombreGrupoUnico(string nuevoNombreGrupo, string creadorId, List<Grupo> grupos)
@@ -75,14 +76,15 @@ namespace GestorDatos
 
         public List<RelacionUsuarioGrupo> CargarUsuarioGrupos()
         {
-            if (!File.Exists(rutaArchivoGrupos))
+            if (!File.Exists(rutaArchivoUsuarioGrupos))
                 return new List<RelacionUsuarioGrupo>();
 
             string json = File.ReadAllText(rutaArchivoUsuarioGrupos);
             if (string.IsNullOrWhiteSpace(json))
                 return new List<RelacionUsuarioGrupo>();
 
-            return JsonSerializer.Deserialize<List<RelacionUsuarioGrupo>>(json);
+            var relaciones = JsonSerializer.Deserialize<List<RelacionUsuarioGrupo>>(json);
+            return relaciones ?? new List<RelacionUsuarioGrupo>();
         }
 
 

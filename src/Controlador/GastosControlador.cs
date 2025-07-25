@@ -3,9 +3,6 @@ using GestorDatos.Interfaces;
 using Modelo;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controlador
 {
@@ -28,7 +25,7 @@ namespace Controlador
 
         public List<Gasto> ConsultarGastosPorUsuario(string idUsuario)
         {
-            return gestorGastos.ConsultarGastosPorUsuario(idUsuario);
+            return gestorGastos.ConsultarGastosPorUsuario(idUsuario) ?? new List<Gasto>();
         }
         private List<string> validarIntegrantes(List<string> integrantes, Usuario usuarioLogeado)
         {
@@ -43,6 +40,12 @@ namespace Controlador
         public void guardarGrupoGasto(Grupo grupo, Gasto gasto)
         {
             throw new NotImplementedException();
+        }
+
+        public Reporte GenerarReportePorFechas(DateTime fechaDesde, DateTime fechaHasta, Usuario usuario)
+        {
+            Reporte gastosXUsuario = gestorGastos.ObtenerReportePorUsuario(usuario.Identificacion, fechaDesde, fechaHasta);
+            return gastosXUsuario;
         }
     }
 }

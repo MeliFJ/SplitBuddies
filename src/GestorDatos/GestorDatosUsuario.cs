@@ -1,12 +1,9 @@
 ﻿using GestorDatos.Interfaces;
 using Modelo;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace GestorDatos
 {
@@ -35,7 +32,8 @@ namespace GestorDatos
             if (string.IsNullOrWhiteSpace(json))
                 return new Dictionary<string, Usuario>();
 
-            return JsonSerializer.Deserialize<Dictionary<string, Usuario>>(json);
+            var usuarios = JsonSerializer.Deserialize<Dictionary<string, Usuario>>(json);
+            return usuarios ?? new Dictionary<string, Usuario>();
         }
 
 
@@ -46,7 +44,7 @@ namespace GestorDatos
             return usuario;
         }
 
-        public List<Usuario> CargarUsuarioPorGrupos(int idgrupo)
+        public List<Usuario>? CargarUsuarioPorGrupos(int idgrupo)
         {
             if (!File.Exists(rutaArchivoGrupos))
                 return new List<Usuario>();

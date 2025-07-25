@@ -2,29 +2,29 @@
 {
     public class Grupo
     {
-        //Identificador unico
+        // Identificador unico  
         public int Id { get; set; }
-        public string CreadorId { get; set; }
-        public string NombreLogo { get; set; }
-        public string Nombre { get; set; }
+        public string CreadorId { get; set; } = string.Empty;
+        public string NombreLogo { get; set; } = string.Empty;
+        public string Nombre { get; set; } = string.Empty;
 
-        // Constructor
-        public Grupo( string identificadorUsuario, string nombreLogo, string nombre)
+        // Constructor  
+        public Grupo(string identificadorUsuario, string nombreLogo, string nombre)
         {
-            CreadorId= identificadorUsuario;
+            CreadorId = identificadorUsuario;
             NombreLogo = nombreLogo;
             Nombre = nombre;
         }
 
         public Grupo(int id, string identificadorUsuario, string nombreLogo, string nombre)
         {
-            Id= id;
+            Id = id;
             CreadorId = identificadorUsuario;
             NombreLogo = nombreLogo;
             Nombre = nombre;
         }
 
-        // ✅ Constructor sin parámetros (requerido para deserialización)
+        // ✅ Constructor sin parámetros (requerido para deserialización)  
         public Grupo() { }
     }
 }
