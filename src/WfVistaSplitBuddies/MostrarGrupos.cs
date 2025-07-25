@@ -1,5 +1,6 @@
 ﻿using Controlador;
-using GestorDatos;
+using Controlador.Interfaces;
+using GestorDatos.Interfaces;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -14,20 +15,22 @@ namespace WfVistaSplitBuddies.Vista
     public partial class MostrarGrupos : Form
     {
         #region Variables
-        private readonly IGestorDatos gestorDatos;
-        private string carpetaDestino = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\img\"));
-        private readonly GrupoControlador grupoControlador;
+      
+        private string carpetaDestino = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\img\"));
+        private readonly IGrupoControlador GrupoControlador;
+        private readonly IUsuarioControlador usuarioControlador;
+
         private readonly Usuario usuarioLogeado;
 
         #endregion
 
         #region Constructor
-        public MostrarGrupos(IGestorDatos gestorDatos, Usuario usuarioValido)
+        public MostrarGrupos(IGrupoControlador grupoControlador,  Usuario usuarioValido, IUsuarioControlador usuarioControlador )
         {
             InitializeComponent();
-            this.gestorDatos = gestorDatos;
-            grupoControlador = new GrupoControlador(gestorDatos);
+            GrupoControlador = grupoControlador;
             this.usuarioLogeado = usuarioValido;
+            this.usuarioControlador = usuarioControlador;
         }
         #endregion
 
@@ -55,7 +58,7 @@ namespace WfVistaSplitBuddies.Vista
         {
             ConfigurarListViewDeGrupos();
 
-            List<Grupo> grupos = grupoControlador.CargarGrupos();
+            List<Grupo> grupos = GrupoControlador.CargarGrupos();
             grupos.ForEach(x =>
             {
                 var img = new Bitmap(Path.Combine(carpetaDestino, x.NombreLogo));
@@ -93,7 +96,7 @@ namespace WfVistaSplitBuddies.Vista
         internal void CargarMiembros(Grupo grupo)
         {
             listMiembros.Items.Clear();
-            var usuarios = grupoControlador.CargarUsuarioPorGrupos(grupo.Id);
+            var usuarios = usuarioControlador.CargarUsuarioPorGrupos(grupo.Id);
             foreach (var usuario in usuarios)
             {
 
@@ -116,7 +119,7 @@ namespace WfVistaSplitBuddies.Vista
 
         private void btnCrearGrupo_Click(object sender, EventArgs e)
         {
-            FormGrupo form = new FormGrupo(this.usuarioLogeado,gestorDatos);
+            FormGrupo form = new FormGrupo(this.usuarioLogeado, GrupoControlador,usuarioControlador);
             form.Show();
             this.Close();
         }

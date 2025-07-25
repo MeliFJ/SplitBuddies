@@ -1,5 +1,6 @@
 ﻿using Controlador;
-using GestorDatos;
+using Controlador.Interfaces;
+using GestorDatos.Interfaces;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -11,19 +12,19 @@ namespace WfVistaSplitBuddies.Vista
     {
         // Atributos
         private Grupo Grupo;
-        private readonly IGestorDatos gestorDatos;
         private Usuario usuarioLogeado;
-        private GrupoControlador grupoControlador;
+        private IGastosControlador gastosControlador;
+        private IGrupoControlador grupoControlador;
         private double montoTotal;
 
         // Constructor para crear un nuevo grupo
-        public FormGastos(Grupo grupo, Usuario usuario, IGestorDatos gestorDatos)
+        public FormGastos(Grupo grupo, Usuario usuario, IGastosControlador gastosControlador, IGrupoControlador grupoControlador)
         {
             InitializeComponent();
             this.Grupo = grupo;
-            this.gestorDatos = gestorDatos; // Gestor de datos para acceder a los datos
             this.usuarioLogeado = usuario; // Usuario que está creando el grupo
-            this.grupoControlador = new GrupoControlador(gestorDatos);
+            this.grupoControlador= grupoControlador;
+            this.gastosControlador = gastosControlador;
             mostrarPosiblesIntegrantes();
             mostrarQuienPago();
             montoTotal = 0.0;
@@ -38,7 +39,7 @@ namespace WfVistaSplitBuddies.Vista
             List<string> integrantes = obtenerIntegrantes();
             DateTime fechaSeleccionada = dtPckFecha.Value;
 
-            bool guardado = this.grupoControlador.guardarGasto(Grupo, quienPago, nombreGasto, descripcionGasto, enlaceGasto, montoTotal, integrantes, fechaSeleccionada);
+            bool guardado = this.gastosControlador.guardarGasto(Grupo, quienPago, nombreGasto, descripcionGasto, enlaceGasto, montoTotal, integrantes, fechaSeleccionada);
 
             if (guardado)
             {

@@ -3,12 +3,15 @@ using Modelo;
 using System;
 using System.Windows.Forms;
 using Controlador;
+using Controlador.Interfaces;
 
 
 namespace WfVistaSplitBuddies.Vista
 {
     public partial class RegistrarUsuario : Form
     {
+        private readonly IUsuarioControlador usuarioControlador;
+        
         private void Limpiar()
         {
             txtIdentificacion.Clear();
@@ -16,9 +19,10 @@ namespace WfVistaSplitBuddies.Vista
             TxtApellido.Clear();
             txtContrasena.Clear();
         }
-        public RegistrarUsuario()
+        public RegistrarUsuario( IUsuarioControlador usuarioControlador)
         {
             InitializeComponent();
+            this.usuarioControlador = usuarioControlador;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -48,7 +52,7 @@ namespace WfVistaSplitBuddies.Vista
             string apellido = TxtApellido.Text;
             string password = txtContrasena.Text;
             Usuario usuarionuevo= new Usuario(Identificacion, password,nombre,apellido);
-            bool resultado = RegistroControlador.GuardaUsuario(usuarionuevo);
+            bool resultado = usuarioControlador.GuardaUsuario(usuarionuevo);
             if (resultado)
             {
 

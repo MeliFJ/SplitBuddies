@@ -4,29 +4,29 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using GestorDatos;
+using GestorDatos.Interfaces;
+using Controlador.Interfaces;
 
 namespace WfVistaSplitBuddies.Vista
 {
     public partial class FormGrupo : Form
     {
 
-        private readonly IGestorDatos gestorDatos;
 
         private Usuario usuarioLogeado;
 
         private OpenFileDialog archivo;
 
-        private GrupoControlador grupoControlador;
-
-        public FormGrupo(Usuario usuario, IGestorDatos gestorDatos)
+        private IGrupoControlador grupoControlador;
+        private IUsuarioControlador usuarioControlador;
+        public FormGrupo(Usuario usuario, IGrupoControlador grupocontrolador,IUsuarioControlador usuarioControlador )
         {
             InitializeComponent();
             this.archivo = new OpenFileDialog();
             this.usuarioLogeado = usuario;
-            this.grupoControlador = new GrupoControlador(gestorDatos);
+            this.grupoControlador = grupocontrolador;
+            this.usuarioControlador=usuarioControlador;
             this.mostrarPosiblesIntegrantes();
-            this.gestorDatos = gestorDatos;
         }
 
         private void btnCrearGrupo_Click(object sender, EventArgs e)
@@ -95,7 +95,7 @@ namespace WfVistaSplitBuddies.Vista
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            MostrarGrupos form = new MostrarGrupos(gestorDatos, usuarioLogeado);
+            MostrarGrupos form = new MostrarGrupos(grupoControlador, usuarioLogeado,usuarioControlador);
             form.Show();
             this.Close();
         }

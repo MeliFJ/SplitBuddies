@@ -1,20 +1,25 @@
-﻿using GestorDatos;
+﻿using Controlador.Interfaces;
+using GestorDatos;
+using GestorDatos.Interfaces;
 using Modelo;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Permissions;
 
 namespace Controlador
 {
-    public class GrupoControlador
+    public class GrupoControlador : IGrupoControlador
     {
-        private IGestorDatos gestorDatos;
+        private IGestorDatosGrupos gestorDatos;
+        private IGestorDatosUsuario grupoUsuario;
         private string carpetaDestino = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Proyecto\src\assets\img\"));
 
 
-        public GrupoControlador(IGestorDatos gestorDatos)
+        public GrupoControlador(IGestorDatosGrupos gestorDatos, IGestorDatosUsuario grupoUsuario)
         {
             this.gestorDatos = gestorDatos;
+            this.grupoUsuario = grupoUsuario;
         }
         public void guardaLogo(string RutaDeArchivo, string nuevoNombre)
         {
@@ -34,7 +39,7 @@ namespace Controlador
 
         }
 
-        public bool guardaGrupo(string identificacion, string nombreGrupo, string  RutaDeArchivo, List<string> integrantes)
+        public bool guardaGrupo(string identificacion, string nombreGrupo, string RutaDeArchivo, List<string> integrantes)
         {
             // Quitar espacios al nombre del grupo para usarlo en el nombre la de imagen
             nombreGrupo = nombreGrupo.Replace(" ", "");
@@ -45,41 +50,30 @@ namespace Controlador
 
             Grupo nuevoGrupo = new Grupo(identificacion, nuevoNombreLogo, nombreGrupo);
 
-            return gestorDatos.GuardarGrupos(nuevoGrupo, integrantes);
+            gestorDatos.GuardarGrupos(nuevoGrupo);
+            return gestorDatos.GuardarUsuarioGrupo(nuevoGrupo, integrantes);
         }
 
         public Dictionary<string, Usuario> cargarPosiblesIntegrantes()
         {
-            return gestorDatos.CargarUsuarios();
+            return grupoUsuario.CargarUsuarios();
         }
         public List<Usuario> CargarUsuarioPorGrupos(int idgrupo)
         {
-            return gestorDatos.CargarUsuarioPorGrupos(idgrupo);
+            return grupoUsuario.CargarUsuarioPorGrupos(idgrupo);
         }
 
         public List<Grupo> CargarGrupos()
         {
             return gestorDatos.CargarGrupos();
         }
+        public List<RelacionUsuarioGrupo> CargarUsuarioGrupos()
+        {
+            return gestorDatos.CargarUsuarioGrupos();
+        }
 
         /// Guardar un gasto en el grupo
-        public bool guardarGasto(Grupo grupo, Usuario quienPago, string nombreGasto, string descripcionGasto, string enlaceGasto, double montoGasto, List<string> integrantes, DateTime fechaSeleccionada)
-        {
-            Gasto nuevoGasto = new Gasto(nombreGasto, descripcionGasto, enlaceGasto, montoGasto, quienPago.Identificacion, fechaSeleccionada);
-            //Verificar si el que pago esta como integrante del grupo
-            integrantes = validarIntegrantes(integrantes, quienPago);
 
-            return gestorDatos.GuardarGasto(nuevoGasto, integrantes, quienPago.Identificacion, grupo);
-        }
 
-        private List<string> validarIntegrantes(List<string> integrantes, Usuario usuarioLogeado)
-        {
-            // Validar que el usuario logueado esté en la lista de integrantes
-            if (!integrantes.Contains(usuarioLogeado.Identificacion))
-            {
-                integrantes.Add(usuarioLogeado.Identificacion);
-            }
-            return integrantes;
-        }
     }
 }
