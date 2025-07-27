@@ -17,7 +17,7 @@ namespace GestorDatos
             Dictionary<string, Usuario> usuarios = CargarUsuarios();
 
             //Se valida que no exita el usuario
-            if (usuarios.ContainsKey(usuario.Identificacion))
+            if (usuarios.ContainsKey(usuario.Identificacion)==false)
             {
                 usuarios[usuario.Identificacion] = usuario;
 
