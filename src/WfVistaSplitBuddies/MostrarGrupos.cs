@@ -146,7 +146,7 @@ namespace WfVistaSplitBuddies.Vista
         private void btnGastos_Click(object sender, EventArgs e)
         {
             
-            FormResumenGastosPorUsuario form = new FormResumenGastosPorUsuario(ListaUsuarios, ListaGruposCargada);
+            FormResumenGastosPorUsuario form = new FormResumenGastosPorUsuario(this.usuarioLogeado, ListaGruposCargada);
             form.ShowDialog();
         }
 
@@ -174,7 +174,7 @@ namespace WfVistaSplitBuddies.Vista
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormResumenGastosPorUsuario form = new FormResumenGastosPorUsuario(usuarioLogeado,ListaGruposCargada);
+            FormResumenGastosPorUsuario form = new FormResumenGastosPorUsuario(this.usuarioLogeado,ListaGruposCargada);
             form.ShowDialog();
         }
 

@@ -18,8 +18,8 @@ namespace WfVistaSplitBuddies
         List<Grupo> grupos;
         private Usuario UsuarioSeleccionado;
         private Grupo GrupoSeleccionado;
-        private List<Usuario> Usuarios= new List<Usuario>();
-        public FormResumenGastosPorUsuario(List<Usuario> usuarioseleccionado, List<Grupo> grupos)
+        private Usuario Usuarios;
+        public FormResumenGastosPorUsuario(Usuario usuarioseleccionado, List<Grupo> grupos)
         {
             InitializeComponent();
             datosGastos = new GestorDatosGastos();

@@ -13,7 +13,7 @@ namespace Controlador
     {
         private IGestorDatosGrupos gestorDatos;
         private IGestorDatosUsuario grupoUsuario;
-        private string carpetaDestino = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\src\assets\img\"));
+        private string carpetaDestino = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\img\"));
 
 
         public GrupoControlador(IGestorDatosGrupos gestorDatos, IGestorDatosUsuario grupoUsuario)
