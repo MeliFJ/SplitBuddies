@@ -4,10 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace GestorDatos
 {
@@ -69,7 +66,7 @@ namespace GestorDatos
 
         }
 
-        public List<Gasto> ConsultarGastosPorUsuario(string idUsuario)
+        public List<Gasto>? ConsultarGastosPorUsuario(string idUsuario)
         {
             if (!File.Exists(rutaRelacionUsuarioGasto))
                 return new List<Gasto>();
@@ -86,7 +83,7 @@ namespace GestorDatos
                         on gasto.QuienPagoId equals relaciongastousuario.UsuarioId
                         select gasto;
             
-            return (List<Gasto>)(resul?.Distinct().ToList());
+            return (resul?.Distinct().ToList()) as List<Gasto>;
         }
 
         /// <summary>
@@ -139,7 +136,7 @@ namespace GestorDatos
                 return new List<RelacionGrupoGasto>();
 
             var relacionGrupoGasto = JsonSerializer.Deserialize<List<RelacionGrupoGasto>>(json)?.Where(x => x.GrupoId == idGrupo).ToList();
-            return relacionGrupoGasto;
+            return relacionGrupoGasto ?? new List<RelacionGrupoGasto>(); // Retorna una lista vacía si no hay datos o si la deserialización falla
         }
 
         private List<RelacionUsuarioGasto> CargarRelacionGastoUsuario(string idUsuario)
@@ -150,8 +147,56 @@ namespace GestorDatos
             string json = File.ReadAllText(rutaRelacionUsuarioGasto);
             if (string.IsNullOrWhiteSpace(json))
                 return new List<RelacionUsuarioGasto>();
-            var relacionUsuarioGasto = JsonSerializer.Deserialize<List<RelacionUsuarioGasto>>(json)?.Where(x => x.UsuarioId == idUsuario).ToList();
-            return relacionUsuarioGasto;
+
+            var relacionUsuarioGasto = JsonSerializer.Deserialize<List<RelacionUsuarioGasto>>(json)
+                                     ?.Where(x => x.UsuarioId == idUsuario)
+                                     .ToList();
+
+            return relacionUsuarioGasto ?? new List<RelacionUsuarioGasto>(); // Retorna una lista vacía si no hay datos o si la deserialización falla
+        }
+
+        public Reporte ObtenerReportePorUsuario(string idUsuario, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            if (!File.Exists(rutaRelacionUsuarioGasto))
+                return new Reporte();
+
+            string json = File.ReadAllText(rutaRelacionUsuarioGasto);
+            if (string.IsNullOrWhiteSpace(json))
+                return new Reporte();
+
+            var gastoDelUsuario = JsonSerializer.Deserialize<List<RelacionUsuarioGasto>>(json)
+                                  ?.Where(x => x.UsuarioId == idUsuario)
+                                  .ToList();
+
+            // Busc gastos del usuario en el rango de fechas
+            var gastos = CargarGastos()
+                         .Where(g => g.FechaSeleccionada >= fechaDesde && g.FechaSeleccionada <= fechaHasta)
+                         .ToList();
+
+            // Gastos pagados por el usuario
+            var gastosPagados =
+                (from gasto in gastos
+                 join gastoUsuario in gastoDelUsuario
+                 on gasto.QuienPagoId equals gastoUsuario.UsuarioId
+                 select gasto).Distinct().ToList(); //Se hace un Distinct para evitar duplicados y dess convertir a lista
+
+            List<Gasto> gastosPagos = gastosPagados;
+
+            // Gastos adeudados por el usuario
+            var gastosAdeudados = (from gasto in gastos
+                                   join gastoUsuario in gastoDelUsuario
+                                   on gasto.Id equals gastoUsuario.GastoId
+                                   where gasto.QuienPagoId != gastoUsuario.UsuarioId
+                                   select gasto).Distinct().ToList();
+
+            List<Gasto> gastosAdeudadosList = gastosAdeudados.ToList();
+
+            // Totales
+            double totalPagados = gastosPagos.Sum(gasto => gasto.MontoGasto);
+            double totalAdeudados = gastosAdeudadosList.Sum(gasto => gasto.MontoGasto);
+
+            Reporte reporte = new Reporte(totalPagados, totalAdeudados);
+            return reporte;
         }
     }
 }

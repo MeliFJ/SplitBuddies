@@ -31,7 +31,7 @@ namespace Controlador
 
         public List<Gasto> ConsultarGastosPorUsuario(string idUsuario)
         {
-            return gestorGastos.ConsultarGastosPorUsuario(idUsuario);
+            return gestorGastos.ConsultarGastosPorUsuario(idUsuario) ?? new List<Gasto>();
         }
         private List<string> validarIntegrantes(List<string> integrantes, Usuario usuarioLogeado)
         {
@@ -41,11 +41,6 @@ namespace Controlador
                 integrantes.Add(usuarioLogeado.Identificacion);
             }
             return integrantes;
-        }
-
-        public void guardarGrupoGasto(Grupo grupo, Gasto gasto)
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -104,6 +99,32 @@ namespace Controlador
             }
            
             return resultado;
+        }
+
+        public Reporte GenerarReportePorFechas(DateTime fechaDesde, DateTime fechaHasta, Usuario usuario)
+        {
+            Reporte gastosXUsuario = this.gestorGastos.ObtenerReportePorUsuario(usuario.Identificacion, fechaDesde, fechaHasta);
+            return gastosXUsuario;
+        }
+
+        public Reporte GenerarReportePorMes(DateTime fecha, Usuario usuario)
+        {
+
+            DateTime primerDia = new DateTime(fecha.Year, fecha.Month, 1); //   Primer día del mes
+            DateTime ultimoDia = primerDia.AddMonths(1).AddDays(-1); // Último día del mes
+
+            //Se obtiene los datos del reporte obteniendo el rango de fechas basado en el mes que se seleccionó
+            Reporte gastosXUsuario = this.gestorGastos.ObtenerReportePorUsuario(usuario.Identificacion, primerDia, ultimoDia);
+            return gastosXUsuario;
+        }
+        public Reporte GenerarReportePorAnno(DateTime fecha, Usuario usuario)
+        {
+            DateTime primerDia = new DateTime(fecha.Year, 1, 1); // Primer día del año
+            DateTime ultimoDia = new DateTime(fecha.Year, 12, 31); // Último día del año
+
+            //Se obtiene los datos del reporte obteniendo el rango de fechas basado en el año que se seleccionó
+            Reporte gastosXUsuario = this.gestorGastos.ObtenerReportePorUsuario(usuario.Identificacion, primerDia, ultimoDia);
+            return gastosXUsuario;
         }
     }
 }

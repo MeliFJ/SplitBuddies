@@ -1,7 +1,6 @@
 ﻿using Controlador;
 using Controlador.Interfaces;
 using GestorDatos;
-using GestorDatos.Interfaces;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -9,8 +8,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using static System.Windows.Forms.ListViewItem;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WfVistaSplitBuddies.Vista
 {
@@ -155,12 +152,36 @@ namespace WfVistaSplitBuddies.Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Usuario usuarioValido = new Usuario("116640546", "1234", "Melissa", "Fallas");
-            //Grupo grupo = new Grupo(1, "116640546", "116640546Inversion1", "Inversion1");
-            FormResumenGastosPorUsuario form = new FormResumenGastosPorUsuario(ListaUsuarios, ListaGruposCargada);
+            if (gruposSeleccionado == null)
+            {
+                MessageBox.Show("Debe seleccionar un grupo para agregar gastos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                FormGastos form = new FormGastos(gruposSeleccionado, this.usuarioLogeado, gastosControlador, grupoControlador);
+                form.ShowDialog();
+            }
+                
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            FormReporte form = new FormReporte(this.usuarioLogeado, this.gastosControlador);
+            form.Show();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormResumenGastosPorUsuario form = new FormResumenGastosPorUsuario(usuarioLogeado,ListaGruposCargada);
             form.ShowDialog();
         }
 
-   
+        private void btnReporte_Click_1(object sender, EventArgs e)
+        {
+            FormReporte form = new FormReporte(this.usuarioLogeado, this.gastosControlador);
+            form.Show();
+        }
     }
 }

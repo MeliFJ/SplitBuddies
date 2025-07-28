@@ -14,9 +14,6 @@ namespace WfVistaSplitBuddies
     {
         private readonly IGestorDatosUsuario gestorDatosUsuario;
         private readonly LoginControlador loginControlador;
-        private readonly IGestorDatosGrupos gestorDatosGrupos;
-        //private readonly IGestorDatosGastos gestorDatosGastos;
-        //private readonly IGastosControlador gastosControlador ;
         private readonly IGrupoControlador grupoControlador ;
         private readonly IUsuarioControlador usuarioControlador ;
         public Form1()

@@ -103,7 +103,7 @@ namespace WfVistaSplitBuddies.Vista
         private List<string> obtenerIntegrantes()
         {
             List<string> integrantes = new List<string>();
-            // Agregamos todos los id de los integrantes seleccionados
+            // Agregamos todos los id de los integrantes seleccionados en el gasto
             foreach (var item in chckListBoxIntegrantes.CheckedItems)
             {
                 Usuario usuario = item as Usuario;
@@ -112,8 +112,6 @@ namespace WfVistaSplitBuddies.Vista
                     integrantes.Add(usuario.Identificacion);
                 }
             }
-            // Agregamos el id del que creo el grupo
-            integrantes.Add(usuarioLogeado.Identificacion);
             return integrantes;
         }
 
