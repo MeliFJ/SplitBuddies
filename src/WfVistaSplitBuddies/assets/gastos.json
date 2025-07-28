@@ -25,5 +25,23 @@
     "MontoGasto": 465000,
     "QuienPagoId": "116640546",
     "FechaSeleccionada": "2025-07-23T18:31:01"
+  },
+  {
+    "Id": 4,
+    "NombreGasto": "Viaticos",
+    "DescripcionGasto": "viaticos de negocio",
+    "EnlaceGasto": "google.com/viaje",
+    "MontoGasto": 11150,
+    "QuienPagoId": "155851059831",
+    "FechaSeleccionada": "2025-07-28T09:25:28.9196479-06:00"
+  },
+  {
+    "Id": 5,
+    "NombreGasto": "Compre acciones",
+    "DescripcionGasto": "se compran acciones a buen precio dado la disminucion en la bolsa",
+    "EnlaceGasto": "bola.com",
+    "MontoGasto": 500000,
+    "QuienPagoId": "155851059831",
+    "FechaSeleccionada": "2025-07-28T10:32:05.5871939-06:00"
   }
 ]

@@ -50,7 +50,8 @@ namespace GestorDatos
             if (string.IsNullOrWhiteSpace(json))
                 return new List<T>();
 
-            return JsonSerializer.Deserialize<List<T>>(json);
+            var result = JsonSerializer.Deserialize<List<T>>(json);
+            return result ?? new List<T>();
         }
     }
 }

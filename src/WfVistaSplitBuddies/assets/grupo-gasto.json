@@ -10,5 +10,13 @@
   {
     "GastoId": 3,
     "GrupoId": 1
+  },
+  {
+    "GastoId": 4,
+    "GrupoId": 2
+  },
+  {
+    "GastoId": 5,
+    "GrupoId": 1
   }
 ]
