@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using static System.Windows.Forms.ListViewItem;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -25,6 +26,7 @@ namespace WfVistaSplitBuddies.Vista
 
         private Usuario UsuarioSeleccionado;
         private List<Grupo> ListaGruposCargada;
+        private List<Usuario> ListaUsuarios;
         Grupo gruposSeleccionado;
         #endregion
 
@@ -66,7 +68,7 @@ namespace WfVistaSplitBuddies.Vista
         private void MostrarGrupos_Load(object sender, EventArgs e)
         {
             ConfigurarListViewDeGrupos();
-
+            ConfigurarListViewMiembros();
             List<Grupo> grupos = grupoControlador.CargarGrupos();
             ListaGruposCargada = grupos;
             grupos.ForEach(x =>
@@ -102,11 +104,13 @@ namespace WfVistaSplitBuddies.Vista
             listMiembros.Columns.Add("Apellido", 100);
             listMiembros.Columns.Add("Balance", 100);
             listMiembros.MultiSelect = false;
+            ListaUsuarios = usuarioControlador.CargarUsuarios().Select(x => x.Value).ToList();
         }
         internal void CargarMiembros(Grupo grupo)
         {
             listMiembros.Items.Clear();
             var usuarios = usuarioControlador.CargarUsuarioPorGrupos(grupo.Id);
+            ListaUsuarios = new List<Usuario>();
             foreach (var usuario in usuarios)
             {
 
@@ -116,6 +120,7 @@ namespace WfVistaSplitBuddies.Vista
                 item.SubItems.Add(usuario.Apellido);
                 item.SubItems.Add("0");
                 listMiembros.Items.Add(item);
+               
             }
         }
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -143,22 +148,19 @@ namespace WfVistaSplitBuddies.Vista
 
         private void btnGastos_Click(object sender, EventArgs e)
         {
-            new FrmReporteGastos(UsuarioSeleccionado, ListaGruposCargada).ShowDialog();
+            
+            FormResumenGastosPorUsuario form = new FormResumenGastosPorUsuario(ListaUsuarios, ListaGruposCargada);
+            form.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //Usuario usuarioValido = new Usuario("116640546", "1234", "Melissa", "Fallas");
             //Grupo grupo = new Grupo(1, "116640546", "116640546Inversion1", "Inversion1");
-            FormGastos form = new FormGastos(gruposSeleccionado,UsuarioSeleccionado,gastosControlador,grupoControlador);
+            FormResumenGastosPorUsuario form = new FormResumenGastosPorUsuario(ListaUsuarios, ListaGruposCargada);
             form.ShowDialog();
-            //this.Hide();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            FormResumenGastosPorUsuario form = new FormResumenGastosPorUsuario(usuarioLogeado,ListaGruposCargada);
-            form.ShowDialog();
-        }
+   
     }
 }

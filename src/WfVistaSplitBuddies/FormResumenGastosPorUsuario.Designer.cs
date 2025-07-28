@@ -43,6 +43,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lblCantidadIntegrantes = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.cboUsuario = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnVerBalance = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgtGrupos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +53,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(214, 18);
+            this.label2.Location = new System.Drawing.Point(210, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 16);
             this.label2.TabIndex = 8;
@@ -61,9 +64,9 @@
             this.cboGruposDelusuarioResumen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboGruposDelusuarioResumen.FormattingEnabled = true;
-            this.cboGruposDelusuarioResumen.Location = new System.Drawing.Point(269, 15);
+            this.cboGruposDelusuarioResumen.Location = new System.Drawing.Point(212, 28);
             this.cboGruposDelusuarioResumen.Name = "cboGruposDelusuarioResumen";
-            this.cboGruposDelusuarioResumen.Size = new System.Drawing.Size(519, 24);
+            this.cboGruposDelusuarioResumen.Size = new System.Drawing.Size(376, 24);
             this.cboGruposDelusuarioResumen.TabIndex = 7;
             this.cboGruposDelusuarioResumen.SelectedIndexChanged += new System.EventHandler(this.cboGruposDelusuario_SelectedIndexChanged);
             // 
@@ -71,7 +74,7 @@
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblusuario.Location = new System.Drawing.Point(121, 18);
+            this.lblusuario.Location = new System.Drawing.Point(134, 36);
             this.lblusuario.Name = "lblusuario";
             this.lblusuario.Size = new System.Drawing.Size(52, 16);
             this.lblusuario.TabIndex = 6;
@@ -81,7 +84,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 18);
+            this.label1.Location = new System.Drawing.Point(4, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 16);
             this.label1.TabIndex = 5;
@@ -148,11 +151,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgtGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtGrupos.Location = new System.Drawing.Point(8, 56);
+            this.dgtGrupos.Location = new System.Drawing.Point(7, 93);
             this.dgtGrupos.Name = "dgtGrupos";
             this.dgtGrupos.RowHeadersWidth = 51;
             this.dgtGrupos.RowTemplate.Height = 24;
-            this.dgtGrupos.Size = new System.Drawing.Size(780, 298);
+            this.dgtGrupos.Size = new System.Drawing.Size(780, 262);
             this.dgtGrupos.TabIndex = 14;
             // 
             // lblSaldoDelusuario
@@ -210,11 +213,44 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "Cantidad de integrantes";
             // 
+            // cboUsuario
+            // 
+            this.cboUsuario.FormattingEnabled = true;
+            this.cboUsuario.Location = new System.Drawing.Point(7, 28);
+            this.cboUsuario.Name = "cboUsuario";
+            this.cboUsuario.Size = new System.Drawing.Size(121, 24);
+            this.cboUsuario.TabIndex = 20;
+            this.cboUsuario.SelectedIndexChanged += new System.EventHandler(this.cboUsuario_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(5, 74);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 16);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Lista de gastos";
+            // 
+            // btnVerBalance
+            // 
+            this.btnVerBalance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVerBalance.Location = new System.Drawing.Point(608, 13);
+            this.btnVerBalance.Name = "btnVerBalance";
+            this.btnVerBalance.Size = new System.Drawing.Size(179, 74);
+            this.btnVerBalance.TabIndex = 22;
+            this.btnVerBalance.Text = "Mostrar balance";
+            this.btnVerBalance.UseVisualStyleBackColor = true;
+            this.btnVerBalance.Click += new System.EventHandler(this.btnVerBalance_Click);
+            // 
             // FormResumenGastosPorUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 506);
+            this.Controls.Add(this.btnVerBalance);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cboUsuario);
             this.Controls.Add(this.lblCantidadIntegrantes);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lblTotalGastosGrupo);
@@ -256,5 +292,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblCantidadIntegrantes;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cboUsuario;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnVerBalance;
     }
 }
