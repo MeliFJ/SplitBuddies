@@ -218,6 +218,7 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnCrearGrupo;
         private System.Windows.Forms.Button btnGastos;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAgregarGasto;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnReporte;

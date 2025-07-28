@@ -5,12 +5,8 @@ using GestorDatos.Interfaces;
 using Modelo;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WfVistaSplitBuddies
@@ -20,23 +16,29 @@ namespace WfVistaSplitBuddies
         IGastosControlador gastosControlador;
         IGestorDatosGastos datosGastos;
         List<Grupo> grupos;
-        private Usuario UsuarioConectado;
+        private Usuario UsuarioSeleccionado;
         private Grupo GrupoSeleccionado;
-        public FormResumenGastosPorUsuario(Usuario usuarioseleccionado, List<Grupo> grupos)
+        private List<Usuario> Usuarios= new List<Usuario>();
+        public FormResumenGastosPorUsuario(List<Usuario> usuarioseleccionado, List<Grupo> grupos)
         {
             InitializeComponent();
             datosGastos = new GestorDatosGastos();
             gastosControlador = new GastosControlador(datosGastos, new GestorDatosUsuario());
             cboGruposDelusuarioResumen.Items.Clear();
-            UsuarioConectado = usuarioseleccionado;
+            Usuarios = usuarioseleccionado;
+            
             cboGruposDelusuarioResumen.DataSource = grupos;
             cboGruposDelusuarioResumen.DisplayMember = "Nombre"; // Lo que se muestra
             cboGruposDelusuarioResumen.ValueMember = "Id";
-            cboGruposDelusuarioResumen.SelectedValue = 1;
-            lblusuario.Text = usuarioseleccionado.Nombre;
+            cboGruposDelusuarioResumen.SelectedIndex = 1;
+
+            cboUsuario.DataSource = Usuarios;
+            cboUsuario.DisplayMember = "Nombre"; // Lo que se muestra
+            cboUsuario.ValueMember = "Identificacion";
+            cboUsuario.SelectedIndex = 1;
+
+        
           
-
-
 
         }
 
@@ -52,11 +54,11 @@ namespace WfVistaSplitBuddies
             lblSaldoUsuario.Text = resultado.SaldoUsuario.ToString();
         }
 
-        private void CargarDataGridConDatos( Grupo grupo)
+        private void CargarDataGridConDatos(Usuario usuarioseleccionado, Grupo grupo)
         {
             Limpiar();
             GastoGrupoUsuario resultado =  new GastoGrupoUsuario();
-            resultado = gastosControlador.ConsultarGastosPorGrupoyUsuario(UsuarioConectado, grupo);
+            resultado = gastosControlador.ConsultarGastosPorGrupoyUsuario(usuarioseleccionado, grupo);
             this.dgtGrupos.DataSource = resultado.Gastos;
             lblgastosPagosPorusuario.Text = resultado.TotalGastosPorUsuario.ToString();
             lbltotalPorIntegrante.Text=resultado.TotalGastosPorUsuario.ToString();
@@ -75,17 +77,29 @@ namespace WfVistaSplitBuddies
             {
                 lblSaldoUsuario.ForeColor = Color.Black;
             }
+            lblusuario.Text = UsuarioSeleccionado.Nombre;
 
         }
 
         private void cboGruposDelusuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarDataGridConDatos((Grupo)((ComboBox)sender).SelectedItem);
+          
+            GrupoSeleccionado = (Grupo)((ComboBox)sender).SelectedItem;
         }
 
         private void FormResumenGastosPorUsuario_Load(object sender, EventArgs e)
         {
+            CargarDataGridConDatos(UsuarioSeleccionado, GrupoSeleccionado);
+        }
 
+        private void cboUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UsuarioSeleccionado = (Usuario)((ComboBox)sender).SelectedItem;
+        }
+
+        private void btnVerBalance_Click(object sender, EventArgs e)
+        {
+            CargarDataGridConDatos(UsuarioSeleccionado, GrupoSeleccionado);
         }
     }
 }
