@@ -35,7 +35,7 @@ namespace WfVistaSplitBuddies.Vista
             this.grupoControlador = grupoControlador;
             this.usuarioLogeado = usuarioValido;
             this.usuarioControlador = usuarioControlador;
-            this.gastosControlador = new GastosControlador( new GestorDatosGastos());
+            this.gastosControlador = new GastosControlador( new GestorDatosGastos(),new GestorDatosUsuario());
 
         }
         #endregion
@@ -143,7 +143,7 @@ namespace WfVistaSplitBuddies.Vista
 
         private void btnGastos_Click(object sender, EventArgs e)
         {
-            new FrmReporteGastosUsuario(UsuarioSeleccionado, ListaGruposCargada).ShowDialog();
+            new FrmReporteGastos(UsuarioSeleccionado, ListaGruposCargada).ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -153,6 +153,12 @@ namespace WfVistaSplitBuddies.Vista
             FormGastos form = new FormGastos(gruposSeleccionado,UsuarioSeleccionado,gastosControlador,grupoControlador);
             form.ShowDialog();
             //this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormResumenGastosPorUsuario form = new FormResumenGastosPorUsuario(usuarioLogeado,ListaGruposCargada);
+            form.ShowDialog();
         }
     }
 }

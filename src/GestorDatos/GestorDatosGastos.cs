@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -87,6 +88,33 @@ namespace GestorDatos
 
             return resul?.ToList();
         }
+
+        /// <summary>
+        /// Consulta y retorna la información base de gastos relacionados con un grupo y un usuario específico.
+        ///
+        /// El método realiza lo siguiente:
+        /// 1. Carga las relaciones de gastos asociadas al grupo.
+        /// 2. Carga las relaciones de gastos asociadas al usuario.
+        /// 3. Carga la lista general de gastos registrados.
+        /// 4. Retorna las tres listas en una tupla: 
+        ///    - Relaciones de grupo-gasto
+        ///    - Relaciones de usuario-gasto
+        ///    - Lista completa de gastos
+        ///
+        /// Consideraciones:
+        /// - Este método no realiza cálculos; solo recupera y agrupa los datos necesarios para análisis posteriores.
+        /// - Útil como función auxiliar para separar la lógica de acceso a datos de la lógica de procesamiento.
+        /// </summary>
+        public (List<RelacionGrupoGasto>,List<RelacionUsuarioGasto>,List<Gasto>) ConsultarGastosPorGrupoyUsuario(Usuario usuario, Grupo grupo)
+        {
+            var relacionesGrupoGastos = CargarRelacionGastoGrupo(grupo.Id);
+            var relacionesUsuarioGasto = CargarRelacionGastoUsuario(usuario.Identificacion);
+            var gastos = CargarGastos();
+            return (relacionesGrupoGastos, relacionesUsuarioGasto,gastos);
+           
+        }
+
+        
         public List<Gasto> CargarGastos()
         {
             if (!File.Exists(rutaArchivoGrupos))
@@ -102,5 +130,28 @@ namespace GestorDatos
                 return gastos;
         }
 
+        private List<RelacionGrupoGasto> CargarRelacionGastoGrupo(int idGrupo)
+        {
+            if (!File.Exists(rutaRelacionUsuarioGasto))
+                return new List<RelacionGrupoGasto>();
+            string json = File.ReadAllText(rutaRelacionGrupoGasto);
+            if (string.IsNullOrWhiteSpace(json))
+                return new List<RelacionGrupoGasto>();
+
+            var relacionGrupoGasto = JsonSerializer.Deserialize<List<RelacionGrupoGasto>>(json)?.Where(x => x.GrupoId == idGrupo).ToList();
+            return relacionGrupoGasto;
+        }
+
+        private List<RelacionUsuarioGasto> CargarRelacionGastoUsuario(string idUsuario)
+        {
+            if (!File.Exists(rutaRelacionUsuarioGasto))
+                return new List<RelacionUsuarioGasto>();
+
+            string json = File.ReadAllText(rutaRelacionUsuarioGasto);
+            if (string.IsNullOrWhiteSpace(json))
+                return new List<RelacionUsuarioGasto>();
+            var relacionUsuarioGasto = JsonSerializer.Deserialize<List<RelacionUsuarioGasto>>(json)?.Where(x => x.UsuarioId == idUsuario).ToList();
+            return relacionUsuarioGasto;
+        }
     }
 }

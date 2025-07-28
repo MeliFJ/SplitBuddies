@@ -1,6 +1,6 @@
 ﻿namespace WfVistaSplitBuddies
 {
-    partial class FrmReporteGastosUsuario
+    partial class FrmReporteGastos
     {
         /// <summary>
         /// Required designer variable.
@@ -63,6 +63,7 @@
             this.cboGruposDelusuario.Name = "cboGruposDelusuario";
             this.cboGruposDelusuario.Size = new System.Drawing.Size(320, 24);
             this.cboGruposDelusuario.TabIndex = 3;
+            this.cboGruposDelusuario.SelectedIndexChanged += new System.EventHandler(this.cboGruposDelusuario_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -90,7 +91,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(854, 397);
             this.dataGridView1.TabIndex = 5;
             // 
-            // FrmReporteGastosUsuario
+            // FrmReporteGastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -100,7 +101,7 @@
             this.Controls.Add(this.cboGruposDelusuario);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.label1);
-            this.Name = "FrmReporteGastosUsuario";
+            this.Name = "FrmReporteGastos";
             this.Text = "FrmGastos";
             this.Load += new System.EventHandler(this.FrmReporteGastos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

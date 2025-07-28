@@ -34,11 +34,12 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnGastos = new System.Windows.Forms.Button();
             this.btnCrearGrupo = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.listMiembros = new System.Windows.Forms.ListView();
-            this.btnGastos = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +54,7 @@
             this.listMostrarGrupos.Location = new System.Drawing.Point(5, 20);
             this.listMostrarGrupos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listMostrarGrupos.Name = "listMostrarGrupos";
-            this.listMostrarGrupos.Size = new System.Drawing.Size(356, 315);
+            this.listMostrarGrupos.Size = new System.Drawing.Size(356, 258);
             this.listMostrarGrupos.SmallImageList = this.imageList1;
             this.listMostrarGrupos.TabIndex = 0;
             this.listMostrarGrupos.UseCompatibleStateImageBehavior = false;
@@ -70,11 +71,11 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.listMostrarGrupos);
-            this.groupBox1.Location = new System.Drawing.Point(11, 10);
+            this.groupBox1.Location = new System.Drawing.Point(11, 11);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(384, 358);
+            this.groupBox1.Size = new System.Drawing.Size(384, 301);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Grupos";
@@ -97,6 +98,30 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Miembros";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(19, 315);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 39);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Registrar gastos";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnGastos
+            // 
+            this.btnGastos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGastos.Location = new System.Drawing.Point(180, 315);
+            this.btnGastos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGastos.Name = "btnGastos";
+            this.btnGastos.Size = new System.Drawing.Size(123, 38);
+            this.btnGastos.TabIndex = 3;
+            this.btnGastos.Text = "Mostrar gastos";
+            this.btnGastos.UseVisualStyleBackColor = true;
+            this.btnGastos.Click += new System.EventHandler(this.btnGastos_Click);
             // 
             // btnCrearGrupo
             // 
@@ -138,29 +163,17 @@
             this.listMiembros.UseCompatibleStateImageBehavior = false;
             this.listMiembros.SelectedIndexChanged += new System.EventHandler(this.listMiembros_SelectedIndexChanged);
             // 
-            // btnGastos
+            // button2
             // 
-            this.btnGastos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGastos.Location = new System.Drawing.Point(180, 315);
-            this.btnGastos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGastos.Name = "btnGastos";
-            this.btnGastos.Size = new System.Drawing.Size(111, 38);
-            this.btnGastos.TabIndex = 3;
-            this.btnGastos.Text = "Mostrar gastos";
-            this.btnGastos.UseVisualStyleBackColor = true;
-            this.btnGastos.Click += new System.EventHandler(this.btnGastos_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(63, 315);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 39);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Registrar gastos";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(11, 324);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(173, 39);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Ver mis gastos";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MostrarGrupos
             // 
@@ -168,6 +181,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(929, 377);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -191,5 +205,6 @@
         private System.Windows.Forms.Button btnCrearGrupo;
         private System.Windows.Forms.Button btnGastos;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

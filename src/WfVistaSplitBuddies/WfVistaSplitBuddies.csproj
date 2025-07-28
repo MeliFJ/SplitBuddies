@@ -83,6 +83,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResumenGastosPorUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResumenGastosPorUsuario.Designer.cs">
+      <DependentUpon>FormResumenGastosPorUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReporteGastos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResumenGastosPorUsuario.resx">
+      <DependentUpon>FormResumenGastosPorUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteGastos.resx">
       <DependentUpon>FrmReporteGastos.cs</DependentUpon>

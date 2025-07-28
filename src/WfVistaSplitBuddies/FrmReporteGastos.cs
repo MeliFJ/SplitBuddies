@@ -16,13 +16,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WfVistaSplitBuddies
 {
-    public partial class FrmReporteGastosUsuario : Form
+    public partial class FrmReporteGastos : Form
     {
         IGastosControlador gastosControlador;
         IGestorDatosGastos datosGastos;
         List<Grupo> grupos;
         
-        public FrmReporteGastosUsuario(Usuario usuarioseleccionado, List<Grupo> grupos)
+        public FrmReporteGastos(Usuario usuarioseleccionado, List<Grupo> grupos)
         {
             InitializeComponent();
             datosGastos= new GestorDatosGastos();
@@ -33,7 +33,7 @@ namespace WfVistaSplitBuddies
             cboGruposDelusuario.ValueMember = "Id";
             cboGruposDelusuario.SelectedValue = -1;
             lblusuario.Text = usuarioseleccionado.Nombre;
-            gastosControlador = new GastosControlador(datosGastos);
+            gastosControlador = new GastosControlador(datosGastos,new GestorDatosUsuario());
             CargarDataGridConDatos(usuarioseleccionado);
 
         }
@@ -51,6 +51,11 @@ namespace WfVistaSplitBuddies
         }
 
         private void FrmReporteGastos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboGruposDelusuario_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
