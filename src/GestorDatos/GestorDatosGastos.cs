@@ -85,8 +85,8 @@ namespace GestorDatos
                         join relaciongastousuario in relacionUsuarioGasto
                         on gasto.QuienPagoId equals relaciongastousuario.UsuarioId
                         select gasto;
-
-            return resul?.ToList();
+            
+            return (List<Gasto>)(resul?.Distinct().ToList());
         }
 
         /// <summary>
