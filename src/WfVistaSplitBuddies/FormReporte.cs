@@ -28,7 +28,7 @@ namespace WfVistaSplitBuddies
             else
             {
                 Reporte reporte=this.gestorGastos.GenerarReportePorFechas(fechaDesde, fechaHasta, this.usuarioLogeado);
-                lbMontoMontoGastado.Text = $"Monto Gastado: {reporte.GastoTotal}";
+                lbMontoMontoGastado.Text = $"Monto Pagado: {reporte.GastoTotal}";
                 lbMonteAdeudado.Text = $"Monto Adeudado: {reporte.Deuda}";
                 lbDisponible.Text = $"Monto Disponible: {reporte.Disponible}";
             }
@@ -36,7 +36,27 @@ namespace WfVistaSplitBuddies
 
         private void btnGenerarMes_Click(object sender, EventArgs e)
         {
+            DateTime fechaMes = dtpMes.Value;
+            Reporte reporte = this.gestorGastos.GenerarReportePorMes(fechaMes, this.usuarioLogeado);
+            lbMontoMontoGastado.Text = $"Monto Pagado: {reporte.GastoTotal}";
+            lbMonteAdeudado.Text = $"Monto Adeudado: {reporte.Deuda}";
+            lbDisponible.Text = $"Monto Disponible: {reporte.Disponible}";
+        }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            lbMontoMontoGastado.Text = $"Monto Pagado: 0";
+            lbMonteAdeudado.Text = $"Monto Adeudado: 0";
+            lbDisponible.Text = $"Monto Disponible: 0";
+        }
+
+        private void btnGenerarAnual_Click(object sender, EventArgs e)
+        {
+            DateTime fechaAnual = dtpAnno.Value;
+            Reporte reporte = this.gestorGastos.GenerarReportePorAnno(fechaAnual, this.usuarioLogeado);
+            lbMontoMontoGastado.Text = $"Monto Pagado: {reporte.GastoTotal}";
+            lbMonteAdeudado.Text = $"Monto Adeudado: {reporte.Deuda}";
+            lbDisponible.Text = $"Monto Disponible: {reporte.Disponible}";
         }
     }
 }

@@ -148,11 +148,17 @@ namespace WfVistaSplitBuddies.Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Usuario usuarioValido = new Usuario("116640546", "1234", "Melissa", "Fallas");
-            //Grupo grupo = new Grupo(1, "116640546", "116640546Inversion1", "Inversion1");
-            FormGastos form = new FormGastos(gruposSeleccionado,UsuarioSeleccionado,gastosControlador,grupoControlador);
-            form.ShowDialog();
-            //this.Hide();
+            if (gruposSeleccionado == null)
+            {
+                MessageBox.Show("Debe seleccionar un grupo para agregar gastos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                FormGastos form = new FormGastos(gruposSeleccionado, this.usuarioLogeado, gastosControlador, grupoControlador);
+                form.ShowDialog();
+            }
+                
         }
 
         private void button2_Click(object sender, EventArgs e)
