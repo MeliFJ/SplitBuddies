@@ -54,5 +54,133 @@
   {
     "UsuarioId": "frweiuyuuy",
     "GastoId": 6
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 7
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 7
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 8
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 8
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 9
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 9
+  },
+  {
+    "UsuarioId": "frweiuyuuy",
+    "GastoId": 9
+  },
+  {
+    "UsuarioId": "28592889",
+    "GastoId": 9
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 10
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 10
+  },
+  {
+    "UsuarioId": "frweiuyuuy",
+    "GastoId": 10
+  },
+  {
+    "UsuarioId": "28592889",
+    "GastoId": 10
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 11
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 11
+  },
+  {
+    "UsuarioId": "frweiuyuuy",
+    "GastoId": 11
+  },
+  {
+    "UsuarioId": "28592889",
+    "GastoId": 11
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 12
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 12
+  },
+  {
+    "UsuarioId": "frweiuyuuy",
+    "GastoId": 12
+  },
+  {
+    "UsuarioId": "28592889",
+    "GastoId": 12
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 13
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 13
+  },
+  {
+    "UsuarioId": "frweiuyuuy",
+    "GastoId": 13
+  },
+  {
+    "UsuarioId": "28592889",
+    "GastoId": 13
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 14
+  },
+  {
+    "UsuarioId": "100000007",
+    "GastoId": 14
+  },
+  {
+    "UsuarioId": "100000008",
+    "GastoId": 14
+  },
+  {
+    "UsuarioId": "100000009",
+    "GastoId": 14
+  },
+  {
+    "UsuarioId": "100000046",
+    "GastoId": 14
+  },
+  {
+    "UsuarioId": "100000007",
+    "GastoId": 15
+  },
+  {
+    "UsuarioId": "100000008",
+    "GastoId": 15
+  },
+  {
+    "UsuarioId": "100000009",
+    "GastoId": 15
   }
 ]

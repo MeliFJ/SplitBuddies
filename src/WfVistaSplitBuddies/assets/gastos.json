@@ -52,5 +52,86 @@
     "MontoGasto": 165000,
     "QuienPagoId": "116640546",
     "FechaSeleccionada": "2025-04-16T17:38:11"
+  },
+  {
+    "Id": 7,
+    "NombreGasto": "Viaje a Punta Cana",
+    "DescripcionGasto": "Viaje a Punta Cana para final de cuatrimestre",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 500000,
+    "QuienPagoId": "155851059831",
+    "FechaSeleccionada": "2025-03-18T18:00:34"
+  },
+  {
+    "Id": 8,
+    "NombreGasto": "Viaje a Nicaragua",
+    "DescripcionGasto": "Viaje para conocer el pa\u00EDs de Yani y comer bo\u00F1uelos",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 300000,
+    "QuienPagoId": "155851059831",
+    "FechaSeleccionada": "2025-01-15T18:02:39"
+  },
+  {
+    "Id": 9,
+    "NombreGasto": "Viaje a Tortuguero",
+    "DescripcionGasto": "Viaje a tortuguero para hacer el tour de la tortugas y ver el desove",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 200000,
+    "QuienPagoId": "116640546",
+    "FechaSeleccionada": "2025-07-26T18:15:46"
+  },
+  {
+    "Id": 10,
+    "NombreGasto": "Tortuguero",
+    "DescripcionGasto": "Vaije para hacer la caminata por los senderos del parque nacional",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 150000,
+    "QuienPagoId": "155851059831",
+    "FechaSeleccionada": "2025-07-19T18:16:57"
+  },
+  {
+    "Id": 11,
+    "NombreGasto": "Cena navide\u00F1a",
+    "DescripcionGasto": "Cena navide\u00F1a ",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 500000,
+    "QuienPagoId": "28592889",
+    "FechaSeleccionada": "2025-04-16T18:18:14"
+  },
+  {
+    "Id": 12,
+    "NombreGasto": "Regalos navidad",
+    "DescripcionGasto": "Ahorro para los regalos de navidad",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 1000000,
+    "QuienPagoId": "116640546",
+    "FechaSeleccionada": "2025-05-20T18:19:44"
+  },
+  {
+    "Id": 13,
+    "NombreGasto": "Compra \u00E1rbol de navidad",
+    "DescripcionGasto": "Dinero para comprar el \u00E1rbol de navidad y las decoraciones",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 800000,
+    "QuienPagoId": "frweiuyuuy",
+    "FechaSeleccionada": "2025-02-11T18:20:24"
+  },
+  {
+    "Id": 14,
+    "NombreGasto": "Cena familiar ",
+    "DescripcionGasto": "Cena familiar para organizar la fiesta de fin de a\u00F1o",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 150000,
+    "QuienPagoId": "100000007",
+    "FechaSeleccionada": "2025-05-14T18:21:39"
+  },
+  {
+    "Id": 15,
+    "NombreGasto": "Cena en la Oliva Verde",
+    "DescripcionGasto": "Cena para celebrar el cierre de cuatri",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 500000,
+    "QuienPagoId": "100000007",
+    "FechaSeleccionada": "2025-07-02T18:23:25"
   }
 ]

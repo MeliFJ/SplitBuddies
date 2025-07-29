@@ -22,5 +22,41 @@
   {
     "GastoId": 6,
     "GrupoId": 1
+  },
+  {
+    "GastoId": 7,
+    "GrupoId": 2
+  },
+  {
+    "GastoId": 8,
+    "GrupoId": 2
+  },
+  {
+    "GastoId": 9,
+    "GrupoId": 4
+  },
+  {
+    "GastoId": 10,
+    "GrupoId": 4
+  },
+  {
+    "GastoId": 11,
+    "GrupoId": 6
+  },
+  {
+    "GastoId": 12,
+    "GrupoId": 6
+  },
+  {
+    "GastoId": 13,
+    "GrupoId": 6
+  },
+  {
+    "GastoId": 14,
+    "GrupoId": 7
+  },
+  {
+    "GastoId": 15,
+    "GrupoId": 7
   }
 ]
