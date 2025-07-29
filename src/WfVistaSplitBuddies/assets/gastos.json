@@ -196,5 +196,221 @@
     "MontoGasto": 250000000,
     "QuienPagoId": "100000012",
     "FechaSeleccionada": "2025-02-20T18:47:09"
+  },
+  {
+    "Id": 23,
+    "NombreGasto": "Viaje Isla del Coco",
+    "DescripcionGasto": "Viaje para conocer la Isla del Coco",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 500000,
+    "QuienPagoId": "155851059831",
+    "FechaSeleccionada": "2025-04-09T08:37:09"
+  },
+  {
+    "Id": 24,
+    "NombreGasto": "Festejo cumple de Meli",
+    "DescripcionGasto": "Meli cumple el 24 de diciembre, vamos a comprar todo para decorar",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 250000,
+    "QuienPagoId": "100000002",
+    "FechaSeleccionada": "2025-06-12T08:38:41"
+  },
+  {
+    "Id": 25,
+    "NombreGasto": "Regalo cumple Meli",
+    "DescripcionGasto": "Dinero para comprarle el regalo a Meli",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 150000,
+    "QuienPagoId": "100000029",
+    "FechaSeleccionada": "2025-05-16T08:39:52"
+  },
+  {
+    "Id": 26,
+    "NombreGasto": "Viaje al cerro Chirrip\u00F3",
+    "DescripcionGasto": "Viaje para el cerro Chirrip\u00F3",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 250000,
+    "QuienPagoId": "100000005",
+    "FechaSeleccionada": "2025-05-15T08:40:51"
+  },
+  {
+    "Id": 27,
+    "NombreGasto": "Cerro Danta",
+    "DescripcionGasto": "Viaje para el cerro Dantas",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 300000,
+    "QuienPagoId": "100000017",
+    "FechaSeleccionada": "2025-03-13T08:42:15"
+  },
+  {
+    "Id": 28,
+    "NombreGasto": "Cerro la Trinidad",
+    "DescripcionGasto": "Viaje para el cerro la Trinidad en la Zona de los Santos",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 250000,
+    "QuienPagoId": "100000016",
+    "FechaSeleccionada": "2025-05-15T08:43:41"
+  },
+  {
+    "Id": 29,
+    "NombreGasto": "Cena en la Catarata",
+    "DescripcionGasto": "Cena en el restaurante la Catarata en Santa Mar\u00EDa de Dota",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 75000,
+    "QuienPagoId": "116640546",
+    "FechaSeleccionada": "2025-05-16T08:45:22"
+  },
+  {
+    "Id": 30,
+    "NombreGasto": "Pesca en Copey",
+    "DescripcionGasto": "Tour de pesca en Copey de Dota",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 125000,
+    "QuienPagoId": "100000013",
+    "FechaSeleccionada": "2025-05-01T09:10:59"
+  },
+  {
+    "Id": 31,
+    "NombreGasto": "Trapiche",
+    "DescripcionGasto": "Ir a una trapichada en San Pedro de Tarraz\u00FA",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 30000,
+    "QuienPagoId": "100000017",
+    "FechaSeleccionada": "2025-06-05T09:13:02"
+  },
+  {
+    "Id": 32,
+    "NombreGasto": "Laguna don Manuel",
+    "DescripcionGasto": "Ir a la Laguna don Manuel y llevar comida",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 115000,
+    "QuienPagoId": "155851059831",
+    "FechaSeleccionada": "2025-04-24T09:14:00"
+  },
+  {
+    "Id": 33,
+    "NombreGasto": "Coger caf\u00E9",
+    "DescripcionGasto": "Vivir la experiencia de ir a coger caf\u00E9",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 60000,
+    "QuienPagoId": "100000013",
+    "FechaSeleccionada": "2025-01-10T09:15:15"
+  },
+  {
+    "Id": 34,
+    "NombreGasto": "Represa Pirr\u00EDs",
+    "DescripcionGasto": "Ir a conocer la represa Pirris que est\u00E1 entre San Carlos y LLano Bonito de Le\u00F3n Cort\u00E9s",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 75000,
+    "QuienPagoId": "116640546",
+    "FechaSeleccionada": "2025-05-07T09:16:25"
+  },
+  {
+    "Id": 35,
+    "NombreGasto": "Parque Nacional los Quetzales",
+    "DescripcionGasto": "Ir al parque nacional los quetzales, quedarnos a dormir y hacer senderismo",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 226000,
+    "QuienPagoId": "100000013",
+    "FechaSeleccionada": "2025-04-04T09:17:57"
+  },
+  {
+    "Id": 36,
+    "NombreGasto": "Fundaci\u00F3n Nubotropica",
+    "DescripcionGasto": "Ir a conocer la fundaci\u00F3n nubotropica y hacer senderismo",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 125000,
+    "QuienPagoId": "100000013",
+    "FechaSeleccionada": "2025-04-17T09:20:09"
+  },
+  {
+    "Id": 37,
+    "NombreGasto": "Volcan Arenal",
+    "DescripcionGasto": "Ir a conocer el volcan Arenal y aprovechar para ir a las agua termales",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 500000,
+    "QuienPagoId": "100000023",
+    "FechaSeleccionada": "2025-05-31T09:32:21"
+  },
+  {
+    "Id": 38,
+    "NombreGasto": "Volcan Po\u00E1s",
+    "DescripcionGasto": "Ir a conocer el volcan Turrialba",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 260000,
+    "QuienPagoId": "100000005",
+    "FechaSeleccionada": "2025-05-03T09:33:35"
+  },
+  {
+    "Id": 39,
+    "NombreGasto": "Volcan Iraz\u00FA",
+    "DescripcionGasto": "Tour por el volc\u00E1n Iraz\u00FA y el sector Prusia con los senderos",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 240000,
+    "QuienPagoId": "100000011",
+    "FechaSeleccionada": "2025-05-03T09:34:38"
+  },
+  {
+    "Id": 40,
+    "NombreGasto": "Volcan Barva",
+    "DescripcionGasto": "Conocer el sector de Barva y el volcan",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 180000,
+    "QuienPagoId": "100000011",
+    "FechaSeleccionada": "2025-01-04T09:35:37"
+  },
+  {
+    "Id": 41,
+    "NombreGasto": "Volcan Turrialba",
+    "DescripcionGasto": "Conocer Turrialba y el volcan",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 275000,
+    "QuienPagoId": "100000002",
+    "FechaSeleccionada": "2025-02-02T09:37:35"
+  },
+  {
+    "Id": 42,
+    "NombreGasto": "Safari en Sudafrica",
+    "DescripcionGasto": "Hacer un safari por Sudafrica",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 2500000,
+    "QuienPagoId": "100000029",
+    "FechaSeleccionada": "2024-09-01T09:38:25"
+  },
+  {
+    "Id": 43,
+    "NombreGasto": "Quinta maravilla del mundo",
+    "DescripcionGasto": "Ir a conocer la Rivera Maya y la quinta maravilla del mundo (Chich\u00E9n Itz\u00E1)",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 1250000,
+    "QuienPagoId": "100000029",
+    "FechaSeleccionada": "2025-03-11T09:39:27"
+  },
+  {
+    "Id": 44,
+    "NombreGasto": "Brasil",
+    "DescripcionGasto": "Ir a Rio de Janeiro para vivir la experiencia de los carnavales y conocer el Cristo Redentor",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 3600000,
+    "QuienPagoId": "100000014",
+    "FechaSeleccionada": "2024-05-05T09:41:32"
+  },
+  {
+    "Id": 45,
+    "NombreGasto": "La muralla China",
+    "DescripcionGasto": "Hacer el recorrido por la muralla china",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 4000000,
+    "QuienPagoId": "100000002",
+    "FechaSeleccionada": "2025-02-08T09:42:54"
+  },
+  {
+    "Id": 46,
+    "NombreGasto": "Nieve en Canad\u00E1",
+    "DescripcionGasto": "Conocer la nieve y aprender a patinar sobre hielo",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 3700000,
+    "QuienPagoId": "100000014",
+    "FechaSeleccionada": "2025-04-04T09:43:46"
   }
 ]

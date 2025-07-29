@@ -342,5 +342,409 @@
   {
     "UsuarioId": "100000018",
     "GastoId": 22
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 23
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 23
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 23
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 24
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 24
+  },
+  {
+    "UsuarioId": "100000013",
+    "GastoId": 24
+  },
+  {
+    "UsuarioId": "100000014",
+    "GastoId": 24
+  },
+  {
+    "UsuarioId": "100000029",
+    "GastoId": 24
+  },
+  {
+    "UsuarioId": "100000041",
+    "GastoId": 24
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 25
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 25
+  },
+  {
+    "UsuarioId": "100000013",
+    "GastoId": 25
+  },
+  {
+    "UsuarioId": "100000014",
+    "GastoId": 25
+  },
+  {
+    "UsuarioId": "100000029",
+    "GastoId": 25
+  },
+  {
+    "UsuarioId": "100000041",
+    "GastoId": 25
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 26
+  },
+  {
+    "UsuarioId": "100000005",
+    "GastoId": 26
+  },
+  {
+    "UsuarioId": "100000016",
+    "GastoId": 26
+  },
+  {
+    "UsuarioId": "100000020",
+    "GastoId": 26
+  },
+  {
+    "UsuarioId": "100000037",
+    "GastoId": 26
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 27
+  },
+  {
+    "UsuarioId": "100000005",
+    "GastoId": 27
+  },
+  {
+    "UsuarioId": "100000016",
+    "GastoId": 27
+  },
+  {
+    "UsuarioId": "100000017",
+    "GastoId": 27
+  },
+  {
+    "UsuarioId": "100000020",
+    "GastoId": 27
+  },
+  {
+    "UsuarioId": "100000037",
+    "GastoId": 27
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 28
+  },
+  {
+    "UsuarioId": "100000005",
+    "GastoId": 28
+  },
+  {
+    "UsuarioId": "100000016",
+    "GastoId": 28
+  },
+  {
+    "UsuarioId": "100000017",
+    "GastoId": 28
+  },
+  {
+    "UsuarioId": "100000020",
+    "GastoId": 28
+  },
+  {
+    "UsuarioId": "100000037",
+    "GastoId": 28
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 29
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 29
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 29
+  },
+  {
+    "UsuarioId": "100000013",
+    "GastoId": 29
+  },
+  {
+    "UsuarioId": "100000017",
+    "GastoId": 29
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 30
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 30
+  },
+  {
+    "UsuarioId": "100000013",
+    "GastoId": 30
+  },
+  {
+    "UsuarioId": "100000017",
+    "GastoId": 30
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 31
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 31
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 31
+  },
+  {
+    "UsuarioId": "100000013",
+    "GastoId": 31
+  },
+  {
+    "UsuarioId": "100000017",
+    "GastoId": 31
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 32
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 32
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 32
+  },
+  {
+    "UsuarioId": "100000013",
+    "GastoId": 32
+  },
+  {
+    "UsuarioId": "100000017",
+    "GastoId": 32
+  },
+  {
+    "UsuarioId": "100000013",
+    "GastoId": 33
+  },
+  {
+    "UsuarioId": "100000017",
+    "GastoId": 33
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 34
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 34
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 35
+  },
+  {
+    "UsuarioId": "100000013",
+    "GastoId": 35
+  },
+  {
+    "UsuarioId": "100000017",
+    "GastoId": 35
+  },
+  {
+    "UsuarioId": "100000013",
+    "GastoId": 36
+  },
+  {
+    "UsuarioId": "100000017",
+    "GastoId": 36
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 37
+  },
+  {
+    "UsuarioId": "100000005",
+    "GastoId": 37
+  },
+  {
+    "UsuarioId": "100000011",
+    "GastoId": 37
+  },
+  {
+    "UsuarioId": "100000023",
+    "GastoId": 37
+  },
+  {
+    "UsuarioId": "100000005",
+    "GastoId": 38
+  },
+  {
+    "UsuarioId": "100000011",
+    "GastoId": 38
+  },
+  {
+    "UsuarioId": "100000023",
+    "GastoId": 38
+  },
+  {
+    "UsuarioId": "100000032",
+    "GastoId": 38
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 39
+  },
+  {
+    "UsuarioId": "100000005",
+    "GastoId": 39
+  },
+  {
+    "UsuarioId": "100000011",
+    "GastoId": 39
+  },
+  {
+    "UsuarioId": "100000023",
+    "GastoId": 39
+  },
+  {
+    "UsuarioId": "100000032",
+    "GastoId": 39
+  },
+  {
+    "UsuarioId": "100000005",
+    "GastoId": 40
+  },
+  {
+    "UsuarioId": "100000011",
+    "GastoId": 40
+  },
+  {
+    "UsuarioId": "100000023",
+    "GastoId": 40
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 41
+  },
+  {
+    "UsuarioId": "100000005",
+    "GastoId": 41
+  },
+  {
+    "UsuarioId": "100000023",
+    "GastoId": 41
+  },
+  {
+    "UsuarioId": "100000032",
+    "GastoId": 41
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 42
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 42
+  },
+  {
+    "UsuarioId": "100000029",
+    "GastoId": 42
+  },
+  {
+    "UsuarioId": "100000047",
+    "GastoId": 42
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 43
+  },
+  {
+    "UsuarioId": "100000014",
+    "GastoId": 43
+  },
+  {
+    "UsuarioId": "100000029",
+    "GastoId": 43
+  },
+  {
+    "UsuarioId": "100000047",
+    "GastoId": 43
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 44
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 44
+  },
+  {
+    "UsuarioId": "100000014",
+    "GastoId": 44
+  },
+  {
+    "UsuarioId": "100000029",
+    "GastoId": 44
+  },
+  {
+    "UsuarioId": "100000047",
+    "GastoId": 44
+  },
+  {
+    "UsuarioId": "100000048",
+    "GastoId": 44
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 45
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 45
+  },
+  {
+    "UsuarioId": "100000048",
+    "GastoId": 45
+  },
+  {
+    "UsuarioId": "100000002",
+    "GastoId": 46
+  },
+  {
+    "UsuarioId": "100000014",
+    "GastoId": 46
+  },
+  {
+    "UsuarioId": "100000047",
+    "GastoId": 46
+  },
+  {
+    "UsuarioId": "100000048",
+    "GastoId": 46
   }
 ]
