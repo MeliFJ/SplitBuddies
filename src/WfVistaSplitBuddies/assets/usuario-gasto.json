@@ -242,5 +242,105 @@
   {
     "UsuarioId": "100000047",
     "GastoId": 18
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 19
+  },
+  {
+    "UsuarioId": "100000000",
+    "GastoId": 19
+  },
+  {
+    "UsuarioId": "100000013",
+    "GastoId": 19
+  },
+  {
+    "UsuarioId": "100000030",
+    "GastoId": 19
+  },
+  {
+    "UsuarioId": "100000047",
+    "GastoId": 19
+  },
+  {
+    "UsuarioId": "100000048",
+    "GastoId": 19
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 20
+  },
+  {
+    "UsuarioId": "100000000",
+    "GastoId": 20
+  },
+  {
+    "UsuarioId": "100000013",
+    "GastoId": 20
+  },
+  {
+    "UsuarioId": "100000047",
+    "GastoId": 20
+  },
+  {
+    "UsuarioId": "100000048",
+    "GastoId": 20
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 21
+  },
+  {
+    "UsuarioId": "100000011",
+    "GastoId": 21
+  },
+  {
+    "UsuarioId": "100000012",
+    "GastoId": 21
+  },
+  {
+    "UsuarioId": "100000015",
+    "GastoId": 21
+  },
+  {
+    "UsuarioId": "100000016",
+    "GastoId": 21
+  },
+  {
+    "UsuarioId": "100000017",
+    "GastoId": 21
+  },
+  {
+    "UsuarioId": "100000018",
+    "GastoId": 21
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 22
+  },
+  {
+    "UsuarioId": "100000011",
+    "GastoId": 22
+  },
+  {
+    "UsuarioId": "100000012",
+    "GastoId": 22
+  },
+  {
+    "UsuarioId": "100000015",
+    "GastoId": 22
+  },
+  {
+    "UsuarioId": "100000016",
+    "GastoId": 22
+  },
+  {
+    "UsuarioId": "100000017",
+    "GastoId": 22
+  },
+  {
+    "UsuarioId": "100000018",
+    "GastoId": 22
   }
 ]

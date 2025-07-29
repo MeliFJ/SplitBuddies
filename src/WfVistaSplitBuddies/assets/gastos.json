@@ -160,5 +160,41 @@
     "MontoGasto": 150000,
     "QuienPagoId": "100000000",
     "FechaSeleccionada": "2025-05-23T18:34:13"
+  },
+  {
+    "Id": 19,
+    "NombreGasto": "Cumple Abuela",
+    "DescripcionGasto": "Compra de regalo para la abuela",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 100000,
+    "QuienPagoId": "100000013",
+    "FechaSeleccionada": "2025-04-16T18:38:44"
+  },
+  {
+    "Id": 20,
+    "NombreGasto": "Medicina abuela",
+    "DescripcionGasto": "Compra de medicinas para la abuela",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 85000,
+    "QuienPagoId": "100000047",
+    "FechaSeleccionada": "2025-07-08T18:39:46"
+  },
+  {
+    "Id": 21,
+    "NombreGasto": "Viaje a Europa",
+    "DescripcionGasto": "Crucero por Europa visitando Italia, Francia y Espa\u00F1a",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 4000000,
+    "QuienPagoId": "100000011",
+    "FechaSeleccionada": "2025-04-16T18:42:59"
+  },
+  {
+    "Id": 22,
+    "NombreGasto": "Viaje a Alemania",
+    "DescripcionGasto": "Viaje para conocer Berlin",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 250000000,
+    "QuienPagoId": "100000012",
+    "FechaSeleccionada": "2025-02-20T18:47:09"
   }
 ]

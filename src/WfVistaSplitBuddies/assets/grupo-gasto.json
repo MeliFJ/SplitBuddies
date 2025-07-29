@@ -70,5 +70,21 @@
   {
     "GastoId": 18,
     "GrupoId": 8
+  },
+  {
+    "GastoId": 19,
+    "GrupoId": 9
+  },
+  {
+    "GastoId": 20,
+    "GrupoId": 9
+  },
+  {
+    "GastoId": 21,
+    "GrupoId": 10
+  },
+  {
+    "GastoId": 22,
+    "GrupoId": 10
   }
 ]
