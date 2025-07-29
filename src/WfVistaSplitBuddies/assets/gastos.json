@@ -43,5 +43,14 @@
     "MontoGasto": 500000,
     "QuienPagoId": "155851059831",
     "FechaSeleccionada": "2025-07-28T10:32:05.5871939-06:00"
+  },
+  {
+    "Id": 6,
+    "NombreGasto": "Renta de local",
+    "DescripcionGasto": "Renta de local para fiesta de fin de a\u00F1o",
+    "EnlaceGasto": "https://www.google.com/",
+    "MontoGasto": 165000,
+    "QuienPagoId": "116640546",
+    "FechaSeleccionada": "2025-04-16T17:38:11"
   }
 ]
