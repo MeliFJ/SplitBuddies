@@ -6,16 +6,42 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 
-
 namespace GestorDatos
 {
+    /// <summary>
+    /// Clase base encargada de la gestión de rutas y operaciones comunes de serialización y deserialización de datos en formato JSON.
+    /// Proporciona métodos para guardar y cargar listas de objetos desde archivos JSON, así como rutas estándar para los archivos de datos de la aplicación.
+    /// </summary>
     public class GestorDatosBase 
     {
+        /// <summary>
+        /// Ruta completa al archivo de datos principal (usuarios).
+        /// </summary>
         internal readonly string rutaArchivo = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\datos.json"));
+
+        /// <summary>
+        /// Ruta completa al archivo de datos de grupos.
+        /// </summary>
         internal readonly string rutaArchivoGrupos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\grupos.json"));
+
+        /// <summary>
+        /// Ruta completa al archivo de relaciones usuario-grupo.
+        /// </summary>
         internal readonly string rutaArchivoUsuarioGrupos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\usuario-grupo.json"));
+
+        /// <summary>
+        /// Ruta completa al archivo de datos de gastos.
+        /// </summary>
         internal readonly string rutaArchivoGastos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\gastos.json"));
+
+        /// <summary>
+        /// Ruta completa al archivo de relaciones grupo-gasto.
+        /// </summary>
         internal readonly string rutaRelacionGrupoGasto = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\grupo-gasto.json"));
+
+        /// <summary>
+        /// Ruta completa al archivo de relaciones usuario-gasto.
+        /// </summary>
         internal readonly string rutaRelacionUsuarioGasto = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\assets\usuario-gasto.json"));
 
         /// <summary>
@@ -39,8 +65,7 @@ namespace GestorDatos
         /// </summary>
         /// <typeparam name="T">El tipo de objeto que contiene la lista.</typeparam>
         /// <param name="rutaArchivo">Ruta completa del archivo JSON.</param>
-        /// <returns>Una lista de objetos del tipo especificado. Si el archivo no existe o está vacío, retorna una lista vacía.</returns
-
+        /// <returns>Una lista de objetos del tipo especificado. Si el archivo no existe o está vacío, retorna una lista vacía.</returns>
         public static List<T> CargarDesdeJson<T>(string rutaArchivo)
         {
             if (!File.Exists(rutaArchivo))
