@@ -60,6 +60,11 @@ namespace WfVistaSplitBuddies.Vista
         private List<Usuario> ListaUsuarios;
 
         /// <summary>
+        /// Lista de usuarios cargados.
+        /// </summary>
+        private List<Usuario> integrantesDelGrupo;
+
+        /// <summary>
         /// Grupo seleccionado en la lista de grupos.
         /// </summary>
         Grupo gruposSeleccionado;
@@ -169,9 +174,9 @@ namespace WfVistaSplitBuddies.Vista
         internal void CargarMiembros(Grupo grupo)
         {
             listMiembros.Items.Clear();
-            var usuarios = usuarioControlador.CargarUsuarioPorGrupos(grupo.Id);
+            integrantesDelGrupo = usuarioControlador.CargarUsuarioPorGrupos(grupo.Id);
             ListaUsuarios = new List<Usuario>();
-            foreach (var usuario in usuarios)
+            foreach (var usuario in integrantesDelGrupo)
             {
                 ListViewItem item = new ListViewItem(usuario.Identificacion);
                 item.Tag = usuario;
@@ -241,7 +246,7 @@ namespace WfVistaSplitBuddies.Vista
             }
             else
             {
-                FormGastos form = new FormGastos(gruposSeleccionado, this.usuarioLogeado, gastosControlador, grupoControlador);
+                FormGastos form = new FormGastos(gruposSeleccionado, integrantesDelGrupo, this.usuarioLogeado, gastosControlador, grupoControlador);
                 form.ShowDialog();
             }
         }

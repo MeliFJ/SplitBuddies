@@ -27,11 +27,6 @@ namespace WfVistaSplitBuddies
         IGestorDatosGastos datosGastos;
 
         /// <summary>
-        /// Lista de grupos disponibles para el usuario.
-        /// </summary>
-        List<Grupo> grupos;
-
-        /// <summary>
         /// Usuario actualmente seleccionado para mostrar el resumen.
         /// </summary>
         private Usuario UsuarioSeleccionado;
