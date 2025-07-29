@@ -58,5 +58,17 @@
   {
     "GastoId": 15,
     "GrupoId": 7
+  },
+  {
+    "GastoId": 16,
+    "GrupoId": 7
+  },
+  {
+    "GastoId": 17,
+    "GrupoId": 8
+  },
+  {
+    "GastoId": 18,
+    "GrupoId": 8
   }
 ]

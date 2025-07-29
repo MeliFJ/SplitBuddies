@@ -182,5 +182,65 @@
   {
     "UsuarioId": "100000009",
     "GastoId": 15
+  },
+  {
+    "UsuarioId": "100000007",
+    "GastoId": 16
+  },
+  {
+    "UsuarioId": "100000008",
+    "GastoId": 16
+  },
+  {
+    "UsuarioId": "100000046",
+    "GastoId": 16
+  },
+  {
+    "UsuarioId": "100000048",
+    "GastoId": 16
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 17
+  },
+  {
+    "UsuarioId": "100000000",
+    "GastoId": 17
+  },
+  {
+    "UsuarioId": "100000014",
+    "GastoId": 17
+  },
+  {
+    "UsuarioId": "100000029",
+    "GastoId": 17
+  },
+  {
+    "UsuarioId": "100000043",
+    "GastoId": 17
+  },
+  {
+    "UsuarioId": "100000047",
+    "GastoId": 17
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 18
+  },
+  {
+    "UsuarioId": "100000000",
+    "GastoId": 18
+  },
+  {
+    "UsuarioId": "100000029",
+    "GastoId": 18
+  },
+  {
+    "UsuarioId": "100000043",
+    "GastoId": 18
+  },
+  {
+    "UsuarioId": "100000047",
+    "GastoId": 18
   }
 ]
