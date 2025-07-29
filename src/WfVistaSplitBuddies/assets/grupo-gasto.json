@@ -182,5 +182,101 @@
   {
     "GastoId": 46,
     "GrupoId": 15
+  },
+  {
+    "GastoId": 47,
+    "GrupoId": 16
+  },
+  {
+    "GastoId": 48,
+    "GrupoId": 16
+  },
+  {
+    "GastoId": 49,
+    "GrupoId": 16
+  },
+  {
+    "GastoId": 50,
+    "GrupoId": 16
+  },
+  {
+    "GastoId": 51,
+    "GrupoId": 16
+  },
+  {
+    "GastoId": 52,
+    "GrupoId": 16
+  },
+  {
+    "GastoId": 53,
+    "GrupoId": 16
+  },
+  {
+    "GastoId": 54,
+    "GrupoId": 16
+  },
+  {
+    "GastoId": 55,
+    "GrupoId": 16
+  },
+  {
+    "GastoId": 56,
+    "GrupoId": 17
+  },
+  {
+    "GastoId": 57,
+    "GrupoId": 17
+  },
+  {
+    "GastoId": 58,
+    "GrupoId": 17
+  },
+  {
+    "GastoId": 59,
+    "GrupoId": 19
+  },
+  {
+    "GastoId": 60,
+    "GrupoId": 20
+  },
+  {
+    "GastoId": 61,
+    "GrupoId": 20
+  },
+  {
+    "GastoId": 62,
+    "GrupoId": 20
+  },
+  {
+    "GastoId": 63,
+    "GrupoId": 21
+  },
+  {
+    "GastoId": 64,
+    "GrupoId": 22
+  },
+  {
+    "GastoId": 65,
+    "GrupoId": 23
+  },
+  {
+    "GastoId": 66,
+    "GrupoId": 23
+  },
+  {
+    "GastoId": 67,
+    "GrupoId": 24
+  },
+  {
+    "GastoId": 68,
+    "GrupoId": 24
+  },
+  {
+    "GastoId": 69,
+    "GrupoId": 25
+  },
+  {
+    "GastoId": 70,
+    "GrupoId": 25
   }
 ]
