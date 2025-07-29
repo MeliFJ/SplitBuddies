@@ -100,6 +100,8 @@ namespace WfVistaSplitBuddies.Vista
             listMostrarGrupos.Columns.Add("Logo", 150);
             listMostrarGrupos.Columns.Add("Nombre del Grupo", 100);
             listMostrarGrupos.MultiSelect = false;
+            ListaUsuarios = usuarioControlador.CargarUsuarios().Select(x => x.Value).ToList();
+
         }
 
         /// <summary>
@@ -164,8 +166,7 @@ namespace WfVistaSplitBuddies.Vista
             listMiembros.Columns.Add("Apellido", 100);
             listMiembros.Columns.Add("Balance", 100);
             listMiembros.MultiSelect = false;
-            ListaUsuarios = usuarioControlador.CargarUsuarios().Select(x => x.Value).ToList();
-        }
+            }
 
         /// <summary>
         /// Carga y muestra los miembros del grupo seleccionado en el ListView.
@@ -175,7 +176,6 @@ namespace WfVistaSplitBuddies.Vista
         {
             listMiembros.Items.Clear();
             integrantesDelGrupo = usuarioControlador.CargarUsuarioPorGrupos(grupo.Id);
-            ListaUsuarios = new List<Usuario>();
             foreach (var usuario in integrantesDelGrupo)
             {
                 ListViewItem item = new ListViewItem(usuario.Identificacion);
@@ -261,14 +261,6 @@ namespace WfVistaSplitBuddies.Vista
             form.Show();
         }
 
-        /// <summary>
-        /// Evento alternativo para ver el resumen de gastos por usuario.
-        /// </summary>
-        private void button2_Click(object sender, EventArgs e)
-        {
-            FormResumenGastosPorUsuario form = new FormResumenGastosPorUsuario(this.ListaUsuarios, ListaGruposCargada);
-            form.ShowDialog();
-        }
 
         /// <summary>
         /// Evento alternativo para ver reportes.

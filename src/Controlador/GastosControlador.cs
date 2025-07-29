@@ -100,10 +100,11 @@ namespace Controlador
             List<Gasto> gastos = resultadogestor.Item3;
             var gastosPorgrupoUsuario = from gasto
                                        in gastos
-                                       join relaciongastousuario in usuariogastos
-                                       on gasto.QuienPagoId equals relaciongastousuario.UsuarioId
-                                       join relaciongastogrupo in grupoGastos
-                                       on relaciongastousuario.GastoId equals relaciongastogrupo.GastoId
+                                        join relaciongastousuario in usuariogastos
+                                        on gasto.QuienPagoId equals relaciongastousuario.UsuarioId
+                                        join relaciongastogrupo in grupoGastos
+                                        on relaciongastousuario.GastoId equals relaciongastogrupo.GastoId
+                                       //on new { relaciongastousuario.GastoId, relaciongastousuario.UsuarioId } equals new { relaciongastogrupo.GastoId, relaciongastogrupo.UsuarioId }
                                        select gasto;
             gastosPorgrupoUsuario = gastosPorgrupoUsuario.Distinct();
             var gastosPorgrupo = from gasto

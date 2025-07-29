@@ -53,10 +53,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(315, 14);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(236, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 25);
+            this.label2.Size = new System.Drawing.Size(59, 20);
             this.label2.TabIndex = 8;
             this.label2.Text = "Grupo";
             // 
@@ -65,10 +64,10 @@
             this.cboGruposDelusuarioResumen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboGruposDelusuarioResumen.FormattingEnabled = true;
-            this.cboGruposDelusuarioResumen.Location = new System.Drawing.Point(318, 44);
-            this.cboGruposDelusuarioResumen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboGruposDelusuarioResumen.Location = new System.Drawing.Point(238, 35);
+            this.cboGruposDelusuarioResumen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboGruposDelusuarioResumen.Name = "cboGruposDelusuarioResumen";
-            this.cboGruposDelusuarioResumen.Size = new System.Drawing.Size(562, 33);
+            this.cboGruposDelusuarioResumen.Size = new System.Drawing.Size(422, 28);
             this.cboGruposDelusuarioResumen.TabIndex = 7;
             this.cboGruposDelusuarioResumen.SelectedIndexChanged += new System.EventHandler(this.cboGruposDelusuario_SelectedIndexChanged);
             // 
@@ -76,10 +75,9 @@
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblusuario.Location = new System.Drawing.Point(201, 56);
-            this.lblusuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblusuario.Location = new System.Drawing.Point(151, 45);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(81, 25);
+            this.lblusuario.Size = new System.Drawing.Size(59, 20);
             this.lblusuario.TabIndex = 6;
             this.lblusuario.Text = "yanixa";
             // 
@@ -87,10 +85,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 14);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(4, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 25);
+            this.label1.Size = new System.Drawing.Size(131, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Gastos usuario";
             // 
@@ -99,10 +96,9 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(346, 586);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(260, 326);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(318, 25);
+            this.label3.Size = new System.Drawing.Size(245, 20);
             this.label3.TabIndex = 9;
             this.label3.Text = "Gastos totales por integrante";
             // 
@@ -111,10 +107,9 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(352, 688);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(264, 407);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(307, 25);
+            this.label4.Size = new System.Drawing.Size(234, 20);
             this.label4.TabIndex = 10;
             this.label4.Text = "Gastos pagados del usuario";
             // 
@@ -123,10 +118,9 @@
             this.lblSaldoUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSaldoUsuario.AutoSize = true;
             this.lblSaldoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaldoUsuario.Location = new System.Drawing.Point(770, 628);
-            this.lblSaldoUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSaldoUsuario.Location = new System.Drawing.Point(578, 359);
             this.lblSaldoUsuario.Name = "lblSaldoUsuario";
-            this.lblSaldoUsuario.Size = new System.Drawing.Size(25, 25);
+            this.lblSaldoUsuario.Size = new System.Drawing.Size(19, 20);
             this.lblSaldoUsuario.TabIndex = 11;
             this.lblSaldoUsuario.Text = "0";
             // 
@@ -135,10 +129,9 @@
             this.lbltotalPorIntegrante.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbltotalPorIntegrante.AutoSize = true;
             this.lbltotalPorIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalPorIntegrante.Location = new System.Drawing.Point(348, 628);
-            this.lbltotalPorIntegrante.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbltotalPorIntegrante.Location = new System.Drawing.Point(261, 359);
             this.lbltotalPorIntegrante.Name = "lbltotalPorIntegrante";
-            this.lbltotalPorIntegrante.Size = new System.Drawing.Size(77, 25);
+            this.lbltotalPorIntegrante.Size = new System.Drawing.Size(59, 20);
             this.lbltotalPorIntegrante.TabIndex = 12;
             this.lbltotalPorIntegrante.Text = "10000";
             // 
@@ -147,10 +140,9 @@
             this.lblgastosPagosPorusuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblgastosPagosPorusuario.AutoSize = true;
             this.lblgastosPagosPorusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblgastosPagosPorusuario.Location = new System.Drawing.Point(352, 730);
-            this.lblgastosPagosPorusuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblgastosPagosPorusuario.Location = new System.Drawing.Point(264, 441);
             this.lblgastosPagosPorusuario.Name = "lblgastosPagosPorusuario";
-            this.lblgastosPagosPorusuario.Size = new System.Drawing.Size(77, 25);
+            this.lblgastosPagosPorusuario.Size = new System.Drawing.Size(59, 20);
             this.lblgastosPagosPorusuario.TabIndex = 13;
             this.lblgastosPagosPorusuario.Text = "10000";
             // 
@@ -160,12 +152,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgtGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtGrupos.Location = new System.Drawing.Point(10, 145);
-            this.dgtGrupos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgtGrupos.Location = new System.Drawing.Point(8, 116);
+            this.dgtGrupos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgtGrupos.Name = "dgtGrupos";
             this.dgtGrupos.RowHeadersWidth = 51;
             this.dgtGrupos.RowTemplate.Height = 24;
-            this.dgtGrupos.Size = new System.Drawing.Size(1170, 409);
+            this.dgtGrupos.Size = new System.Drawing.Size(878, 184);
             this.dgtGrupos.TabIndex = 14;
             // 
             // lblSaldoDelusuario
@@ -173,10 +165,9 @@
             this.lblSaldoDelusuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSaldoDelusuario.AutoSize = true;
             this.lblSaldoDelusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaldoDelusuario.Location = new System.Drawing.Point(756, 586);
-            this.lblSaldoDelusuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSaldoDelusuario.Location = new System.Drawing.Point(567, 326);
             this.lblSaldoDelusuario.Name = "lblSaldoDelusuario";
-            this.lblSaldoDelusuario.Size = new System.Drawing.Size(196, 25);
+            this.lblSaldoDelusuario.Size = new System.Drawing.Size(148, 20);
             this.lblSaldoDelusuario.TabIndex = 15;
             this.lblSaldoDelusuario.Text = "Saldo del usuario";
             // 
@@ -185,10 +176,9 @@
             this.lblTotalGastosGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalGastosGrupo.AutoSize = true;
             this.lblTotalGastosGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalGastosGrupo.Location = new System.Drawing.Point(9, 628);
-            this.lblTotalGastosGrupo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalGastosGrupo.Location = new System.Drawing.Point(7, 359);
             this.lblTotalGastosGrupo.Name = "lblTotalGastosGrupo";
-            this.lblTotalGastosGrupo.Size = new System.Drawing.Size(77, 25);
+            this.lblTotalGastosGrupo.Size = new System.Drawing.Size(59, 20);
             this.lblTotalGastosGrupo.TabIndex = 17;
             this.lblTotalGastosGrupo.Text = "10000";
             // 
@@ -197,10 +187,9 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(8, 586);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(6, 326);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(270, 25);
+            this.label8.Size = new System.Drawing.Size(207, 20);
             this.label8.TabIndex = 16;
             this.label8.Text = "Gastos totales del grupo";
             // 
@@ -209,10 +198,9 @@
             this.lblCantidadIntegrantes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCantidadIntegrantes.AutoSize = true;
             this.lblCantidadIntegrantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadIntegrantes.Location = new System.Drawing.Point(20, 730);
-            this.lblCantidadIntegrantes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCantidadIntegrantes.Location = new System.Drawing.Point(15, 441);
             this.lblCantidadIntegrantes.Name = "lblCantidadIntegrantes";
-            this.lblCantidadIntegrantes.Size = new System.Drawing.Size(77, 25);
+            this.lblCantidadIntegrantes.Size = new System.Drawing.Size(59, 20);
             this.lblCantidadIntegrantes.TabIndex = 19;
             this.lblCantidadIntegrantes.Text = "10000";
             // 
@@ -221,20 +209,19 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(18, 688);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(14, 407);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(264, 25);
+            this.label10.Size = new System.Drawing.Size(202, 20);
             this.label10.TabIndex = 18;
             this.label10.Text = "Cantidad de integrantes";
             // 
             // cboUsuario
             // 
             this.cboUsuario.FormattingEnabled = true;
-            this.cboUsuario.Location = new System.Drawing.Point(10, 44);
-            this.cboUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboUsuario.Location = new System.Drawing.Point(8, 35);
+            this.cboUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboUsuario.Name = "cboUsuario";
-            this.cboUsuario.Size = new System.Drawing.Size(180, 33);
+            this.cboUsuario.Size = new System.Drawing.Size(136, 28);
             this.cboUsuario.TabIndex = 20;
             this.cboUsuario.SelectedIndexChanged += new System.EventHandler(this.cboUsuario_SelectedIndexChanged);
             // 
@@ -242,20 +229,19 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 116);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(6, 93);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(173, 25);
+            this.label5.Size = new System.Drawing.Size(132, 20);
             this.label5.TabIndex = 21;
             this.label5.Text = "Lista de gastos";
             // 
             // btnVerBalance
             // 
             this.btnVerBalance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVerBalance.Location = new System.Drawing.Point(912, 20);
-            this.btnVerBalance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVerBalance.Location = new System.Drawing.Point(684, 16);
+            this.btnVerBalance.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnVerBalance.Name = "btnVerBalance";
-            this.btnVerBalance.Size = new System.Drawing.Size(268, 116);
+            this.btnVerBalance.Size = new System.Drawing.Size(201, 93);
             this.btnVerBalance.TabIndex = 22;
             this.btnVerBalance.Text = "Mostrar balance";
             this.btnVerBalance.UseVisualStyleBackColor = true;
@@ -263,10 +249,10 @@
             // 
             // FormResumenGastosPorUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1200, 791);
+            this.ClientSize = new System.Drawing.Size(900, 490);
             this.Controls.Add(this.btnVerBalance);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cboUsuario);
@@ -285,7 +271,7 @@
             this.Controls.Add(this.cboGruposDelusuarioResumen);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormResumenGastosPorUsuario";
             this.Text = "FormResumenGastosPorUsuario";
             this.Load += new System.EventHandler(this.FormResumenGastosPorUsuario_Load);
