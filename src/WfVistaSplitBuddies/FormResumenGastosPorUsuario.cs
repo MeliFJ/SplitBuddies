@@ -39,14 +39,14 @@ namespace WfVistaSplitBuddies
         /// <summary>
         /// Usuario principal para el cual se muestra el resumen.
         /// </summary>
-        private Usuario Usuarios;
+        private List<Usuario> Usuarios;
 
         /// <summary>
         /// Inicializa una nueva instancia del formulario <see cref="FormResumenGastosPorUsuario"/>.
         /// </summary>
         /// <param name="usuarioseleccionado">Usuario para el cual se mostrará el resumen.</param>
         /// <param name="grupos">Lista de grupos disponibles.</param>
-        public FormResumenGastosPorUsuario(Usuario usuarioseleccionado, List<Grupo> grupos)
+        public FormResumenGastosPorUsuario(List<Usuario> usuarioseleccionado, List<Grupo> grupos)
         {
             InitializeComponent();
             datosGastos = new GestorDatosGastos();
