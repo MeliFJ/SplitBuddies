@@ -98,9 +98,9 @@ namespace Controlador
         /// Carga la lista de todos los grupos disponibles.
         /// </summary>
         /// <returns>Una lista de objetos <see cref="Grupo"/>.</returns>
-        public List<Grupo> CargarGrupos()
+        public List<Grupo> CargarGruposPorUsuario(string usuarioId)
         {
-            return gestorDatos.CargarGrupos();
+            return gestorDatos.CargarGruposPorUsuario(usuarioId);
         }
 
         /// <summary>

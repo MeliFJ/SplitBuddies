@@ -15,7 +15,7 @@ namespace Controlador.Interfaces
         /// Carga la lista de todos los grupos disponibles.
         /// </summary>
         /// <returns>Una lista de objetos <see cref="Grupo"/>.</returns>
-        List<Grupo> CargarGrupos();
+        List<Grupo> CargarGruposPorUsuario(string usuarioId);
 
         /// <summary>
         /// Carga los posibles integrantes que pueden ser añadidos a un grupo.

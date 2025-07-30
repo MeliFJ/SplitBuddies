@@ -52,6 +52,7 @@ namespace WfVistaSplitBuddies
                 Reporte reporte = this.gestorGastos.GenerarReportePorFechas(fechaDesde, fechaHasta, this.usuarioLogeado);
                 lbMontoMontoGastado.Text = $"Monto pagado en el periodo: {reporte.GastoTotal}";
                 lbMonteAdeudado.Text = $"Monto adeudado en el periodo: {reporte.Deuda}";
+                this.lbDisponible.ForeColor = reporte.Disponible > 0 ? System.Drawing.Color.Green : System.Drawing.Color.Red;
                 lbDisponible.Text = $"Monto disponible en el periodo: {reporte.Disponible}";
             }
         }
@@ -66,6 +67,7 @@ namespace WfVistaSplitBuddies
             Reporte reporte = this.gestorGastos.GenerarReportePorMes(fechaMes, this.usuarioLogeado);
             lbMontoMontoGastado.Text = $"Monto pagado en el periodo: {reporte.GastoTotal}";
             lbMonteAdeudado.Text = $"Monto adeudado en el periodo: {reporte.Deuda}";
+            this.lbDisponible.ForeColor = reporte.Disponible > 0 ? System.Drawing.Color.Green : System.Drawing.Color.Red;
             lbDisponible.Text = $"Monto disponible en el periodo: {reporte.Disponible}";
         }
 
@@ -78,6 +80,7 @@ namespace WfVistaSplitBuddies
             lbMontoMontoGastado.Text = $"Monto pagado en el periodo: 0";
             lbMonteAdeudado.Text = $"Monto adeudado en el periodo: 0";
             lbDisponible.Text = $"Monto disponible en el periodo: 0";
+            this.lbDisponible.ForeColor = System.Drawing.Color.Black;
         }
 
         /// <summary>
@@ -90,6 +93,7 @@ namespace WfVistaSplitBuddies
             Reporte reporte = this.gestorGastos.GenerarReportePorAnno(fechaAnual, this.usuarioLogeado);
             lbMontoMontoGastado.Text = $"Monto pagado en el periodo: {reporte.GastoTotal}";
             lbMonteAdeudado.Text = $"Monto adeudado en el periodo: {reporte.Deuda}";
+            this.lbDisponible.ForeColor = reporte.Disponible > 0 ? System.Drawing.Color.Green : System.Drawing.Color.Red;
             lbDisponible.Text = $"Monto disponible en el periodo: {reporte.Disponible}";
         }
     }
