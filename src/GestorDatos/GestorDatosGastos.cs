@@ -254,5 +254,42 @@ namespace GestorDatos
             Reporte reporte = new Reporte(totalPagados, totalAdeudados);
             return reporte;
         }
+
+        /// <summary>
+        /// Carga la lista de gastos asociados a un grupo específico.
+        /// </summary>
+        /// <param name="idGrupo">Identificador único del grupo.</param>
+        /// <returns>Una lista de objetos <see cref="Gasto"/> asociados al grupo.</returns>
+        public List<Gasto> CargarGastosXGrupo(int idGrupo)
+        {
+            List<RelacionGrupoGasto> relacionGrupoGasto = CargarRelacionGastoGrupo(idGrupo);
+
+            // Verifica si la relación de grupo-gasto está vacía o si el archivo de gastos no existe
+            if (relacionGrupoGasto == null || !relacionGrupoGasto.Any())
+                return new List<Gasto>();
+
+            if (!File.Exists(rutaArchivoGastos))
+                return new List<Gasto>();
+
+            string json = File.ReadAllText(rutaArchivoGastos);
+            if (string.IsNullOrWhiteSpace(json))
+                return new List<Gasto>();
+
+            // Deserializa la lista de gastos
+            var todosLosGastos = JsonSerializer.Deserialize<List<Gasto>>(json);
+            if (todosLosGastos == null)
+                return new List<Gasto>();
+
+            // Filtra los gastos que pertenecen al grupo especificado
+            var idsGastosDelGrupo = relacionGrupoGasto.Select(r => r.GastoId).ToHashSet();
+
+            // Utiliza un HashSet para mejorar la eficiencia de búsqueda
+            var gastosDelGrupo = todosLosGastos
+                .Where(g => idsGastosDelGrupo.Contains(g.Id))
+                .Distinct()
+                .ToList();
+
+            return gastosDelGrupo;
+        }
     }
 }

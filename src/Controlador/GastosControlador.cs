@@ -180,5 +180,39 @@ namespace Controlador
             Reporte gastosXUsuario = this.gestorGastos.ObtenerReportePorUsuario(usuario.Identificacion, primerDia, ultimoDia);
             return gastosXUsuario;
         }
+
+        /// <summary>
+        /// Calcula el total de gastos realizados por cada usuario integrante de un grupo específico.
+        /// 
+        /// Este método obtiene todos los gastos asociados al grupo indicado y suma el monto total pagado por cada usuario
+        /// que forma parte de la lista de integrantes proporcionada. El resultado es un diccionario donde la clave es el
+        /// identificador del usuario y el valor es la suma de los montos de los gastos que ha pagado en el grupo.
+        /// 
+        /// Consideraciones:
+        /// - Solo se consideran los gastos cuyo pagador está en la lista de integrantes.
+        /// - Si un integrante no ha realizado ningún gasto, no aparecerá en el diccionario resultante.
+        /// </summary>
+        /// <param name="idGrupo">Identificador único del grupo.</param>
+        /// <param name="integrantes">Lista de usuarios integrantes del grupo.</param>
+        /// <returns>
+        /// Un diccionario donde la clave es el identificador del usuario y el valor es el total de gastos pagados por ese usuario en el grupo.
+        /// </returns>
+        public Dictionary<string, double> CargarGastoPorUsuarioEnGrupo(int idGrupo, List<Usuario> integrantes)
+        {
+            List<Gasto> gastosXGrupo = gestorGastos.CargarGastosXGrupo(idGrupo);
+            var idsIntegrantes = integrantes.Select(i => i.Identificacion).ToHashSet();
+
+            var gastosPorUsuario = gastosXGrupo
+                .Where(g => idsIntegrantes.Contains(g.QuienPagoId))
+                .GroupBy(g => g.QuienPagoId)
+                .ToDictionary(
+                    grupo => grupo.Key, // Esto es el QuienPagoId
+                    grupo => grupo.Sum(g => g.MontoGasto)
+                );
+
+            return gastosPorUsuario;
+        }
+
+
     }
 }

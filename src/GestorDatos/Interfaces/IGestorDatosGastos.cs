@@ -63,5 +63,13 @@ namespace GestorDatos.Interfaces
         /// </list>
         /// </returns>
         (List<RelacionGrupoGasto>, List<RelacionUsuarioGasto>, List<Gasto>) ConsultarGastosPorGrupoyUsuario(Usuario usuario, Grupo grupo);
+
+
+        /// <summary>
+        /// Carga la lista de gastos asociados a un grupo específico.
+        /// </summary>
+        /// <param name="idGrupo">Identificador único del grupo.</param>
+        /// <returns>Una lista de objetos <see cref="Gasto"/> asociados al grupo.</returns>
+        List<Gasto> CargarGastosXGrupo(int idGrupo);
     }
 }

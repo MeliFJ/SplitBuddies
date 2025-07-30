@@ -1,6 +1,7 @@
 ﻿using Modelo;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Controlador.Interfaces
 {
@@ -72,5 +73,23 @@ namespace Controlador.Interfaces
         /// <param name="usuario">El usuario para quien se genera el reporte.</param>
         /// <returns>Un reporte con los detalles de los gastos para el año y usuario especificados.</returns>
         Reporte GenerarReportePorAnno(DateTime fecha, Usuario usuario);
+
+        /// <summary>
+        /// Calcula el total de gastos realizados por cada usuario integrante de un grupo específico.
+        /// 
+        /// Este método obtiene todos los gastos asociados al grupo indicado y suma el monto total pagado por cada usuario
+        /// que forma parte de la lista de integrantes proporcionada. El resultado es un diccionario donde la clave es el
+        /// identificador del usuario y el valor es la suma de los montos de los gastos que ha pagado en el grupo.
+        /// 
+        /// Consideraciones:
+        /// - Solo se consideran los gastos cuyo pagador está en la lista de integrantes.
+        /// - Si un integrante no ha realizado ningún gasto, no aparecerá en el diccionario resultante.
+        /// </summary>
+        /// <param name="idGrupo">Identificador único del grupo.</param>
+        /// <param name="integrantes">Lista de usuarios integrantes del grupo.</param>
+        /// <returns>
+        /// Un diccionario donde la clave es el identificador del usuario y el valor es el total de gastos pagados por ese usuario en el grupo.
+        /// </returns>
+        Dictionary<string, double> CargarGastoPorUsuarioEnGrupo(int idGrupo, List<Usuario> integrantes);
     }
 }
