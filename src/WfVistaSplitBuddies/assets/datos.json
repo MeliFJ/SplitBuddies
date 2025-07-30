@@ -26,7 +26,7 @@
   "100000000": {
     "Identificacion": "100000000",
     "Password": "3456",
-    "Nombre": "Lucía",
+    "Nombre": "Luc\u00EDa",
     "Apellido": "Vargas"
   },
   "100000001": {
@@ -38,14 +38,14 @@
   "100000002": {
     "Identificacion": "100000002",
     "Password": "3456",
-    "Nombre": "Sofía",
-    "Apellido": "Méndez"
+    "Nombre": "Sof\u00EDa",
+    "Apellido": "M\u00E9ndez"
   },
   "100000003": {
     "Identificacion": "100000003",
     "Password": "3456",
     "Nombre": "Daniel",
-    "Apellido": "Gómez"
+    "Apellido": "G\u00F3mez"
   },
   "100000004": {
     "Identificacion": "100000004",
@@ -56,14 +56,14 @@
   "100000005": {
     "Identificacion": "100000005",
     "Password": "3456",
-    "Nombre": "Sebastián",
+    "Nombre": "Sebasti\u00E1n",
     "Apellido": "Soto"
   },
   "100000006": {
     "Identificacion": "100000006",
     "Password": "3456",
     "Nombre": "Valentina",
-    "Apellido": "Jiménez"
+    "Apellido": "Jim\u00E9nez"
   },
   "100000007": {
     "Identificacion": "100000007",
@@ -75,7 +75,7 @@
     "Identificacion": "100000008",
     "Password": "3456",
     "Nombre": "Isabella",
-    "Apellido": "Fernández"
+    "Apellido": "Fern\u00E1ndez"
   },
   "100000009": {
     "Identificacion": "100000009",
@@ -99,12 +99,12 @@
     "Identificacion": "100000012",
     "Password": "3456",
     "Nombre": "Emma",
-    "Apellido": "González"
+    "Apellido": "Gonz\u00E1lez"
   },
   "100000013": {
     "Identificacion": "100000013",
     "Password": "3456",
-    "Nombre": "Andrés",
+    "Nombre": "Andr\u00E9s",
     "Apellido": "Carvajal"
   },
   "100000014": {
@@ -123,31 +123,31 @@
     "Identificacion": "100000016",
     "Password": "3456",
     "Nombre": "Zoe",
-    "Apellido": "Ramírez"
+    "Apellido": "Ram\u00EDrez"
   },
   "100000017": {
     "Identificacion": "100000017",
     "Password": "3456",
-    "Nombre": "Tomás",
+    "Nombre": "Tom\u00E1s",
     "Apellido": "Chaves"
   },
   "100000018": {
     "Identificacion": "100000018",
     "Password": "3456",
     "Nombre": "Victoria",
-    "Apellido": "Ureña"
+    "Apellido": "Ure\u00F1a"
   },
   "100000019": {
     "Identificacion": "100000019",
     "Password": "3456",
-    "Nombre": "Julián",
-    "Apellido": "Zúñiga"
+    "Nombre": "Juli\u00E1n",
+    "Apellido": "Z\u00FA\u00F1iga"
   },
   "100000020": {
     "Identificacion": "100000020",
     "Password": "3456",
     "Nombre": "Natalia",
-    "Apellido": "Pérez"
+    "Apellido": "P\u00E9rez"
   },
   "100000021": {
     "Identificacion": "100000021",
@@ -177,18 +177,18 @@
     "Identificacion": "100000025",
     "Password": "3456",
     "Nombre": "Lucas",
-    "Apellido": "Bolaños"
+    "Apellido": "Bola\u00F1os"
   },
   "100000026": {
     "Identificacion": "100000026",
     "Password": "3456",
     "Nombre": "Renata",
-    "Apellido": "Céspedes"
+    "Apellido": "C\u00E9spedes"
   },
   "100000027": {
     "Identificacion": "100000027",
     "Password": "3456",
-    "Nombre": "Matías",
+    "Nombre": "Mat\u00EDas",
     "Apellido": "Araya"
   },
   "100000028": {
@@ -201,7 +201,7 @@
     "Identificacion": "100000029",
     "Password": "3456",
     "Nombre": "Thiago",
-    "Apellido": "Marín"
+    "Apellido": "Mar\u00EDn"
   },
   "100000030": {
     "Identificacion": "100000030",
@@ -212,7 +212,7 @@
   "100000031": {
     "Identificacion": "100000031",
     "Password": "3456",
-    "Nombre": "Benjamín",
+    "Nombre": "Benjam\u00EDn",
     "Apellido": "Venegas"
   },
   "100000032": {
@@ -236,7 +236,7 @@
   "100000035": {
     "Identificacion": "100000035",
     "Password": "3456",
-    "Nombre": "Josué",
+    "Nombre": "Josu\u00E9",
     "Apellido": "Bonilla"
   },
   "100000036": {
@@ -248,7 +248,7 @@
   "100000037": {
     "Identificacion": "100000037",
     "Password": "3456",
-    "Nombre": "Cristóbal",
+    "Nombre": "Crist\u00F3bal",
     "Apellido": "Sequeira"
   },
   "100000038": {
@@ -261,13 +261,13 @@
     "Identificacion": "100000039",
     "Password": "3456",
     "Nombre": "Luis",
-    "Apellido": "Gutiérrez"
+    "Apellido": "Guti\u00E9rrez"
   },
   "100000040": {
     "Identificacion": "100000040",
     "Password": "3456",
     "Nombre": "Nicole",
-    "Apellido": "Sánchez"
+    "Apellido": "S\u00E1nchez"
   },
   "100000041": {
     "Identificacion": "100000041",
@@ -284,7 +284,7 @@
   "100000043": {
     "Identificacion": "100000043",
     "Password": "3456",
-    "Nombre": "Joaquín",
+    "Nombre": "Joaqu\u00EDn",
     "Apellido": "Cambronero"
   },
   "100000044": {
@@ -320,7 +320,13 @@
   "100000049": {
     "Identificacion": "100000049",
     "Password": "3456",
-    "Nombre": "Álvaro",
+    "Nombre": "\u00C1lvaro",
     "Apellido": "Fonseca"
+  },
+  "10230634": {
+    "Identificacion": "10230634",
+    "Password": "23456",
+    "Nombre": "Alix",
+    "Apellido": "Jimenez"
   }
 }
