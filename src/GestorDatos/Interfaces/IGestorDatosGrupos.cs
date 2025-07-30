@@ -44,5 +44,10 @@ namespace GestorDatos.Interfaces
         /// </summary>
         /// <returns>Una lista de objetos <see cref="RelacionUsuarioGrupo"/>.</returns>
         List<RelacionUsuarioGrupo> CargarUsuarioGrupos();
+
+        /// Carga la lista de todos los grupos en los que el usuario es integrante.
+        /// </summary>
+        /// <returns>Una lista de objetos <see cref="Grupo"/>.</returns>
+        public List<Grupo> CargarGruposPorUsuario(string usuarioId);
     }
 }

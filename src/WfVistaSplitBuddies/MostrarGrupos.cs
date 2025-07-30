@@ -129,7 +129,7 @@ namespace WfVistaSplitBuddies.Vista
         {
             ConfigurarListViewDeGrupos();
             ConfigurarListViewMiembros();
-            List<Grupo> grupos = grupoControlador.CargarGrupos();
+            List<Grupo> grupos = grupoControlador.CargarGruposPorUsuario(usuarioLogeado.Identificacion);
             ListaGruposCargada = grupos;
             grupos.ForEach(x =>
             {
@@ -176,6 +176,8 @@ namespace WfVistaSplitBuddies.Vista
         {
             listMiembros.Items.Clear();
             integrantesDelGrupo = usuarioControlador.CargarUsuarioPorGrupos(grupo.Id);
+            //Grupo-gasto obtengo los gasto de ese grupo
+            //Con eso saco los id de gastos y saco List<Gastos> del grupo, aqui filtro con QuienPagoId en gastos.json para saber quien pago algo
             foreach (var usuario in integrantesDelGrupo)
             {
                 ListViewItem item = new ListViewItem(usuario.Identificacion);

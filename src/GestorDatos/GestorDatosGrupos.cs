@@ -62,6 +62,28 @@ namespace GestorDatos
             return grupos ?? new List<Grupo>();
         }
 
+        /// Carga la lista de todos los grupos en los que el usuario es integrante.
+        /// </summary>
+        /// <returns>Una lista de objetos <see cref="Grupo"/>.</returns>
+        public List<Grupo> CargarGruposPorUsuario(string usuarioId)
+        {
+            if (!File.Exists(rutaArchivoGrupos))
+                return new List<Grupo>();
+
+            var relacionesUsuarioGrupo = CargarUsuarioGrupos();
+            List<int> gruposDelUsuario= relacionesUsuarioGrupo
+                .Where(r => r.UsuarioId.Equals(usuarioId))
+                .Select(r => r.GrupoId)
+                .ToList();
+
+            string json = File.ReadAllText(rutaArchivoGrupos);
+            if (string.IsNullOrWhiteSpace(json))
+                return new List<Grupo>();
+
+            var grupos = JsonSerializer.Deserialize<List<Grupo>>(json);
+            return grupos?.Where(g => gruposDelUsuario.Contains(g.Id)).ToList() ?? new List<Grupo>();
+        }
+
         /// <summary>
         /// Verifica si el nombre de un grupo es único para un creador específico.
         /// </summary>
