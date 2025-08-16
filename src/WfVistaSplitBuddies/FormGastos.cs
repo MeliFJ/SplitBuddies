@@ -65,6 +65,44 @@ namespace WfVistaSplitBuddies.Vista
         }
 
         /// <summary>
+        /// Constructor del formulario para modificar un gasto existente en un grupo.
+        /// </summary>
+        /// <param name="grupo">Grupo al que pertenece el gasto.</param>
+        /// <param name="usuario">Usuario actualmente logueado.</param>
+        /// <param name="gastosControlador">Controlador de gastos.</param>
+        /// <param name="grupoControlador">Controlador de grupos.</param>
+        public FormGastos(Grupo grupo, List<Usuario> integrantesDelGrupo, Usuario usuario, IGastosControlador gastosControlador, IGrupoControlador grupoControlador, bool modificar)
+        {
+            InitializeComponent();
+            this.Grupo = grupo;
+            this.usuarioLogeado = usuario; // Usuario que está creando el grupo
+            this.grupoControlador = grupoControlador;
+            this.gastosControlador = gastosControlador;
+            this.integrantesDelGrupo = integrantesDelGrupo;
+            mostrarPosiblesIntegrantes();
+            mostrarQuienPago();
+            montoTotal = 0.0;
+            cargarModificadoGastos(modificar);
+        }
+
+        private void cargarModificadoGastos(bool modificar)
+        {
+            if (modificar)
+            {
+                // Cargar los id del gasto
+                foreach (Usuario usuario in integrantesDelGrupo)
+                {
+                    this.cbBxQuienPago.Items.Add(usuario);
+                }
+                //Obtener la informacion del gasto a modificar y llenar campos
+
+                //Seleccionar quien pago el gasto
+
+                //Seleccionar que integrantes forman parte del gasto
+
+            }
+        }
+        /// <summary>
         /// Evento que se ejecuta al hacer clic en el botón Guardar.
         /// Guarda el gasto ingresado y muestra un mensaje de éxito o error.
         /// </summary>
@@ -199,6 +237,11 @@ namespace WfVistaSplitBuddies.Vista
         /// Evento que se ejecuta al cargar el formulario de gastos.
         /// </summary>
         private void FormGastos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbBxQuienPago_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

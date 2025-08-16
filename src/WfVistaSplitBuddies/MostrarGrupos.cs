@@ -273,5 +273,19 @@ namespace WfVistaSplitBuddies.Vista
             FormReporte form = new FormReporte(this.usuarioLogeado, this.gastosControlador);
             form.Show();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (gruposSeleccionado == null)
+            {
+                MessageBox.Show("Debe seleccionar un grupo para modificar gastos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                FormGastos form = new FormGastos(gruposSeleccionado, integrantesDelGrupo, this.usuarioLogeado, gastosControlador, grupoControlador, true);
+                form.ShowDialog();
+            }
+        }
     }
 }
