@@ -91,5 +91,18 @@ namespace Controlador.Interfaces
         /// Un diccionario donde la clave es el identificador del usuario y el valor es el total de gastos pagados por ese usuario en el grupo.
         /// </returns>
         Dictionary<string, double> CargarGastoPorUsuarioEnGrupo(int idGrupo, List<Usuario> integrantes);
+
+        List<Gasto> CargarGastoPorGrupo(int idGrupo);
+
+        bool actualizarGasto(
+            int idGasto,
+            Grupo grupo,
+            Usuario quienPago,
+            string nombreGasto,
+            string descripcionGasto,
+            string enlaceGasto,
+            double montoGasto,
+            List<string> integrantes,
+            DateTime fechaSeleccionada);
     }
 }

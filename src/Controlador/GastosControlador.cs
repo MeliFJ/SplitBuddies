@@ -49,6 +49,15 @@ namespace Controlador
             return gestorGastos.GuardarGasto(nuevoGasto, integrantes, quienPago.Identificacion, grupo);
         }
 
+        public bool actualizarGasto(int idGasto, Grupo grupo, Usuario quienPago, string nombreGasto, string descripcionGasto, string enlaceGasto, double montoGasto, List<string> integrantes, DateTime fechaSeleccionada)
+        {
+            Gasto nuevoGasto = new Gasto(idGasto,nombreGasto, descripcionGasto, enlaceGasto, montoGasto, quienPago.Identificacion, fechaSeleccionada);
+            //Verificar si el que pago esta como integrante del grupo
+            integrantes = validarIntegrantes(integrantes, quienPago);
+
+            return gestorGastos.actualizarGasto(nuevoGasto, integrantes, quienPago.Identificacion, grupo);
+        }
+
         /// <summary>
         /// Obtiene la lista de gastos asociados a un usuario específico.
         /// </summary>
@@ -211,6 +220,12 @@ namespace Controlador
                 );
 
             return gastosPorUsuario;
+        }
+
+        public List<Gasto> CargarGastoPorGrupo(int idGrupo)
+        {
+            List<Gasto> gastosXGrupo = gestorGastos.CargarGastosXGrupo(idGrupo);
+            return gastosXGrupo;
         }
 
 

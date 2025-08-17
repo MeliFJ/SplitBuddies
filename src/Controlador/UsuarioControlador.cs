@@ -1,8 +1,8 @@
 ﻿using Controlador.Interfaces;
+using GestorDatos;
 using GestorDatos.Interfaces;
 using Modelo;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Controlador
 {
@@ -13,16 +13,25 @@ namespace Controlador
     /// </summary>
     public class UsuarioControlador : IUsuarioControlador
     {
+        private static UsuarioControlador? instancia;
         /// <summary>
         /// Instancia para la gestión de datos de usuarios.
         /// </summary>
         internal readonly IGestorDatosUsuario _gestorDatosUsuario;
 
+        public static IUsuarioControlador Instancia()
+        {
+            if(instancia == null)
+            {
+                instancia = new UsuarioControlador(new GestorDatosUsuario());
+            }
+           return  instancia;
+        }
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="UsuarioControlador"/>.
         /// </summary>
         /// <param name="gestorDatosUsuario">Instancia para la gestión de datos de usuarios.</param>
-        public UsuarioControlador(IGestorDatosUsuario gestorDatosUsuario)
+        private UsuarioControlador(IGestorDatosUsuario gestorDatosUsuario)
         {
             _gestorDatosUsuario = gestorDatosUsuario;
         }
@@ -75,6 +84,11 @@ namespace Controlador
         public Dictionary<string, Usuario> CargarUsuarios()
         {
             return _gestorDatosUsuario.CargarUsuarios();
+        }
+
+        public List<Usuario> CargarUsuarioPorGastoId(int gastoId)
+        {
+            return _gestorDatosUsuario.CargarUsuariosPorGastoId(gastoId) ?? new List<Usuario>();
         }
     }
 }

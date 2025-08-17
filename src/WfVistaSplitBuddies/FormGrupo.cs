@@ -128,7 +128,7 @@ namespace WfVistaSplitBuddies.Vista
         /// </summary>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            MostrarGrupos form = new MostrarGrupos(grupoControlador, usuarioLogeado, usuarioControlador);
+            MostrarGrupos form = new MostrarGrupos(grupoControlador, usuarioLogeado);
             form.Show();
             this.Close();
         }

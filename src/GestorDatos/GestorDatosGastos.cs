@@ -55,6 +55,32 @@ namespace GestorDatos
             return true;
         }
 
+        public bool actualizarGasto(Gasto gasto, List<string> integrantes, string quienPagoId, Grupo grupo)
+        {
+            List<Grupo> grupos = CargarDesdeJson<Grupo>(rutaArchivoGrupos);
+            if (!grupos.Any(g => g.Id == grupo.Id))
+            {
+                return false; // El grupo no existe
+            }
+
+            List<Gasto> gastos = CargarDesdeJson<Gasto>(rutaArchivoGastos);
+            List<RelacionGrupoGasto> relacionesGrupoGasto = CargarDesdeJson<RelacionGrupoGasto>(rutaRelacionGrupoGasto);
+            List<RelacionUsuarioGasto> relacionesUsuarioGasto = CargarDesdeJson<RelacionUsuarioGasto>(rutaRelacionUsuarioGasto);
+
+            // Revisar que mas se ocupa para revisar y actualizar
+
+            // Se guarda el gasto en el archivo JSON
+            this.EscribirEnJson(rutaArchivoGastos, gastos);
+
+            // Se guarda la relación entre el gasto y el grupo
+            this.guardarGrupoGasto(grupo, gasto);
+
+            // Se guarda la relación entre el gasto y los usuarios integrantes
+            this.guardarUsuarioGasto(gasto, integrantes);
+
+            return true;
+        }
+
         /// <summary>
         /// Guarda la relación entre un gasto y los usuarios integrantes.
         /// </summary>

@@ -35,6 +35,11 @@ namespace WfVistaSplitBuddies.Vista
         private IGrupoControlador grupoControlador;
 
         /// <summary>
+        /// Controlador encargado de la gestión de usuario.
+        /// </summary>
+        private IUsuarioControlador usuarioControlador;
+
+        /// <summary>
         /// Monto total acumulado de los gastos ingresados.
         /// </summary>
         private double montoTotal;
@@ -43,6 +48,8 @@ namespace WfVistaSplitBuddies.Vista
         /// Lista de usuarios cargados.
         /// </summary>
         private List<Usuario> integrantesDelGrupo;
+
+        private bool esModificar = false;
 
         /// <summary>
         /// Constructor del formulario para crear y registrar un nuevo gasto en un grupo.
@@ -59,9 +66,11 @@ namespace WfVistaSplitBuddies.Vista
             this.grupoControlador = grupoControlador;
             this.gastosControlador = gastosControlador;
             this.integrantesDelGrupo = integrantesDelGrupo;
+            this.usuarioControlador = UsuarioControlador.Instancia();
             mostrarPosiblesIntegrantes();
             mostrarQuienPago();
             montoTotal = 0.0;
+            mostrarElementos();
         }
 
         /// <summary>
@@ -71,7 +80,7 @@ namespace WfVistaSplitBuddies.Vista
         /// <param name="usuario">Usuario actualmente logueado.</param>
         /// <param name="gastosControlador">Controlador de gastos.</param>
         /// <param name="grupoControlador">Controlador de grupos.</param>
-        public FormGastos(Grupo grupo, List<Usuario> integrantesDelGrupo, Usuario usuario, IGastosControlador gastosControlador, IGrupoControlador grupoControlador, bool modificar)
+        public FormGastos(Grupo grupo, List<Usuario> integrantesDelGrupo, Usuario usuario, IGastosControlador gastosControlador, IGrupoControlador grupoControlador, bool esModificar)
         {
             InitializeComponent();
             this.Grupo = grupo;
@@ -79,21 +88,45 @@ namespace WfVistaSplitBuddies.Vista
             this.grupoControlador = grupoControlador;
             this.gastosControlador = gastosControlador;
             this.integrantesDelGrupo = integrantesDelGrupo;
+            this.usuarioControlador = UsuarioControlador.Instancia();
             mostrarPosiblesIntegrantes();
             mostrarQuienPago();
             montoTotal = 0.0;
-            cargarModificadoGastos(modificar);
+            this.esModificar = esModificar;
+            cargarModificadoGastos();
+            mostrarElementos();
         }
 
-        private void cargarModificadoGastos(bool modificar)
+        private void mostrarElementos()
         {
-            if (modificar)
+            if (this.esModificar)
             {
-                // Cargar los id del gasto
-                foreach (Usuario usuario in integrantesDelGrupo)
-                {
-                    this.cbBxQuienPago.Items.Add(usuario);
-                }
+                btnGuardar.Text = "Actualizar";
+                cbxGastosId.Visible = true;
+                lbId.Visible = true;
+                btnCargaGasto.Visible = true;
+                btnEliminar.Visible = true;
+            }
+            else
+            {
+                btnGuardar.Text = "Guardar";
+                cbxGastosId.Visible = false;
+                lbId.Visible = false;
+                btnCargaGasto.Visible = false;
+                btnEliminar.Visible = false;
+
+            }
+        }
+
+        private void cargarModificadoGastos()
+        {
+            if (this.esModificar)
+            {
+                //Cargar los gastos del grupo
+                List<Gasto> gastosDelGrupo = this.gastosControlador.CargarGastoPorGrupo(this.Grupo.Id);
+                cargarIdGastos(gastosDelGrupo);
+                //Selecionar quien pago el gasto
+
                 //Obtener la informacion del gasto a modificar y llenar campos
 
                 //Seleccionar quien pago el gasto
@@ -102,33 +135,83 @@ namespace WfVistaSplitBuddies.Vista
 
             }
         }
+
+        private void cargarIdGastos(List<Gasto> gastosDelGrupo)
+        {
+            if (gastosDelGrupo.Count > 0)
+            {
+                foreach (Gasto gasto in gastosDelGrupo)
+                {
+                    this.cbxGastosId.Items.Add(gasto);
+                }
+            }
+            else
+            {
+                this.Close();
+                MessageBox.Show("No hay gastos registrados en este grupo.");
+            }
+
+        }
         /// <summary>
         /// Evento que se ejecuta al hacer clic en el botón Guardar.
         /// Guarda el gasto ingresado y muestra un mensaje de éxito o error.
         /// </summary>
         private void btnGuardar_Click(object sender, System.EventArgs e)
         {
-            string nombreGasto = txtBnombre.Text;
-            string descripcionGasto = txtBdescripcion.Text;
-            string enlaceGasto = txtBenlace.Text;
-            Usuario quienPago = (Usuario)cbBxQuienPago.SelectedItem;
-            List<string> integrantes = obtenerIntegrantes();
-            DateTime fechaSeleccionada = dtPckFecha.Value;
-
-            bool guardado = this.gastosControlador.guardarGasto(Grupo, quienPago, nombreGasto, descripcionGasto, enlaceGasto, montoTotal, integrantes, fechaSeleccionada);
-
-            if (guardado)
+            if (!this.esModificar)
             {
-                lbGuardado.ForeColor = System.Drawing.Color.Green;
-                lbGuardado.Text = "Gasto guardado correctamente";
+                string nombreGasto = txtBnombre.Text;
+                string descripcionGasto = txtBdescripcion.Text;
+                string enlaceGasto = txtBenlace.Text;
+                Usuario quienPago = (Usuario)cbBxQuienPago.SelectedItem;
+                List<string> integrantes = obtenerIntegrantes();
+                DateTime fechaSeleccionada = dtPckFecha.Value;
+
+                bool guardado = this.gastosControlador.guardarGasto(Grupo, quienPago, nombreGasto, descripcionGasto, enlaceGasto, montoTotal, integrantes, fechaSeleccionada);
+
+                if (guardado)
+                {
+                    lbGuardado.ForeColor = System.Drawing.Color.Green;
+                    lbGuardado.Text = "Gasto guardado correctamente";
+                }
+                else
+                {
+                    lbGuardado.ForeColor = System.Drawing.Color.Red;
+                    lbGuardado.Text = "Error al guardar el gasto";
+                }
+
+                this.LimpiarFormulario();
             }
-            else
+            else //Si es actualizar se guarda lo nuevo y se elimina las referencias antiguas
             {
-                lbGuardado.ForeColor = System.Drawing.Color.Red;
-                lbGuardado.Text = "Error al guardar el gasto";
+                string nombreGasto = txtBnombre.Text;
+                string descripcionGasto = txtBdescripcion.Text;
+                string enlaceGasto = txtBenlace.Text;
+                Usuario quienPago = (Usuario)cbBxQuienPago.SelectedItem;
+                List<string> integrantes = obtenerIntegrantes();
+                DateTime fechaSeleccionada = dtPckFecha.Value;
+                int gastoId = ((Gasto)cbxGastosId.SelectedItem).Id;
+
+                bool guardado = this.gastosControlador.actualizarGasto(gastoId, Grupo, quienPago, nombreGasto, descripcionGasto, enlaceGasto, montoTotal, integrantes, fechaSeleccionada);
+
+                if (guardado)
+                {
+                    lbGuardado.ForeColor = System.Drawing.Color.Green;
+                    lbGuardado.Text = "Gasto guardado correctamente";
+                }
+                else
+                {
+                    lbGuardado.ForeColor = System.Drawing.Color.Red;
+                    lbGuardado.Text = "Error al guardar el gasto";
+                }
+
+                this.LimpiarFormulario();
+
+                this.LimpiarFormulario();
+
             }
 
-            this.LimpiarFormulario();
+
         }
 
         /// <summary>
@@ -245,5 +328,63 @@ namespace WfVistaSplitBuddies.Vista
         {
 
         }
+
+        private void btnCargaGasto_Click(object sender, EventArgs e)
+        {
+            this.LimpiarFormulario();
+            if (cbxGastosId.SelectedItem != null)
+            {
+                Gasto gastoSeleccionado = cbxGastosId.SelectedItem as Gasto;
+                if (gastoSeleccionado != null)
+                {
+                    // Cargar los detalles del gasto seleccionado
+                    List<Usuario> usuarioInvolucradoGasto = this.usuarioControlador.CargarUsuarioPorGastoId(gastoSeleccionado.Id);
+                    if (gastoSeleccionado != null)
+                    {
+                        // Mostrar los detalles del gasto en los controles correspondientes
+                        txtBnombre.Text = gastoSeleccionado.NombreGasto;
+                        txtBdescripcion.Text = gastoSeleccionado.DescripcionGasto;
+                        txtBenlace.Text = gastoSeleccionado.EnlaceGasto;
+                        txtBmonto.Text = gastoSeleccionado.MontoGasto.ToString("F2");
+                        mostrarQuienPago(gastoSeleccionado.QuienPagoId);
+                        dtPckFecha.Value = gastoSeleccionado.FechaSeleccionada;
+                        marcarIntegrantesGasto(usuarioInvolucradoGasto);
+
+                    }
+                }
+            }
+        }
+
+        private void mostrarQuienPago(string quienPagoId)
+        {
+
+            for (int i = 0; i < cbBxQuienPago.Items.Count; i++)
+            {
+                Usuario usuarioItem = cbBxQuienPago.Items[i] as Usuario;
+                if (usuarioItem != null && quienPagoId.Equals(usuarioItem.Identificacion))
+                {
+                    cbBxQuienPago.SelectedIndex = i;
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Muestra en el CheckedListBox los posibles integrantes del grupo.
+        /// </summary>
+        private void marcarIntegrantesGasto(List<Usuario> usuarioInvolucradoGasto)
+        {
+
+            for (int i = 0; i < chckListBoxIntegrantes.Items.Count; i++)
+            {
+                Usuario usuarioItem = chckListBoxIntegrantes.Items[i] as Usuario;
+                if (usuarioItem != null && usuarioInvolucradoGasto.Contains(usuarioItem))
+                {
+                    chckListBoxIntegrantes.SetItemChecked(i, true);
+                }
+            }
+
+        }
+
     }
 }

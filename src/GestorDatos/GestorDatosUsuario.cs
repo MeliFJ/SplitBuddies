@@ -87,5 +87,50 @@ namespace GestorDatos
 
             return resul?.ToList();
         }
+
+        public List<Usuario> CargarUsuariosPorGastoId(int gastoId)
+        {
+
+            List<Usuario> usuarios = new List<Usuario>();
+
+            if (!File.Exists(rutaRelacionUsuarioGasto))
+                return new List<Usuario>();
+
+            string json = File.ReadAllText(rutaRelacionUsuarioGasto);
+            if (string.IsNullOrWhiteSpace(json))
+                return new List<Usuario>();
+
+            var relacionUsuariosGastos = JsonSerializer.Deserialize<List<RelacionUsuarioGasto>>(json);
+
+            // Lista de relacion usuario gasto que tiene el id del gasto selecionado
+            var resultadoIdUsuariosFiltrado = relacionUsuariosGastos?
+                .Where(usuarioGasto => usuarioGasto.GastoId == gastoId);
+
+            List<RelacionUsuarioGasto>? resultadoIdUsuarios = resultadoIdUsuariosFiltrado?.ToList();
+
+            if (resultadoIdUsuarios != null)
+            {
+
+                usuarios = buscarLosUsuarioDelGasto(resultadoIdUsuarios);
+                return usuarios;
+            }
+
+            return usuarios;
+        }
+
+        private List<Usuario> buscarLosUsuarioDelGasto(List<RelacionUsuarioGasto> resultadoIdUsuarios)
+        {
+            List<Usuario> usuariosDelGasto = new List<Usuario>();
+            Dictionary<string, Usuario> usuariosDic = CargarUsuarios();
+
+            foreach (RelacionUsuarioGasto resultadoIdUsuario in resultadoIdUsuarios)
+            {
+                if (usuariosDic.ContainsKey(resultadoIdUsuario.UsuarioId))
+                {
+                    usuariosDelGasto.Add(usuariosDic[resultadoIdUsuario.UsuarioId]);
+                }
+            }
+            return usuariosDelGasto;
+        }
     }
 }

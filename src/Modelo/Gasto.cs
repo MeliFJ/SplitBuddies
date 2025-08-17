@@ -62,5 +62,26 @@ namespace Modelo
             QuienPagoId = quienPagoId;
             FechaSeleccionada = fechaSeleccionada;
         }
+
+        public Gasto(int idGasto,string nombreGasto, string descripcionGasto, string enlaceGasto,
+             double montoGasto, string quienPagoId, DateTime fechaSeleccionada)
+        {
+            Id = idGasto;
+            NombreGasto = nombreGasto;
+            DescripcionGasto = descripcionGasto;
+            EnlaceGasto = enlaceGasto;
+            MontoGasto = montoGasto;
+            QuienPagoId = quienPagoId;
+            FechaSeleccionada = fechaSeleccionada;
+        }
+
+        /// <summary>
+        /// Devuelve el nombre del usuario como representación en texto.
+        /// </summary>
+        /// <returns>El nombre del usuario.</returns>
+        public override string ToString()
+        {
+            return NombreGasto; // Esto es lo que se muestra en el CheckedListBox
+        }
     }
 }

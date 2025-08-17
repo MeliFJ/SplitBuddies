@@ -48,9 +48,10 @@
             this.lbGuardado = new System.Windows.Forms.Label();
             this.btnAgregarGasto = new System.Windows.Forms.Button();
             this.lbMonto = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.btnCargaGasto = new System.Windows.Forms.Button();
+            this.cbxGastosId = new System.Windows.Forms.ComboBox();
+            this.lbId = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbtitulo
@@ -79,7 +80,7 @@
             // txtBnombre
             // 
             this.txtBnombre.Location = new System.Drawing.Point(295, 88);
-            this.txtBnombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBnombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtBnombre.Multiline = true;
             this.txtBnombre.Name = "txtBnombre";
             this.txtBnombre.Size = new System.Drawing.Size(279, 30);
@@ -99,7 +100,7 @@
             // txtBdescripcion
             // 
             this.txtBdescripcion.Location = new System.Drawing.Point(295, 160);
-            this.txtBdescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBdescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtBdescripcion.Multiline = true;
             this.txtBdescripcion.Name = "txtBdescripcion";
             this.txtBdescripcion.Size = new System.Drawing.Size(280, 106);
@@ -119,7 +120,7 @@
             // txtBenlace
             // 
             this.txtBenlace.Location = new System.Drawing.Point(295, 320);
-            this.txtBenlace.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBenlace.Margin = new System.Windows.Forms.Padding(2);
             this.txtBenlace.Multiline = true;
             this.txtBenlace.Name = "txtBenlace";
             this.txtBenlace.Size = new System.Drawing.Size(280, 59);
@@ -139,7 +140,7 @@
             // txtBmonto
             // 
             this.txtBmonto.Location = new System.Drawing.Point(292, 428);
-            this.txtBmonto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBmonto.Margin = new System.Windows.Forms.Padding(2);
             this.txtBmonto.Multiline = true;
             this.txtBmonto.Name = "txtBmonto";
             this.txtBmonto.Size = new System.Drawing.Size(268, 36);
@@ -182,7 +183,7 @@
             // dtPckFecha
             // 
             this.dtPckFecha.Location = new System.Drawing.Point(289, 734);
-            this.dtPckFecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtPckFecha.Margin = new System.Windows.Forms.Padding(2);
             this.dtPckFecha.Name = "dtPckFecha";
             this.dtPckFecha.Size = new System.Drawing.Size(283, 20);
             this.dtPckFecha.TabIndex = 15;
@@ -191,7 +192,7 @@
             // 
             this.chckListBoxIntegrantes.FormattingEnabled = true;
             this.chckListBoxIntegrantes.Location = new System.Drawing.Point(289, 623);
-            this.chckListBoxIntegrantes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chckListBoxIntegrantes.Margin = new System.Windows.Forms.Padding(2);
             this.chckListBoxIntegrantes.Name = "chckListBoxIntegrantes";
             this.chckListBoxIntegrantes.Size = new System.Drawing.Size(281, 38);
             this.chckListBoxIntegrantes.TabIndex = 16;
@@ -199,7 +200,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(281, 782);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(130, 46);
             this.btnGuardar.TabIndex = 17;
@@ -210,7 +211,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(428, 782);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(135, 46);
             this.btnCancelar.TabIndex = 18;
@@ -222,7 +223,7 @@
             // 
             this.cbBxQuienPago.FormattingEnabled = true;
             this.cbBxQuienPago.Location = new System.Drawing.Point(289, 561);
-            this.cbBxQuienPago.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbBxQuienPago.Margin = new System.Windows.Forms.Padding(2);
             this.cbBxQuienPago.Name = "cbBxQuienPago";
             this.cbBxQuienPago.Size = new System.Drawing.Size(286, 21);
             this.cbBxQuienPago.TabIndex = 20;
@@ -240,7 +241,7 @@
             // btnAgregarGasto
             // 
             this.btnAgregarGasto.Location = new System.Drawing.Point(295, 473);
-            this.btnAgregarGasto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregarGasto.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarGasto.Name = "btnAgregarGasto";
             this.btnAgregarGasto.Size = new System.Drawing.Size(121, 35);
             this.btnAgregarGasto.TabIndex = 22;
@@ -259,36 +260,47 @@
             this.lbMonto.Size = new System.Drawing.Size(0, 42);
             this.lbMonto.TabIndex = 24;
             // 
-            // button1
+            // btnCargaGasto
             // 
-            this.button1.Location = new System.Drawing.Point(594, 146);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 46);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Cargar gasto";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCargaGasto.Location = new System.Drawing.Point(594, 146);
+            this.btnCargaGasto.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCargaGasto.Name = "btnCargaGasto";
+            this.btnCargaGasto.Size = new System.Drawing.Size(130, 46);
+            this.btnCargaGasto.TabIndex = 25;
+            this.btnCargaGasto.Text = "Cargar gasto";
+            this.btnCargaGasto.UseVisualStyleBackColor = true;
+            this.btnCargaGasto.Click += new System.EventHandler(this.btnCargaGasto_Click);
             // 
-            // comboBox1
+            // cbxGastosId
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(594, 97);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(286, 21);
-            this.comboBox1.TabIndex = 26;
+            this.cbxGastosId.FormattingEnabled = true;
+            this.cbxGastosId.Location = new System.Drawing.Point(594, 97);
+            this.cbxGastosId.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxGastosId.Name = "cbxGastosId";
+            this.cbxGastosId.Size = new System.Drawing.Size(286, 21);
+            this.cbxGastosId.TabIndex = 26;
             // 
-            // label8
+            // lbId
             // 
-            this.label8.AutoEllipsis = true;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(587, 58);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 37);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "Id";
+            this.lbId.AutoEllipsis = true;
+            this.lbId.AutoSize = true;
+            this.lbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbId.Location = new System.Drawing.Point(587, 58);
+            this.lbId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbId.Name = "lbId";
+            this.lbId.Size = new System.Drawing.Size(45, 37);
+            this.lbId.TabIndex = 27;
+            this.lbId.Text = "Id";
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(738, 146);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(130, 46);
+            this.btnEliminar.TabIndex = 28;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
             // FormGastos
             // 
@@ -297,9 +309,10 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1207, 1062);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.lbId);
+            this.Controls.Add(this.cbxGastosId);
+            this.Controls.Add(this.btnCargaGasto);
             this.Controls.Add(this.lbMonto);
             this.Controls.Add(this.btnAgregarGasto);
             this.Controls.Add(this.lbGuardado);
@@ -320,7 +333,7 @@
             this.Controls.Add(this.txtBnombre);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbtitulo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormGastos";
             this.Text = "FormGastos";
             this.Load += new System.EventHandler(this.FormGastos_Load);
@@ -351,8 +364,9 @@
         private System.Windows.Forms.Label lbGuardado;
         public System.Windows.Forms.Button btnAgregarGasto;
         private System.Windows.Forms.Label lbMonto;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnCargaGasto;
+        private System.Windows.Forms.ComboBox cbxGastosId;
+        private System.Windows.Forms.Label lbId;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

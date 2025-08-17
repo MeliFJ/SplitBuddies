@@ -36,5 +36,7 @@ namespace GestorDatos.Interfaces
         /// </summary>
         /// <param name="usuario">El objeto <see cref="Usuario"/> a guardar.</param>
         void GuardarUsuario(Usuario usuario);
+
+        List<Usuario> CargarUsuariosPorGastoId(int gastoId);
     }
 }

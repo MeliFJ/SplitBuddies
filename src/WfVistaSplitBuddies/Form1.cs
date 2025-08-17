@@ -44,7 +44,7 @@ namespace WfVistaSplitBuddies
             InitializeComponent();
             this.gestorDatosUsuario = new GestorDatosUsuario();
             loginControlador = new LoginControlador(gestorDatosUsuario);
-            this.usuarioControlador = new UsuarioControlador(gestorDatosUsuario);
+            this.usuarioControlador = UsuarioControlador.Instancia();
             this.grupoControlador = new GrupoControlador(new GestorDatosGrupos(), gestorDatosUsuario);
         }
 
@@ -71,7 +71,7 @@ namespace WfVistaSplitBuddies
             Usuario usuarioValido = loginControlador.ValidarLogin(identificacion, password);
             if (usuarioValido != null)
             {
-                MostrarGrupos form = new MostrarGrupos(grupoControlador, usuarioValido, usuarioControlador);
+                MostrarGrupos form = new MostrarGrupos(grupoControlador, usuarioValido);
                 form.Show();
                 this.Hide();
             }

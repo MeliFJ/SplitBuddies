@@ -77,12 +77,12 @@ namespace WfVistaSplitBuddies.Vista
         /// <param name="grupoControlador">Controlador de grupos.</param>
         /// <param name="usuarioValido">Usuario actualmente logueado.</param>
         /// <param name="usuarioControlador">Controlador de usuarios.</param>
-        public MostrarGrupos(IGrupoControlador grupoControlador, Usuario usuarioValido, IUsuarioControlador usuarioControlador)
+        public MostrarGrupos(IGrupoControlador grupoControlador, Usuario usuarioValido)
         {
             InitializeComponent();
             this.grupoControlador = grupoControlador;
             this.usuarioLogeado = usuarioValido;
-            this.usuarioControlador = usuarioControlador;
+            this.usuarioControlador = UsuarioControlador.Instancia();
             this.gastosControlador = new GastosControlador(new GestorDatosGastos(), new GestorDatosUsuario());
         }
         #endregion
@@ -284,7 +284,10 @@ namespace WfVistaSplitBuddies.Vista
             else
             {
                 FormGastos form = new FormGastos(gruposSeleccionado, integrantesDelGrupo, this.usuarioLogeado, gastosControlador, grupoControlador, true);
-                form.ShowDialog();
+                if (!form.IsDisposed)
+                {
+                    form.ShowDialog();
+                }
             }
         }
     }

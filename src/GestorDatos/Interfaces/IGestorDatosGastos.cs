@@ -71,5 +71,7 @@ namespace GestorDatos.Interfaces
         /// <param name="idGrupo">Identificador único del grupo.</param>
         /// <returns>Una lista de objetos <see cref="Gasto"/> asociados al grupo.</returns>
         List<Gasto> CargarGastosXGrupo(int idGrupo);
+
+        bool actualizarGasto(Gasto gasto, List<string> integrantes, string quienPagoId, Grupo grupo);
     }
 }
