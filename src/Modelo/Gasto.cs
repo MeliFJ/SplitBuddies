@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace Modelo
 {
@@ -63,10 +64,12 @@ namespace Modelo
             FechaSeleccionada = fechaSeleccionada;
         }
 
-        public Gasto(int idGasto,string nombreGasto, string descripcionGasto, string enlaceGasto,
+
+        [JsonConstructor]
+        public Gasto(int id, string nombreGasto, string descripcionGasto, string enlaceGasto,
              double montoGasto, string quienPagoId, DateTime fechaSeleccionada)
         {
-            Id = idGasto;
+            Id = id;
             NombreGasto = nombreGasto;
             DescripcionGasto = descripcionGasto;
             EnlaceGasto = enlaceGasto;
@@ -83,5 +86,24 @@ namespace Modelo
         {
             return NombreGasto; // Esto es lo que se muestra en el CheckedListBox
         }
+
+        /// <summary>
+        /// Actualiza los atributos del gasto actual con los valores de otro gasto, excepto el Id.
+        /// </summary>
+        /// <param name="nuevoGasto">El objeto Gasto con los nuevos valores.</param>
+
+        public void ActualizarDesde(Gasto nuevoGasto)
+        {
+            if (nuevoGasto == null)
+                throw new ArgumentNullException(nameof(nuevoGasto));
+
+            NombreGasto = nuevoGasto.NombreGasto;
+            DescripcionGasto = nuevoGasto.DescripcionGasto;
+            EnlaceGasto = nuevoGasto.EnlaceGasto;
+            MontoGasto = nuevoGasto.MontoGasto;
+            QuienPagoId = nuevoGasto.QuienPagoId;
+            FechaSeleccionada = nuevoGasto.FechaSeleccionada;
+        }
+
     }
 }

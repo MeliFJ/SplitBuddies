@@ -1,6 +1,5 @@
 ﻿using Controlador;
 using Controlador.Interfaces;
-using GestorDatos.Interfaces;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -14,6 +13,9 @@ namespace WfVistaSplitBuddies.Vista
     /// </summary>
     public partial class FormGastos : Form
     {
+
+        public event EventHandler DataChanged;
+
         /// <summary>
         /// Grupo al que pertenece el gasto.
         /// </summary>
@@ -198,6 +200,9 @@ namespace WfVistaSplitBuddies.Vista
                 {
                     lbGuardado.ForeColor = System.Drawing.Color.Green;
                     lbGuardado.Text = "Gasto guardado correctamente";
+
+                    DataChanged?.Invoke(this, EventArgs.Empty);
+
                 }
                 else
                 {

@@ -286,9 +286,15 @@ namespace WfVistaSplitBuddies.Vista
                 FormGastos form = new FormGastos(gruposSeleccionado, integrantesDelGrupo, this.usuarioLogeado, gastosControlador, grupoControlador, true);
                 if (!form.IsDisposed)
                 {
+                    form.DataChanged += cambioEnGastosForm;
                     form.ShowDialog();
                 }
             }
+        }
+
+        private void cambioEnGastosForm(object sender, EventArgs e) 
+        {
+            MostrarGrupos_Load(sender,e);
         }
     }
 }

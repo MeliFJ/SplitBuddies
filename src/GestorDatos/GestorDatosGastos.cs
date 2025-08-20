@@ -55,28 +55,31 @@ namespace GestorDatos
             return true;
         }
 
-        public bool actualizarGasto(Gasto gasto, List<string> integrantes, string quienPagoId, Grupo grupo)
+        public bool actualizarGasto(Gasto gasto, List<string> nuevosIdIntegrantes, string quienPagoId, Grupo grupo)
         {
-            List<Grupo> grupos = CargarDesdeJson<Grupo>(rutaArchivoGrupos);
-            if (!grupos.Any(g => g.Id == grupo.Id))
-            {
-                return false; // El grupo no existe
-            }
-
             List<Gasto> gastos = CargarDesdeJson<Gasto>(rutaArchivoGastos);
-            List<RelacionGrupoGasto> relacionesGrupoGasto = CargarDesdeJson<RelacionGrupoGasto>(rutaRelacionGrupoGasto);
             List<RelacionUsuarioGasto> relacionesUsuarioGasto = CargarDesdeJson<RelacionUsuarioGasto>(rutaRelacionUsuarioGasto);
 
-            // Revisar que mas se ocupa para revisar y actualizar
+            // Remover los integrantes que formaban parte del gasto
+            relacionesUsuarioGasto.RemoveAll(g =>g.GastoId == gasto.Id);
+
+            // Agregar nuevos integrantes
+            foreach (string integranteId in nuevosIdIntegrantes)
+            {
+                // Se crea una nueva relación entre el usuario y el gasto
+                RelacionUsuarioGasto nuevaRelacion = new RelacionUsuarioGasto(integranteId, gasto.Id);
+                relacionesUsuarioGasto.Add(nuevaRelacion);
+            }
+
+            // Actualizamos la información del gasto
+            var gastoExistente = gastos.FirstOrDefault(g => g.Id == gasto.Id);
+            gastoExistente.ActualizarDesde(gasto);
 
             // Se guarda el gasto en el archivo JSON
             this.EscribirEnJson(rutaArchivoGastos, gastos);
 
-            // Se guarda la relación entre el gasto y el grupo
-            this.guardarGrupoGasto(grupo, gasto);
-
             // Se guarda la relación entre el gasto y los usuarios integrantes
-            this.guardarUsuarioGasto(gasto, integrantes);
+            this.EscribirEnJson(rutaRelacionUsuarioGasto, relacionesUsuarioGasto);
 
             return true;
         }
