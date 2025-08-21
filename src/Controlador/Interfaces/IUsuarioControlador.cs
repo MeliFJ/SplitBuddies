@@ -38,5 +38,7 @@ namespace Controlador.Interfaces
         /// <param name="usuario">El objeto <see cref="Usuario"/> a guardar.</param>
         /// <returns>True si el usuario se guardó correctamente; de lo contrario, false.</returns>
         bool GuardaUsuario(Usuario usuario);
+
+        public List<Usuario> CargarUsuarioPorGastoId(int gastoId);
     }
 }

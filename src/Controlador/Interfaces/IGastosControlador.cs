@@ -91,5 +91,44 @@ namespace Controlador.Interfaces
         /// Un diccionario donde la clave es el identificador del usuario y el valor es el total de gastos pagados por ese usuario en el grupo.
         /// </returns>
         Dictionary<string, double> CargarGastoPorUsuarioEnGrupo(int idGrupo, List<Usuario> integrantes);
+
+        /// <summary>
+        /// Obtiene la lista de gastos asociados a un grupo específico.
+        /// </summary>
+        /// <param name="idGrupo">Identificador único del grupo.</param>
+        /// <returns>Una lista de objetos <see cref="Gasto"/> asociados al grupo.</returns>
+        List<Gasto> CargarGastoPorGrupo(int idGrupo);
+
+        /// <summary>
+        /// Actualiza la información de un gasto existente en un grupo.
+        /// </summary>
+        /// <param name="idGasto">Identificador único del gasto a actualizar.</param>
+        /// <param name="grupo">El grupo al que pertenece el gasto.</param>
+        /// <param name="quienPago">El usuario que realizó el pago.</param>
+        /// <param name="nombreGasto">El nuevo nombre del gasto.</param>
+        /// <param name="descripcionGasto">La nueva descripción del gasto.</param>
+        /// <param name="enlaceGasto">El nuevo enlace relacionado con el gasto.</param>
+        /// <param name="montoGasto">El nuevo monto del gasto.</param>
+        /// <param name="integrantes">Lista actualizada de identificadores de los integrantes involucrados en el gasto.</param>
+        /// <param name="fechaSeleccionada">La nueva fecha en que se realizó el gasto.</param>
+        /// <returns>True si el gasto se actualizó correctamente; de lo contrario, false.</returns>
+        bool ActualizarGasto(
+            int idGasto,
+            Grupo grupo,
+            Usuario quienPago,
+            string nombreGasto,
+            string descripcionGasto,
+            string enlaceGasto,
+            double montoGasto,
+            List<string> integrantes,
+            DateTime fechaSeleccionada);
+
+        /// <summary>
+        /// Elimina un gasto específico de un grupo.
+        /// </summary>
+        /// <param name="idGasto">Identificador único del gasto a eliminar.</param>
+        /// <param name="GrupoId">Identificador único del grupo al que pertenece el gasto.</param>
+        /// <returns>True si el gasto se eliminó correctamente; de lo contrario, false.</returns>
+        bool EliminarGasto(int idGasto, int GrupoId);
     }
 }

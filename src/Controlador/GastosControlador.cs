@@ -50,6 +50,39 @@ namespace Controlador
         }
 
         /// <summary>
+        /// Actualiza la información de un gasto existente en un grupo.
+        /// </summary>
+        /// <param name="idGasto">Identificador único del gasto a actualizar.</param>
+        /// <param name="grupo">El grupo al que pertenece el gasto.</param>
+        /// <param name="quienPago">El usuario que realizó el pago.</param>
+        /// <param name="nombreGasto">El nuevo nombre del gasto.</param>
+        /// <param name="descripcionGasto">La nueva descripción del gasto.</param>
+        /// <param name="enlaceGasto">El nuevo enlace relacionado con el gasto.</param>
+        /// <param name="montoGasto">El nuevo monto del gasto.</param>
+        /// <param name="integrantes">Lista actualizada de identificadores de los integrantes involucrados en el gasto.</param>
+        /// <param name="fechaSeleccionada">La nueva fecha en que se realizó el gasto.</param>
+        /// <returns>True si el gasto se actualizó correctamente; de lo contrario, false.</returns>
+        public bool ActualizarGasto(int idGasto, Grupo grupo, Usuario quienPago, string nombreGasto, string descripcionGasto, string enlaceGasto, double montoGasto, List<string> integrantes, DateTime fechaSeleccionada)
+        {
+            Gasto gasto = new Gasto(idGasto,nombreGasto, descripcionGasto, enlaceGasto, montoGasto, quienPago.Identificacion, fechaSeleccionada);
+            //Verificar si el que pago esta como integrante del grupo
+            integrantes = validarIntegrantes(integrantes, quienPago);
+
+            return gestorGastos.ActualizarGasto(gasto, integrantes, quienPago.Identificacion, grupo);
+        }
+
+        /// <summary>
+        /// Elimina un gasto específico de un grupo.
+        /// </summary>
+        /// <param name="idGasto">Identificador único del gasto a eliminar.</param>
+        /// <param name="grupoId">Identificador único del grupo al que pertenece el gasto.</param>
+        /// <returns>True si el gasto se eliminó correctamente; de lo contrario, false.</returns>
+        public bool EliminarGasto(int idGasto, int grupoId)
+        {
+            return gestorGastos.EliminarGasto(idGasto, grupoId);
+        }
+
+        /// <summary>
         /// Obtiene la lista de gastos asociados a un usuario específico.
         /// </summary>
         /// <param name="idUsuario">El identificador del usuario.</param>
@@ -211,6 +244,12 @@ namespace Controlador
                 );
 
             return gastosPorUsuario;
+        }
+
+        public List<Gasto> CargarGastoPorGrupo(int idGrupo)
+        {
+            List<Gasto> gastosXGrupo = gestorGastos.CargarGastosXGrupo(idGrupo);
+            return gastosXGrupo;
         }
 
 

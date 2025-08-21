@@ -55,6 +55,62 @@ namespace GestorDatos
             return true;
         }
 
+        public bool ActualizarGasto(Gasto gasto, List<string> nuevosIdIntegrantes, string quienPagoId, Grupo grupo)
+        {
+            List<Gasto> gastos = CargarDesdeJson<Gasto>(rutaArchivoGastos);
+            List<RelacionUsuarioGasto> relacionesUsuarioGasto = CargarDesdeJson<RelacionUsuarioGasto>(rutaRelacionUsuarioGasto);
+
+            // Remover los integrantes que formaban parte del gasto
+            relacionesUsuarioGasto.RemoveAll(g =>g.GastoId == gasto.Id);
+
+            // Agregar nuevos integrantes
+            foreach (string integranteId in nuevosIdIntegrantes)
+            {
+                // Se crea una nueva relación entre el usuario y el gasto
+                RelacionUsuarioGasto nuevaRelacion = new RelacionUsuarioGasto(integranteId, gasto.Id);
+                relacionesUsuarioGasto.Add(nuevaRelacion);
+            }
+
+            // Actualizamos la información del gasto
+            var gastoExistente = gastos.FirstOrDefault(g => g.Id == gasto.Id);
+            gastoExistente.ActualizarDesde(gasto);
+
+            // Se guarda el gasto en el archivo JSON
+            this.EscribirEnJson(rutaArchivoGastos, gastos);
+
+            // Se guarda la relación entre el gasto y los usuarios integrantes
+            this.EscribirEnJson(rutaRelacionUsuarioGasto, relacionesUsuarioGasto);
+
+            return true;
+        }
+
+        public bool EliminarGasto(int idGasto, int grupoId)
+        {
+            // Elimina el gasto del archivo de gastos
+            List<Gasto> gastos = CargarDesdeJson<Gasto>(rutaArchivoGastos);
+            Gasto? gastoAEliminar = gastos.FirstOrDefault(g => g.Id == idGasto);
+            if (gastoAEliminar == null)
+            {
+                return false; // El gasto no existe
+            }
+            gastos.Remove(gastoAEliminar);
+
+            // Guardamos la lista de gastos actualizada
+            this.EscribirEnJson(rutaArchivoGastos, gastos);
+
+            // Elimina la relación entre el gasto y el grupo
+            List<RelacionGrupoGasto> relacionGrupoGastos = CargarDesdeJson<RelacionGrupoGasto>(rutaRelacionGrupoGasto);
+            relacionGrupoGastos.RemoveAll(r => r.GastoId == idGasto && r.GrupoId == grupoId);
+            this.EscribirEnJson(rutaRelacionGrupoGasto, relacionGrupoGastos);
+
+            // Elimina la relación entre el gasto y los usuarios integrantes
+            List<RelacionUsuarioGasto> relacionUsuarioGastos = CargarDesdeJson<RelacionUsuarioGasto>(rutaRelacionUsuarioGasto);
+            relacionUsuarioGastos.RemoveAll(r => r.GastoId == idGasto);
+            this.EscribirEnJson(rutaRelacionUsuarioGasto, relacionUsuarioGastos);
+            // Si se eliminó el gasto, se devuelve true
+            return true;
+        }
+
         /// <summary>
         /// Guarda la relación entre un gasto y los usuarios integrantes.
         /// </summary>

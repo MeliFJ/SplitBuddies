@@ -60,7 +60,7 @@ namespace WfVistaSplitBuddies.Vista
         private List<Usuario> ListaUsuarios;
 
         /// <summary>
-        /// Lista de usuarios cargados.
+        /// Lista de usuarios integrantes del grupo seleccionado.
         /// </summary>
         private List<Usuario> integrantesDelGrupo;
 
@@ -76,13 +76,12 @@ namespace WfVistaSplitBuddies.Vista
         /// </summary>
         /// <param name="grupoControlador">Controlador de grupos.</param>
         /// <param name="usuarioValido">Usuario actualmente logueado.</param>
-        /// <param name="usuarioControlador">Controlador de usuarios.</param>
-        public MostrarGrupos(IGrupoControlador grupoControlador, Usuario usuarioValido, IUsuarioControlador usuarioControlador)
+        public MostrarGrupos(IGrupoControlador grupoControlador, Usuario usuarioValido)
         {
             InitializeComponent();
             this.grupoControlador = grupoControlador;
             this.usuarioLogeado = usuarioValido;
-            this.usuarioControlador = usuarioControlador;
+            this.usuarioControlador = UsuarioControlador.Instancia();
             this.gastosControlador = new GastosControlador(new GestorDatosGastos(), new GestorDatosUsuario());
         }
         #endregion
@@ -101,7 +100,6 @@ namespace WfVistaSplitBuddies.Vista
             listMostrarGrupos.Columns.Add("Nombre del Grupo", 100);
             listMostrarGrupos.MultiSelect = false;
             ListaUsuarios = usuarioControlador.CargarUsuarios().Select(x => x.Value).ToList();
-
         }
 
         /// <summary>
@@ -166,10 +164,11 @@ namespace WfVistaSplitBuddies.Vista
             listMiembros.Columns.Add("Apellido", 100);
             listMiembros.Columns.Add("Balance", 100);
             listMiembros.MultiSelect = false;
-            }
+        }
 
         /// <summary>
         /// Carga y muestra los miembros del grupo seleccionado en el ListView.
+        /// Calcula el balance de cada usuario en el grupo.
         /// </summary>
         /// <param name="grupo">Grupo del cual se mostrarán los miembros.</param>
         internal void CargarMiembros(Grupo grupo)
@@ -177,6 +176,7 @@ namespace WfVistaSplitBuddies.Vista
             listMiembros.Items.Clear();
             integrantesDelGrupo = usuarioControlador.CargarUsuarioPorGrupos(grupo.Id);
             Dictionary<string, double> usuarios = this.gastosControlador.CargarGastoPorUsuarioEnGrupo(grupo.Id, integrantesDelGrupo);
+
             //Grupo-gasto obtengo los gasto de ese grupo
             //Con eso saco los id de gastos y saco List<Gastos> del grupo, aqui filtro con QuienPagoId en gastos.json para saber quien pago algo
             foreach (var usuario in integrantesDelGrupo)
@@ -264,14 +264,54 @@ namespace WfVistaSplitBuddies.Vista
             form.Show();
         }
 
-
         /// <summary>
         /// Evento alternativo para ver reportes.
+        /// Abre el formulario de reportes para el usuario logueado.
         /// </summary>
         private void btnReporte_Click_1(object sender, EventArgs e)
         {
             FormReporte form = new FormReporte(this.usuarioLogeado, this.gastosControlador);
             form.Show();
+        }
+
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón para modificar gastos de un grupo.
+        /// Abre el formulario de modificación de gastos para el grupo seleccionado.
+        /// </summary>
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (gruposSeleccionado == null)
+            {
+                MessageBox.Show("Debe seleccionar un grupo para modificar gastos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                FormGastos form = new FormGastos(gruposSeleccionado, integrantesDelGrupo, this.usuarioLogeado, gastosControlador, grupoControlador, true);
+                if (!form.IsDisposed)
+                {
+                    form.DataChanged += cambioEnGastosForm;
+                    form.ShowDialog();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Evento que se ejecuta cuando hay un cambio en los datos de gastos.
+        /// Actualiza la vista de grupos y miembros.
+        /// </summary>
+        private void cambioEnGastosForm(object sender, EventArgs e) 
+        {
+            listMostrarGrupos.SelectedItems.Clear();
+            listMiembros.Items.Clear();
+            MostrarGrupos_Load(sender, e);
+        }
+
+        private void btnCerrarSesion_Click_1(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.Show();
+            this.Close();
         }
     }
 }

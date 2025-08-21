@@ -16,7 +16,6 @@
         /// </summary>
         public int GrupoId { get; set; }
 
-        public string UsuarioId { get; set; }
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="RelacionGrupoGasto"/> con los identificadores del grupo y del gasto.
         /// </summary>

@@ -49,5 +49,21 @@
         {
             return Nombre; // Esto es lo que se muestra en el CheckedListBox
         }
+
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Usuario other)
+            {
+                return string.Equals(this.Identificacion, other.Identificacion);
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Identificacion != null ? Identificacion.GetHashCode() : 0;
+        }
+
     }
 }

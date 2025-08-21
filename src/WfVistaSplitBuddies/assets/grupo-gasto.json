@@ -1,522 +1,418 @@
 [
   {
     "GastoId": 1,
-    "GrupoId": 1,
-    "UsuarioId": null
+    "GrupoId": 1
   },
   {
     "GastoId": 2,
-    "GrupoId": 1,
-    "UsuarioId": null
+    "GrupoId": 1
   },
   {
     "GastoId": 3,
-    "GrupoId": 1,
-    "UsuarioId": null
+    "GrupoId": 1
   },
   {
     "GastoId": 4,
-    "GrupoId": 2,
-    "UsuarioId": null
+    "GrupoId": 2
   },
   {
     "GastoId": 5,
-    "GrupoId": 1,
-    "UsuarioId": null
+    "GrupoId": 1
   },
   {
     "GastoId": 6,
-    "GrupoId": 1,
-    "UsuarioId": null
+    "GrupoId": 1
   },
   {
     "GastoId": 7,
-    "GrupoId": 2,
-    "UsuarioId": null
+    "GrupoId": 2
   },
   {
     "GastoId": 8,
-    "GrupoId": 2,
-    "UsuarioId": null
+    "GrupoId": 2
   },
   {
     "GastoId": 9,
-    "GrupoId": 4,
-    "UsuarioId": null
+    "GrupoId": 4
   },
   {
     "GastoId": 10,
-    "GrupoId": 4,
-    "UsuarioId": null
+    "GrupoId": 4
   },
   {
     "GastoId": 11,
-    "GrupoId": 6,
-    "UsuarioId": null
+    "GrupoId": 6
   },
   {
     "GastoId": 12,
-    "GrupoId": 6,
-    "UsuarioId": null
+    "GrupoId": 6
   },
   {
     "GastoId": 13,
-    "GrupoId": 6,
-    "UsuarioId": null
+    "GrupoId": 6
   },
   {
     "GastoId": 14,
-    "GrupoId": 7,
-    "UsuarioId": null
+    "GrupoId": 7
   },
   {
     "GastoId": 15,
-    "GrupoId": 7,
-    "UsuarioId": null
+    "GrupoId": 7
   },
   {
     "GastoId": 16,
-    "GrupoId": 7,
-    "UsuarioId": null
+    "GrupoId": 7
   },
   {
     "GastoId": 17,
-    "GrupoId": 8,
-    "UsuarioId": null
+    "GrupoId": 8
   },
   {
     "GastoId": 18,
-    "GrupoId": 8,
-    "UsuarioId": null
+    "GrupoId": 8
   },
   {
     "GastoId": 19,
-    "GrupoId": 9,
-    "UsuarioId": null
+    "GrupoId": 9
   },
   {
     "GastoId": 20,
-    "GrupoId": 9,
-    "UsuarioId": null
+    "GrupoId": 9
   },
   {
     "GastoId": 21,
-    "GrupoId": 10,
-    "UsuarioId": null
+    "GrupoId": 10
   },
   {
     "GastoId": 22,
-    "GrupoId": 10,
-    "UsuarioId": null
+    "GrupoId": 10
   },
   {
     "GastoId": 23,
-    "GrupoId": 11,
-    "UsuarioId": null
+    "GrupoId": 11
   },
   {
     "GastoId": 24,
-    "GrupoId": 12,
-    "UsuarioId": null
+    "GrupoId": 12
   },
   {
     "GastoId": 25,
-    "GrupoId": 12,
-    "UsuarioId": null
+    "GrupoId": 12
   },
   {
     "GastoId": 26,
-    "GrupoId": 13,
-    "UsuarioId": null
+    "GrupoId": 13
   },
   {
     "GastoId": 27,
-    "GrupoId": 13,
-    "UsuarioId": null
+    "GrupoId": 13
   },
   {
     "GastoId": 28,
-    "GrupoId": 13,
-    "UsuarioId": null
+    "GrupoId": 13
   },
   {
     "GastoId": 29,
-    "GrupoId": 14,
-    "UsuarioId": null
+    "GrupoId": 14
   },
   {
     "GastoId": 30,
-    "GrupoId": 14,
-    "UsuarioId": null
+    "GrupoId": 14
   },
   {
     "GastoId": 31,
-    "GrupoId": 14,
-    "UsuarioId": null
+    "GrupoId": 14
   },
   {
     "GastoId": 32,
-    "GrupoId": 14,
-    "UsuarioId": null
+    "GrupoId": 14
   },
   {
     "GastoId": 33,
-    "GrupoId": 14,
-    "UsuarioId": null
+    "GrupoId": 14
   },
   {
     "GastoId": 34,
-    "GrupoId": 14,
-    "UsuarioId": null
+    "GrupoId": 14
   },
   {
     "GastoId": 35,
-    "GrupoId": 14,
-    "UsuarioId": null
+    "GrupoId": 14
   },
   {
     "GastoId": 36,
-    "GrupoId": 14,
-    "UsuarioId": null
+    "GrupoId": 14
   },
   {
     "GastoId": 37,
-    "GrupoId": 26,
-    "UsuarioId": null
+    "GrupoId": 26
   },
   {
     "GastoId": 38,
-    "GrupoId": 26,
-    "UsuarioId": null
+    "GrupoId": 26
   },
   {
     "GastoId": 39,
-    "GrupoId": 26,
-    "UsuarioId": null
+    "GrupoId": 26
   },
   {
     "GastoId": 40,
-    "GrupoId": 26,
-    "UsuarioId": null
+    "GrupoId": 26
   },
   {
     "GastoId": 41,
-    "GrupoId": 26,
-    "UsuarioId": null
+    "GrupoId": 26
   },
   {
     "GastoId": 42,
-    "GrupoId": 15,
-    "UsuarioId": null
+    "GrupoId": 15
   },
   {
     "GastoId": 43,
-    "GrupoId": 15,
-    "UsuarioId": null
+    "GrupoId": 15
   },
   {
     "GastoId": 44,
-    "GrupoId": 15,
-    "UsuarioId": null
+    "GrupoId": 15
   },
   {
     "GastoId": 45,
-    "GrupoId": 15,
-    "UsuarioId": null
+    "GrupoId": 15
   },
   {
     "GastoId": 46,
-    "GrupoId": 15,
-    "UsuarioId": null
+    "GrupoId": 15
   },
   {
     "GastoId": 47,
-    "GrupoId": 16,
-    "UsuarioId": null
+    "GrupoId": 16
   },
   {
     "GastoId": 48,
-    "GrupoId": 16,
-    "UsuarioId": null
+    "GrupoId": 16
   },
   {
     "GastoId": 49,
-    "GrupoId": 16,
-    "UsuarioId": null
+    "GrupoId": 16
   },
   {
     "GastoId": 50,
-    "GrupoId": 16,
-    "UsuarioId": null
+    "GrupoId": 16
   },
   {
     "GastoId": 51,
-    "GrupoId": 16,
-    "UsuarioId": null
+    "GrupoId": 16
   },
   {
     "GastoId": 52,
-    "GrupoId": 16,
-    "UsuarioId": null
+    "GrupoId": 16
   },
   {
     "GastoId": 53,
-    "GrupoId": 16,
-    "UsuarioId": null
+    "GrupoId": 16
   },
   {
     "GastoId": 54,
-    "GrupoId": 16,
-    "UsuarioId": null
+    "GrupoId": 16
   },
   {
     "GastoId": 55,
-    "GrupoId": 16,
-    "UsuarioId": null
+    "GrupoId": 16
   },
   {
     "GastoId": 56,
-    "GrupoId": 17,
-    "UsuarioId": null
+    "GrupoId": 17
   },
   {
     "GastoId": 57,
-    "GrupoId": 17,
-    "UsuarioId": null
+    "GrupoId": 17
   },
   {
     "GastoId": 58,
-    "GrupoId": 17,
-    "UsuarioId": null
+    "GrupoId": 17
   },
   {
     "GastoId": 59,
-    "GrupoId": 19,
-    "UsuarioId": null
+    "GrupoId": 19
   },
   {
     "GastoId": 60,
-    "GrupoId": 20,
-    "UsuarioId": null
+    "GrupoId": 20
   },
   {
     "GastoId": 61,
-    "GrupoId": 20,
-    "UsuarioId": null
+    "GrupoId": 20
   },
   {
     "GastoId": 62,
-    "GrupoId": 20,
-    "UsuarioId": null
+    "GrupoId": 20
   },
   {
     "GastoId": 63,
-    "GrupoId": 21,
-    "UsuarioId": null
+    "GrupoId": 21
   },
   {
     "GastoId": 64,
-    "GrupoId": 22,
-    "UsuarioId": null
+    "GrupoId": 22
   },
   {
     "GastoId": 65,
-    "GrupoId": 23,
-    "UsuarioId": null
+    "GrupoId": 23
   },
   {
     "GastoId": 66,
-    "GrupoId": 23,
-    "UsuarioId": null
+    "GrupoId": 23
   },
   {
     "GastoId": 67,
-    "GrupoId": 24,
-    "UsuarioId": null
+    "GrupoId": 24
   },
   {
     "GastoId": 68,
-    "GrupoId": 24,
-    "UsuarioId": null
+    "GrupoId": 24
   },
   {
     "GastoId": 69,
-    "GrupoId": 25,
-    "UsuarioId": null
+    "GrupoId": 25
   },
   {
     "GastoId": 70,
-    "GrupoId": 25,
-    "UsuarioId": null
+    "GrupoId": 25
   },
   {
     "GastoId": 71,
-    "GrupoId": 27,
-    "UsuarioId": null
+    "GrupoId": 27
   },
   {
     "GastoId": 72,
-    "GrupoId": 27,
-    "UsuarioId": null
+    "GrupoId": 27
   },
   {
     "GastoId": 73,
-    "GrupoId": 27,
-    "UsuarioId": null
+    "GrupoId": 27
   },
   {
     "GastoId": 74,
-    "GrupoId": 29,
-    "UsuarioId": null
+    "GrupoId": 29
   },
   {
     "GastoId": 75,
-    "GrupoId": 29,
-    "UsuarioId": null
+    "GrupoId": 29
   },
   {
     "GastoId": 76,
-    "GrupoId": 29,
-    "UsuarioId": null
+    "GrupoId": 29
   },
   {
     "GastoId": 77,
-    "GrupoId": 30,
-    "UsuarioId": null
+    "GrupoId": 30
   },
   {
     "GastoId": 78,
-    "GrupoId": 30,
-    "UsuarioId": null
+    "GrupoId": 30
   },
   {
     "GastoId": 79,
-    "GrupoId": 30,
-    "UsuarioId": null
+    "GrupoId": 30
   },
   {
     "GastoId": 80,
-    "GrupoId": 30,
-    "UsuarioId": null
+    "GrupoId": 30
   },
   {
     "GastoId": 81,
-    "GrupoId": 30,
-    "UsuarioId": null
+    "GrupoId": 30
   },
   {
     "GastoId": 82,
-    "GrupoId": 30,
-    "UsuarioId": null
+    "GrupoId": 30
   },
   {
     "GastoId": 83,
-    "GrupoId": 30,
-    "UsuarioId": null
+    "GrupoId": 30
   },
   {
     "GastoId": 84,
-    "GrupoId": 30,
-    "UsuarioId": null
+    "GrupoId": 30
   },
   {
     "GastoId": 85,
-    "GrupoId": 31,
-    "UsuarioId": null
+    "GrupoId": 31
   },
   {
     "GastoId": 86,
-    "GrupoId": 31,
-    "UsuarioId": null
+    "GrupoId": 31
   },
   {
     "GastoId": 87,
-    "GrupoId": 31,
-    "UsuarioId": null
+    "GrupoId": 31
   },
   {
     "GastoId": 88,
-    "GrupoId": 31,
-    "UsuarioId": null
+    "GrupoId": 31
   },
   {
     "GastoId": 89,
-    "GrupoId": 31,
-    "UsuarioId": null
+    "GrupoId": 31
   },
   {
     "GastoId": 90,
-    "GrupoId": 31,
-    "UsuarioId": null
+    "GrupoId": 31
   },
   {
     "GastoId": 91,
-    "GrupoId": 9,
-    "UsuarioId": null
+    "GrupoId": 9
   },
   {
     "GastoId": 92,
-    "GrupoId": 9,
-    "UsuarioId": null
+    "GrupoId": 9
   },
   {
     "GastoId": 93,
-    "GrupoId": 9,
-    "UsuarioId": null
+    "GrupoId": 9
   },
   {
     "GastoId": 94,
-    "GrupoId": 3,
-    "UsuarioId": null
+    "GrupoId": 3
   },
   {
     "GastoId": 95,
-    "GrupoId": 14,
-    "UsuarioId": null
+    "GrupoId": 14
   },
   {
     "GastoId": 96,
-    "GrupoId": 28,
-    "UsuarioId": null
+    "GrupoId": 28
   },
   {
     "GastoId": 97,
-    "GrupoId": 4,
-    "UsuarioId": null
+    "GrupoId": 4
   },
   {
     "GastoId": 98,
-    "GrupoId": 6,
-    "UsuarioId": null
+    "GrupoId": 6
   },
   {
     "GastoId": 99,
-    "GrupoId": 8,
-    "UsuarioId": null
+    "GrupoId": 8
   },
   {
     "GastoId": 100,
-    "GrupoId": 8,
-    "UsuarioId": null
+    "GrupoId": 8
   },
   {
     "GastoId": 101,
-    "GrupoId": 14,
-    "UsuarioId": null
+    "GrupoId": 14
   },
   {
     "GastoId": 102,
-    "GrupoId": 14,
-    "UsuarioId": null
+    "GrupoId": 14
   },
   {
     "GastoId": 103,
-    "GrupoId": 15,
-    "UsuarioId": null
+    "GrupoId": 15
   },
   {
     "GastoId": 104,
-    "GrupoId": 24,
-    "UsuarioId": null
+    "GrupoId": 24
   }
 ]

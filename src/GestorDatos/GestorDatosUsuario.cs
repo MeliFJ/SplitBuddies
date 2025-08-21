@@ -10,7 +10,7 @@ namespace GestorDatos
     /// <summary>
     /// Clase encargada de la gestión de datos relacionados con los usuarios.
     /// Implementa la lógica para buscar, cargar y guardar usuarios,
-    /// así como para obtener usuarios por grupo.
+    /// así como para obtener usuarios por grupo y por gasto.
     /// </summary>
     public class GestorDatosUsuario : GestorDatosBase, IGestorDatosUsuario
     {
@@ -86,6 +86,59 @@ namespace GestorDatos
                         select usuario.Value;
 
             return resul?.ToList();
+        }
+
+        /// <summary>
+        /// Carga la lista de usuarios que están asociados a un gasto específico.
+        /// </summary>
+        /// <param name="gastoId">Identificador único del gasto.</param>
+        /// <returns>Una lista de objetos <see cref="Usuario"/> que están asociados al gasto, o una lista vacía si no hay resultados.</returns>
+        public List<Usuario> CargarUsuariosPorGastoId(int gastoId)
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+
+            if (!File.Exists(rutaRelacionUsuarioGasto))
+                return new List<Usuario>();
+
+            string json = File.ReadAllText(rutaRelacionUsuarioGasto);
+            if (string.IsNullOrWhiteSpace(json))
+                return new List<Usuario>();
+
+            var relacionUsuariosGastos = JsonSerializer.Deserialize<List<RelacionUsuarioGasto>>(json);
+
+            // Lista de relación usuario-gasto que tiene el id del gasto seleccionado
+            var resultadoIdUsuariosFiltrado = relacionUsuariosGastos?
+                .Where(usuarioGasto => usuarioGasto.GastoId == gastoId);
+
+            List<RelacionUsuarioGasto>? resultadoIdUsuarios = resultadoIdUsuariosFiltrado?.ToList();
+
+            if (resultadoIdUsuarios != null)
+            {
+                usuarios = buscarLosUsuarioDelGasto(resultadoIdUsuarios);
+                return usuarios;
+            }
+
+            return usuarios;
+        }
+
+        /// <summary>
+        /// Busca y retorna los usuarios asociados a una lista de relaciones usuario-gasto.
+        /// </summary>
+        /// <param name="resultadoIdUsuarios">Lista de relaciones usuario-gasto filtradas por gasto.</param>
+        /// <returns>Lista de objetos <see cref="Usuario"/> asociados al gasto.</returns>
+        private List<Usuario> buscarLosUsuarioDelGasto(List<RelacionUsuarioGasto> resultadoIdUsuarios)
+        {
+            List<Usuario> usuariosDelGasto = new List<Usuario>();
+            Dictionary<string, Usuario> usuariosDic = CargarUsuarios();
+
+            foreach (RelacionUsuarioGasto resultadoIdUsuario in resultadoIdUsuarios)
+            {
+                if (usuariosDic.ContainsKey(resultadoIdUsuario.UsuarioId))
+                {
+                    usuariosDelGasto.Add(usuariosDic[resultadoIdUsuario.UsuarioId]);
+                }
+            }
+            return usuariosDelGasto;
         }
     }
 }
