@@ -13,7 +13,9 @@ namespace WfVistaSplitBuddies.Vista
     /// </summary>
     public partial class FormGastos : Form
     {
-
+        /// <summary>
+        /// Evento que se dispara cuando los datos han cambiado (por ejemplo, al guardar, actualizar o eliminar un gasto).
+        /// </summary>
         public event EventHandler DataChanged;
 
         /// <summary>
@@ -51,12 +53,16 @@ namespace WfVistaSplitBuddies.Vista
         /// </summary>
         private List<Usuario> integrantesDelGrupo;
 
+        /// <summary>
+        /// Indica si el formulario está en modo modificación de gasto.
+        /// </summary>
         private bool esModificar = false;
 
         /// <summary>
         /// Constructor del formulario para crear y registrar un nuevo gasto en un grupo.
         /// </summary>
         /// <param name="grupo">Grupo al que pertenece el gasto.</param>
+        /// <param name="integrantesDelGrupo">Lista de integrantes del grupo.</param>
         /// <param name="usuario">Usuario actualmente logueado.</param>
         /// <param name="gastosControlador">Controlador de gastos.</param>
         /// <param name="grupoControlador">Controlador de grupos.</param>
@@ -79,9 +85,11 @@ namespace WfVistaSplitBuddies.Vista
         /// Constructor del formulario para modificar un gasto existente en un grupo.
         /// </summary>
         /// <param name="grupo">Grupo al que pertenece el gasto.</param>
+        /// <param name="integrantesDelGrupo">Lista de integrantes del grupo.</param>
         /// <param name="usuario">Usuario actualmente logueado.</param>
         /// <param name="gastosControlador">Controlador de gastos.</param>
         /// <param name="grupoControlador">Controlador de grupos.</param>
+        /// <param name="esModificar">Indica si el formulario está en modo modificación.</param>
         public FormGastos(Grupo grupo, List<Usuario> integrantesDelGrupo, Usuario usuario, IGastosControlador gastosControlador, IGrupoControlador grupoControlador, bool esModificar)
         {
             InitializeComponent();
@@ -99,6 +107,9 @@ namespace WfVistaSplitBuddies.Vista
             mostrarElementos();
         }
 
+        /// <summary>
+        /// Muestra u oculta elementos del formulario según el modo (crear o modificar).
+        /// </summary>
         private void mostrarElementos()
         {
             if (this.esModificar)
@@ -116,10 +127,12 @@ namespace WfVistaSplitBuddies.Vista
                 lbId.Visible = false;
                 btnCargaGasto.Visible = false;
                 btnEliminar.Visible = false;
-
             }
         }
 
+        /// <summary>
+        /// Carga los gastos del grupo en el ComboBox de selección de gastos para modificar.
+        /// </summary>
         private void cargarModificadoGastos()
         {
             if (this.esModificar)
@@ -130,6 +143,10 @@ namespace WfVistaSplitBuddies.Vista
             }
         }
 
+        /// <summary>
+        /// Agrega los gastos del grupo al ComboBox de selección.
+        /// </summary>
+        /// <param name="gastosDelGrupo">Lista de gastos del grupo.</param>
         private void cargarIdGastos(List<Gasto> gastosDelGrupo)
         {
             if (gastosDelGrupo.Count > 0)
@@ -144,11 +161,11 @@ namespace WfVistaSplitBuddies.Vista
                 this.Close();
                 MessageBox.Show("No hay gastos registrados en este grupo.");
             }
-
         }
+
         /// <summary>
         /// Evento que se ejecuta al hacer clic en el botón Guardar.
-        /// Guarda el gasto ingresado y muestra un mensaje de éxito o error.
+        /// Guarda o actualiza el gasto ingresado y muestra un mensaje de éxito o error.
         /// </summary>
         private void btnGuardar_Click(object sender, System.EventArgs e)
         {
@@ -201,7 +218,6 @@ namespace WfVistaSplitBuddies.Vista
 
                         // Actualizar la pantalla principal
                         DataChanged?.Invoke(this, EventArgs.Empty);
-
                     }
                     else
                     {
@@ -210,7 +226,6 @@ namespace WfVistaSplitBuddies.Vista
                     }
 
                     this.LimpiarFormulario();
-
                 }
             }
             else
@@ -220,6 +235,10 @@ namespace WfVistaSplitBuddies.Vista
             }
         }
 
+        /// <summary>
+        /// Valida que todos los campos obligatorios del formulario estén completos.
+        /// </summary>
+        /// <returns>True si todos los campos están completos; de lo contrario, false.</returns>
         private bool ValidarCamposConInformacion()
         {
             // Verifica que todos los campos obligatorios estén completos
@@ -240,7 +259,6 @@ namespace WfVistaSplitBuddies.Vista
         /// </summary>
         private void mostrarPosiblesIntegrantes()
         {
-
             foreach (Usuario usuario in integrantesDelGrupo)
             {
                 this.chckListBoxIntegrantes.Items.Add(usuario);
@@ -345,11 +363,18 @@ namespace WfVistaSplitBuddies.Vista
 
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al cambiar la selección de quien pagó en el ComboBox.
+        /// </summary>
         private void cbBxQuienPago_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón para cargar los datos de un gasto seleccionado.
+        /// Llena los campos del formulario con los datos del gasto.
+        /// </summary>
         private void btnCargaGasto_Click(object sender, EventArgs e)
         {
             this.LimpiarFormulario();
@@ -370,15 +395,17 @@ namespace WfVistaSplitBuddies.Vista
                         mostrarQuienPago(gastoSeleccionado.QuienPagoId);
                         dtPckFecha.Value = gastoSeleccionado.FechaSeleccionada;
                         marcarIntegrantesGasto(usuarioInvolucradoGasto);
-
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// Selecciona en el ComboBox el usuario que pagó el gasto.
+        /// </summary>
+        /// <param name="quienPagoId">Identificador del usuario que pagó.</param>
         private void mostrarQuienPago(string quienPagoId)
         {
-
             for (int i = 0; i < cbBxQuienPago.Items.Count; i++)
             {
                 Usuario usuarioItem = cbBxQuienPago.Items[i] as Usuario;
@@ -387,15 +414,14 @@ namespace WfVistaSplitBuddies.Vista
                     cbBxQuienPago.SelectedIndex = i;
                 }
             }
-
         }
 
         /// <summary>
-        /// Muestra en el CheckedListBox los posibles integrantes del grupo.
+        /// Marca en el CheckedListBox los integrantes involucrados en el gasto.
         /// </summary>
+        /// <param name="usuarioInvolucradoGasto">Lista de usuarios involucrados en el gasto.</param>
         private void marcarIntegrantesGasto(List<Usuario> usuarioInvolucradoGasto)
         {
-
             for (int i = 0; i < chckListBoxIntegrantes.Items.Count; i++)
             {
                 Usuario usuarioItem = chckListBoxIntegrantes.Items[i] as Usuario;
@@ -404,13 +430,17 @@ namespace WfVistaSplitBuddies.Vista
                     chckListBoxIntegrantes.SetItemChecked(i, true);
                 }
             }
-
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón Eliminar.
+        /// Elimina el gasto seleccionado y muestra un mensaje de éxito o error.
+        /// </summary>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             Gasto gasto = (Gasto)cbxGastosId.SelectedItem;
-            if(gasto == null) { 
+            if (gasto == null)
+            {
                 MessageBox.Show("Debe seleccionar un gasto a eliminar.");
                 return;
             }

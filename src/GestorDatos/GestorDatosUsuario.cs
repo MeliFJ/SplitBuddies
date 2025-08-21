@@ -10,7 +10,7 @@ namespace GestorDatos
     /// <summary>
     /// Clase encargada de la gestión de datos relacionados con los usuarios.
     /// Implementa la lógica para buscar, cargar y guardar usuarios,
-    /// así como para obtener usuarios por grupo.
+    /// así como para obtener usuarios por grupo y por gasto.
     /// </summary>
     public class GestorDatosUsuario : GestorDatosBase, IGestorDatosUsuario
     {
@@ -88,9 +88,13 @@ namespace GestorDatos
             return resul?.ToList();
         }
 
+        /// <summary>
+        /// Carga la lista de usuarios que están asociados a un gasto específico.
+        /// </summary>
+        /// <param name="gastoId">Identificador único del gasto.</param>
+        /// <returns>Una lista de objetos <see cref="Usuario"/> que están asociados al gasto, o una lista vacía si no hay resultados.</returns>
         public List<Usuario> CargarUsuariosPorGastoId(int gastoId)
         {
-
             List<Usuario> usuarios = new List<Usuario>();
 
             if (!File.Exists(rutaRelacionUsuarioGasto))
@@ -102,7 +106,7 @@ namespace GestorDatos
 
             var relacionUsuariosGastos = JsonSerializer.Deserialize<List<RelacionUsuarioGasto>>(json);
 
-            // Lista de relacion usuario gasto que tiene el id del gasto selecionado
+            // Lista de relación usuario-gasto que tiene el id del gasto seleccionado
             var resultadoIdUsuariosFiltrado = relacionUsuariosGastos?
                 .Where(usuarioGasto => usuarioGasto.GastoId == gastoId);
 
@@ -110,7 +114,6 @@ namespace GestorDatos
 
             if (resultadoIdUsuarios != null)
             {
-
                 usuarios = buscarLosUsuarioDelGasto(resultadoIdUsuarios);
                 return usuarios;
             }
@@ -118,6 +121,11 @@ namespace GestorDatos
             return usuarios;
         }
 
+        /// <summary>
+        /// Busca y retorna los usuarios asociados a una lista de relaciones usuario-gasto.
+        /// </summary>
+        /// <param name="resultadoIdUsuarios">Lista de relaciones usuario-gasto filtradas por gasto.</param>
+        /// <returns>Lista de objetos <see cref="Usuario"/> asociados al gasto.</returns>
         private List<Usuario> buscarLosUsuarioDelGasto(List<RelacionUsuarioGasto> resultadoIdUsuarios)
         {
             List<Usuario> usuariosDelGasto = new List<Usuario>();

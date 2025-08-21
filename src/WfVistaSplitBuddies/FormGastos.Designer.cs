@@ -80,7 +80,7 @@
             // txtBnombre
             // 
             this.txtBnombre.Location = new System.Drawing.Point(590, 169);
-            this.txtBnombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBnombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtBnombre.Multiline = true;
             this.txtBnombre.Name = "txtBnombre";
             this.txtBnombre.Size = new System.Drawing.Size(554, 54);
@@ -100,7 +100,7 @@
             // txtBdescripcion
             // 
             this.txtBdescripcion.Location = new System.Drawing.Point(590, 308);
-            this.txtBdescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBdescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txtBdescripcion.Multiline = true;
             this.txtBdescripcion.Name = "txtBdescripcion";
             this.txtBdescripcion.Size = new System.Drawing.Size(556, 200);
@@ -120,7 +120,7 @@
             // txtBenlace
             // 
             this.txtBenlace.Location = new System.Drawing.Point(590, 615);
-            this.txtBenlace.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBenlace.Margin = new System.Windows.Forms.Padding(4);
             this.txtBenlace.Multiline = true;
             this.txtBenlace.Name = "txtBenlace";
             this.txtBenlace.Size = new System.Drawing.Size(556, 110);
@@ -140,7 +140,7 @@
             // txtBmonto
             // 
             this.txtBmonto.Location = new System.Drawing.Point(584, 823);
-            this.txtBmonto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBmonto.Margin = new System.Windows.Forms.Padding(4);
             this.txtBmonto.Multiline = true;
             this.txtBmonto.Name = "txtBmonto";
             this.txtBmonto.Size = new System.Drawing.Size(532, 66);
@@ -183,24 +183,26 @@
             // dtPckFecha
             // 
             this.dtPckFecha.Location = new System.Drawing.Point(578, 1412);
-            this.dtPckFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtPckFecha.Margin = new System.Windows.Forms.Padding(4);
             this.dtPckFecha.Name = "dtPckFecha";
             this.dtPckFecha.Size = new System.Drawing.Size(562, 31);
             this.dtPckFecha.TabIndex = 15;
             // 
             // chckListBoxIntegrantes
             // 
+            this.chckListBoxIntegrantes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chckListBoxIntegrantes.FormattingEnabled = true;
             this.chckListBoxIntegrantes.Location = new System.Drawing.Point(578, 1198);
-            this.chckListBoxIntegrantes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chckListBoxIntegrantes.Margin = new System.Windows.Forms.Padding(4);
             this.chckListBoxIntegrantes.Name = "chckListBoxIntegrantes";
-            this.chckListBoxIntegrantes.Size = new System.Drawing.Size(558, 60);
+            this.chckListBoxIntegrantes.Size = new System.Drawing.Size(562, 116);
             this.chckListBoxIntegrantes.TabIndex = 16;
             // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(562, 1504);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(260, 88);
             this.btnGuardar.TabIndex = 17;
@@ -211,7 +213,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(856, 1504);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(270, 88);
             this.btnCancelar.TabIndex = 18;
@@ -223,7 +225,7 @@
             // 
             this.cbBxQuienPago.FormattingEnabled = true;
             this.cbBxQuienPago.Location = new System.Drawing.Point(578, 1079);
-            this.cbBxQuienPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbBxQuienPago.Margin = new System.Windows.Forms.Padding(4);
             this.cbBxQuienPago.Name = "cbBxQuienPago";
             this.cbBxQuienPago.Size = new System.Drawing.Size(568, 33);
             this.cbBxQuienPago.TabIndex = 20;
@@ -241,7 +243,7 @@
             // btnAgregarGasto
             // 
             this.btnAgregarGasto.Location = new System.Drawing.Point(590, 910);
-            this.btnAgregarGasto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregarGasto.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarGasto.Name = "btnAgregarGasto";
             this.btnAgregarGasto.Size = new System.Drawing.Size(242, 67);
             this.btnAgregarGasto.TabIndex = 22;
@@ -263,7 +265,7 @@
             // btnCargaGasto
             // 
             this.btnCargaGasto.Location = new System.Drawing.Point(1188, 281);
-            this.btnCargaGasto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCargaGasto.Margin = new System.Windows.Forms.Padding(4);
             this.btnCargaGasto.Name = "btnCargaGasto";
             this.btnCargaGasto.Size = new System.Drawing.Size(260, 88);
             this.btnCargaGasto.TabIndex = 25;
@@ -275,7 +277,7 @@
             // 
             this.cbxGastosId.FormattingEnabled = true;
             this.cbxGastosId.Location = new System.Drawing.Point(1188, 187);
-            this.cbxGastosId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxGastosId.Margin = new System.Windows.Forms.Padding(4);
             this.cbxGastosId.Name = "cbxGastosId";
             this.cbxGastosId.Size = new System.Drawing.Size(568, 33);
             this.cbxGastosId.TabIndex = 26;
@@ -295,7 +297,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(1476, 281);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(260, 88);
             this.btnEliminar.TabIndex = 28;
@@ -334,9 +336,10 @@
             this.Controls.Add(this.txtBnombre);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbtitulo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormGastos";
             this.Text = "FormGastos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormGastos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
