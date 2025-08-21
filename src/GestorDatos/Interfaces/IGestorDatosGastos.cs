@@ -72,6 +72,7 @@ namespace GestorDatos.Interfaces
         /// <returns>Una lista de objetos <see cref="Gasto"/> asociados al grupo.</returns>
         List<Gasto> CargarGastosXGrupo(int idGrupo);
 
-        bool actualizarGasto(Gasto gasto, List<string> integrantes, string quienPagoId, Grupo grupo);
+        bool ActualizarGasto(Gasto gasto, List<string> integrantes, string quienPagoId, Grupo grupo);
+        bool EliminarGasto(int idGasto, int grupoId);
     }
 }

@@ -413,7 +413,6 @@
   },
   {
     "GastoId": 104,
-    "GrupoId": 24,
-    "UsuarioId": null
+    "GrupoId": 24
   }
 ]

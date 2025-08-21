@@ -94,7 +94,7 @@ namespace Controlador.Interfaces
 
         List<Gasto> CargarGastoPorGrupo(int idGrupo);
 
-        bool actualizarGasto(
+        bool ActualizarGasto(
             int idGasto,
             Grupo grupo,
             Usuario quienPago,
@@ -104,5 +104,7 @@ namespace Controlador.Interfaces
             double montoGasto,
             List<string> integrantes,
             DateTime fechaSeleccionada);
+
+        bool EliminarGasto(int idGasto, int GrupoId);
     }
 }

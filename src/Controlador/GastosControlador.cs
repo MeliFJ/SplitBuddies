@@ -49,13 +49,18 @@ namespace Controlador
             return gestorGastos.GuardarGasto(nuevoGasto, integrantes, quienPago.Identificacion, grupo);
         }
 
-        public bool actualizarGasto(int idGasto, Grupo grupo, Usuario quienPago, string nombreGasto, string descripcionGasto, string enlaceGasto, double montoGasto, List<string> integrantes, DateTime fechaSeleccionada)
+        public bool ActualizarGasto(int idGasto, Grupo grupo, Usuario quienPago, string nombreGasto, string descripcionGasto, string enlaceGasto, double montoGasto, List<string> integrantes, DateTime fechaSeleccionada)
         {
             Gasto gasto = new Gasto(idGasto,nombreGasto, descripcionGasto, enlaceGasto, montoGasto, quienPago.Identificacion, fechaSeleccionada);
             //Verificar si el que pago esta como integrante del grupo
             integrantes = validarIntegrantes(integrantes, quienPago);
 
-            return gestorGastos.actualizarGasto(gasto, integrantes, quienPago.Identificacion, grupo);
+            return gestorGastos.ActualizarGasto(gasto, integrantes, quienPago.Identificacion, grupo);
+        }
+
+        public bool EliminarGasto(int idGasto, int grupoId)
+        {
+            return gestorGastos.EliminarGasto(idGasto, grupoId);
         }
 
         /// <summary>

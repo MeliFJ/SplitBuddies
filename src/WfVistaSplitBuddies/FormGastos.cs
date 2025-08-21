@@ -127,14 +127,6 @@ namespace WfVistaSplitBuddies.Vista
                 //Cargar los gastos del grupo
                 List<Gasto> gastosDelGrupo = this.gastosControlador.CargarGastoPorGrupo(this.Grupo.Id);
                 cargarIdGastos(gastosDelGrupo);
-                //Selecionar quien pago el gasto
-
-                //Obtener la informacion del gasto a modificar y llenar campos
-
-                //Seleccionar quien pago el gasto
-
-                //Seleccionar que integrantes forman parte del gasto
-
             }
         }
 
@@ -160,63 +152,87 @@ namespace WfVistaSplitBuddies.Vista
         /// </summary>
         private void btnGuardar_Click(object sender, System.EventArgs e)
         {
-            if (!this.esModificar)
+            bool camposCompletos = ValidarCamposConInformacion();
+            if (camposCompletos)
             {
-                string nombreGasto = txtBnombre.Text;
-                string descripcionGasto = txtBdescripcion.Text;
-                string enlaceGasto = txtBenlace.Text;
-                Usuario quienPago = (Usuario)cbBxQuienPago.SelectedItem;
-                List<string> integrantes = obtenerIntegrantes();
-                DateTime fechaSeleccionada = dtPckFecha.Value;
-
-                bool guardado = this.gastosControlador.guardarGasto(Grupo, quienPago, nombreGasto, descripcionGasto, enlaceGasto, montoTotal, integrantes, fechaSeleccionada);
-
-                if (guardado)
+                if (!this.esModificar)
                 {
-                    lbGuardado.ForeColor = System.Drawing.Color.Green;
-                    lbGuardado.Text = "Gasto guardado correctamente";
-                }
-                else
-                {
-                    lbGuardado.ForeColor = System.Drawing.Color.Red;
-                    lbGuardado.Text = "Error al guardar el gasto";
-                }
+                    string nombreGasto = txtBnombre.Text;
+                    string descripcionGasto = txtBdescripcion.Text;
+                    string enlaceGasto = txtBenlace.Text;
+                    Usuario quienPago = (Usuario)cbBxQuienPago.SelectedItem;
+                    List<string> integrantes = obtenerIntegrantes();
+                    DateTime fechaSeleccionada = dtPckFecha.Value;
 
-                this.LimpiarFormulario();
+                    bool guardado = this.gastosControlador.guardarGasto(Grupo, quienPago, nombreGasto, descripcionGasto, enlaceGasto, montoTotal, integrantes, fechaSeleccionada);
+
+                    if (guardado)
+                    {
+                        lbGuardado.ForeColor = System.Drawing.Color.Green;
+                        lbGuardado.Text = "Gasto guardado correctamente";
+
+                        // Actualizar la pantalla principal
+                        DataChanged?.Invoke(this, EventArgs.Empty);
+                    }
+                    else
+                    {
+                        lbGuardado.ForeColor = System.Drawing.Color.Red;
+                        lbGuardado.Text = "Error al guardar el gasto";
+                    }
+
+                    this.LimpiarFormulario();
+                }
+                else //Si es actualizar se guarda lo nuevo y se elimina las referencias antiguas
+                {
+                    string nombreGasto = txtBnombre.Text;
+                    string descripcionGasto = txtBdescripcion.Text;
+                    string enlaceGasto = txtBenlace.Text;
+                    Usuario quienPago = (Usuario)cbBxQuienPago.SelectedItem;
+                    List<string> integrantes = obtenerIntegrantes();
+                    DateTime fechaSeleccionada = dtPckFecha.Value;
+                    int gastoId = ((Gasto)cbxGastosId.SelectedItem).Id;
+
+                    bool guardado = this.gastosControlador.ActualizarGasto(gastoId, Grupo, quienPago, nombreGasto, descripcionGasto, enlaceGasto, montoTotal, integrantes, fechaSeleccionada);
+
+                    if (guardado)
+                    {
+                        lbGuardado.ForeColor = System.Drawing.Color.Green;
+                        lbGuardado.Text = "Gasto guardado correctamente";
+
+                        // Actualizar la pantalla principal
+                        DataChanged?.Invoke(this, EventArgs.Empty);
+
+                    }
+                    else
+                    {
+                        lbGuardado.ForeColor = System.Drawing.Color.Red;
+                        lbGuardado.Text = "Error al guardar el gasto";
+                    }
+
+                    this.LimpiarFormulario();
+
+                }
             }
-            else //Si es actualizar se guarda lo nuevo y se elimina las referencias antiguas
+            else
             {
-                string nombreGasto = txtBnombre.Text;
-                string descripcionGasto = txtBdescripcion.Text;
-                string enlaceGasto = txtBenlace.Text;
-                Usuario quienPago = (Usuario)cbBxQuienPago.SelectedItem;
-                List<string> integrantes = obtenerIntegrantes();
-                DateTime fechaSeleccionada = dtPckFecha.Value;
-                int gastoId = ((Gasto)cbxGastosId.SelectedItem).Id;
+                lbGuardado.ForeColor = System.Drawing.Color.Red;
+                lbGuardado.Text = "Error: Complete todos los campos.";
+            }
+        }
 
-                bool guardado = this.gastosControlador.actualizarGasto(gastoId, Grupo, quienPago, nombreGasto, descripcionGasto, enlaceGasto, montoTotal, integrantes, fechaSeleccionada);
-
-                if (guardado)
-                {
-                    lbGuardado.ForeColor = System.Drawing.Color.Green;
-                    lbGuardado.Text = "Gasto guardado correctamente";
-
-                    DataChanged?.Invoke(this, EventArgs.Empty);
-
-                }
-                else
-                {
-                    lbGuardado.ForeColor = System.Drawing.Color.Red;
-                    lbGuardado.Text = "Error al guardar el gasto";
-                }
-
-                this.LimpiarFormulario();
-
-                this.LimpiarFormulario();
-
+        private bool ValidarCamposConInformacion()
+        {
+            // Verifica que todos los campos obligatorios estén completos
+            if (string.IsNullOrWhiteSpace(txtBnombre.Text) ||
+                string.IsNullOrWhiteSpace(txtBdescripcion.Text) ||
+                string.IsNullOrWhiteSpace(txtBenlace.Text) ||
+                cbBxQuienPago.SelectedItem == null ||
+                chckListBoxIntegrantes.CheckedItems.Count == 0)
+            {
+                return false; // Algún campo obligatorio está vacío
             }
 
-
+            return true; // Todos los campos obligatorios están completos
         }
 
         /// <summary>
@@ -391,5 +407,31 @@ namespace WfVistaSplitBuddies.Vista
 
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Gasto gasto = (Gasto)cbxGastosId.SelectedItem;
+            if(gasto == null) { 
+                MessageBox.Show("Debe seleccionar un gasto a eliminar.");
+                return;
+            }
+            else
+            {
+                // Actualizar la pantalla principal
+                DataChanged?.Invoke(this, EventArgs.Empty);
+
+                // Eliminar el gasto seleccionado
+                bool eliminado = this.gastosControlador.EliminarGasto(gasto.Id, this.Grupo.Id);
+                if (eliminado)
+                {
+                    lbGuardado.ForeColor = System.Drawing.Color.Green;
+                    lbGuardado.Text = "Gasto eliminado correctamente";
+                }
+                else
+                {
+                    lbGuardado.ForeColor = System.Drawing.Color.Red;
+                    lbGuardado.Text = "Error al eliminar el gasto";
+                }
+            }
+        }
     }
 }

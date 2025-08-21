@@ -294,6 +294,8 @@ namespace WfVistaSplitBuddies.Vista
 
         private void cambioEnGastosForm(object sender, EventArgs e) 
         {
+            listMostrarGrupos.SelectedItems.Clear();
+            listMiembros.Items.Clear();
             MostrarGrupos_Load(sender,e);
         }
     }

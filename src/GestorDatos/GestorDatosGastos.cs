@@ -55,7 +55,7 @@ namespace GestorDatos
             return true;
         }
 
-        public bool actualizarGasto(Gasto gasto, List<string> nuevosIdIntegrantes, string quienPagoId, Grupo grupo)
+        public bool ActualizarGasto(Gasto gasto, List<string> nuevosIdIntegrantes, string quienPagoId, Grupo grupo)
         {
             List<Gasto> gastos = CargarDesdeJson<Gasto>(rutaArchivoGastos);
             List<RelacionUsuarioGasto> relacionesUsuarioGasto = CargarDesdeJson<RelacionUsuarioGasto>(rutaRelacionUsuarioGasto);
@@ -81,6 +81,33 @@ namespace GestorDatos
             // Se guarda la relación entre el gasto y los usuarios integrantes
             this.EscribirEnJson(rutaRelacionUsuarioGasto, relacionesUsuarioGasto);
 
+            return true;
+        }
+
+        public bool EliminarGasto(int idGasto, int grupoId)
+        {
+            // Elimina el gasto del archivo de gastos
+            List<Gasto> gastos = CargarDesdeJson<Gasto>(rutaArchivoGastos);
+            Gasto? gastoAEliminar = gastos.FirstOrDefault(g => g.Id == idGasto);
+            if (gastoAEliminar == null)
+            {
+                return false; // El gasto no existe
+            }
+            gastos.Remove(gastoAEliminar);
+
+            // Guardamos la lista de gastos actualizada
+            this.EscribirEnJson(rutaArchivoGastos, gastos);
+
+            // Elimina la relación entre el gasto y el grupo
+            List<RelacionGrupoGasto> relacionGrupoGastos = CargarDesdeJson<RelacionGrupoGasto>(rutaRelacionGrupoGasto);
+            relacionGrupoGastos.RemoveAll(r => r.GastoId == idGasto && r.GrupoId == grupoId);
+            this.EscribirEnJson(rutaRelacionGrupoGasto, relacionGrupoGastos);
+
+            // Elimina la relación entre el gasto y los usuarios integrantes
+            List<RelacionUsuarioGasto> relacionUsuarioGastos = CargarDesdeJson<RelacionUsuarioGasto>(rutaRelacionUsuarioGasto);
+            relacionUsuarioGastos.RemoveAll(r => r.GastoId == idGasto);
+            this.EscribirEnJson(rutaRelacionUsuarioGasto, relacionUsuarioGastos);
+            // Si se eliminó el gasto, se devuelve true
             return true;
         }
 
