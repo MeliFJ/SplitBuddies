@@ -49,14 +49,6 @@
   },
   {
     "UsuarioId": "116640546",
-    "GastoId": 7
-  },
-  {
-    "UsuarioId": "155851059831",
-    "GastoId": 7
-  },
-  {
-    "UsuarioId": "116640546",
     "GastoId": 8
   },
   {
@@ -1946,5 +1938,9 @@
   {
     "UsuarioId": "frweiuyuuy",
     "GastoId": 1
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 7
   }
 ]

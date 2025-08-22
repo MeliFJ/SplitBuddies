@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="9.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="System.Text.Json">
       <HintPath>Q:\.tools\CxCache\system.text.json\9.0.7\lib\net462\System.Text.Json.dll</HintPath>
     </Reference>
