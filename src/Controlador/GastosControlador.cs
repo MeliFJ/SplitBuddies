@@ -14,8 +14,8 @@ namespace Controlador
     /// </summary>
     public class GastosControlador : IGastosControlador
     {
-        IGestorDatosGastos gestorGastos;
-        IGestorDatosUsuario gestorDatosusuario;
+        private readonly IGestorDatosGastos gestorGastos;
+        private readonly IGestorDatosUsuario gestorDatosusuario;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="GastosControlador"/>.
@@ -44,7 +44,7 @@ namespace Controlador
         {
             Gasto nuevoGasto = new Gasto(nombreGasto, descripcionGasto, enlaceGasto, montoGasto, quienPago.Identificacion, fechaSeleccionada);
             //Verificar si el que pago esta como integrante del grupo
-            integrantes = validarIntegrantes(integrantes, quienPago);
+            integrantes = ValidarIntegrantes(integrantes, quienPago);
 
             return gestorGastos.GuardarGasto(nuevoGasto, integrantes, quienPago.Identificacion, grupo);
         }
@@ -66,7 +66,7 @@ namespace Controlador
         {
             Gasto gasto = new Gasto(idGasto,nombreGasto, descripcionGasto, enlaceGasto, montoGasto, quienPago.Identificacion, fechaSeleccionada);
             //Verificar si el que pago esta como integrante del grupo
-            integrantes = validarIntegrantes(integrantes, quienPago);
+            integrantes = ValidarIntegrantes(integrantes, quienPago);
 
             return gestorGastos.ActualizarGasto(gasto, integrantes, quienPago.Identificacion, grupo);
         }
@@ -77,9 +77,9 @@ namespace Controlador
         /// <param name="idGasto">Identificador único del gasto a eliminar.</param>
         /// <param name="grupoId">Identificador único del grupo al que pertenece el gasto.</param>
         /// <returns>True si el gasto se eliminó correctamente; de lo contrario, false.</returns>
-        public bool EliminarGasto(int idGasto, int grupoId)
+        public bool EliminarGasto(int idGasto, int GrupoId)
         {
-            return gestorGastos.EliminarGasto(idGasto, grupoId);
+            return gestorGastos.EliminarGasto(idGasto, GrupoId);
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Controlador
         /// <param name="integrantes">Lista de identificadores de integrantes.</param>
         /// <param name="usuarioLogeado">Usuario que está realizando la acción.</param>
         /// <returns>Lista de integrantes actualizada.</returns>
-        private List<string> validarIntegrantes(List<string> integrantes, Usuario usuarioLogeado)
+        private static List<string> ValidarIntegrantes(List<string> integrantes, Usuario usuarioLogeado)
         {
             // Validar que el usuario logueado esté en la lista de integrantes
             if (!integrantes.Contains(usuarioLogeado.Identificacion))
@@ -129,7 +129,6 @@ namespace Controlador
         {
             (List<RelacionGrupoGasto>, List<RelacionUsuarioGasto>, List<Gasto>) resultadogestor = gestorGastos.ConsultarGastosPorGrupoyUsuario(usuario, grupo);
             List<RelacionGrupoGasto> grupoGastos = resultadogestor.Item1;
-            List<RelacionUsuarioGasto> usuariogastos = resultadogestor.Item2;
             List<Gasto> gastos = resultadogestor.Item3;
 
             // First, declare and initialize gastosPorgrupo before using it
@@ -153,14 +152,14 @@ namespace Controlador
                 resultado.TotalGastosPorUsuario += gasto.MontoGasto;
             }
             var usuarios = gestorDatosusuario.CargarUsuarioPorGrupos(grupo.Id);
-            var cantidadusuarios = usuarios.Count();
+            var cantidadusuarios = usuarios?.Count ?? 0;
             if (cantidadusuarios > 0)
             {
-                resultado.TotalGastosPorIntegrante = (double)(resultado.TotalGastosGrupo / cantidadusuarios);
+                resultado.TotalGastosPorIntegrante = (resultado.TotalGastosGrupo / cantidadusuarios);
                 resultado.NombreUsuario = usuario.Nombre;
                 resultado.NombreGrupo = grupo.Nombre;
                 resultado.Gastos = gastosPorgrupoUsuario.ToList();
-                resultado.CantidadIntegrantes = (int)cantidadusuarios;
+                resultado.CantidadIntegrantes = cantidadusuarios;
             }
 
             return resultado;
@@ -187,7 +186,7 @@ namespace Controlador
         /// <returns>Un reporte con los detalles de los gastos para el mes y usuario especificados.</returns>
         public Reporte GenerarReportePorMes(DateTime fecha, Usuario usuario)
         {
-            DateTime primerDia = new DateTime(fecha.Year, fecha.Month, 1); //   Primer día del mes
+            DateTime primerDia = new(fecha.Year, fecha.Month, 1, 0, 0, 0, DateTimeKind.Unspecified); // Primer día del mes
             DateTime ultimoDia = primerDia.AddMonths(1).AddDays(-1); // Último día del mes
 
             //Se obtiene los datos del reporte obteniendo el rango de fechas basado en el mes que se seleccionó
@@ -203,8 +202,8 @@ namespace Controlador
         /// <returns>Un reporte con los detalles de los gastos para el año y usuario especificados.</returns>
         public Reporte GenerarReportePorAnno(DateTime fecha, Usuario usuario)
         {
-            DateTime primerDia = new DateTime(fecha.Year, 1, 1); // Primer día del año
-            DateTime ultimoDia = new DateTime(fecha.Year, 12, 31); // Último día del año
+            DateTime primerDia = new(fecha.Year, 1, 1, 0, 0, 0, DateTimeKind.Unspecified); // Primer día del año
+            DateTime ultimoDia = new(fecha.Year, 12, 31, 0, 0, 0, DateTimeKind.Unspecified); // Último día del año
 
             //Se obtiene los datos del reporte obteniendo el rango de fechas basado en el año que se seleccionó
             Reporte gastosXUsuario = this.gestorGastos.ObtenerReportePorUsuario(usuario.Identificacion, primerDia, ultimoDia);

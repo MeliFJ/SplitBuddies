@@ -31,7 +31,7 @@ namespace Controlador
         /// Inicializa una nueva instancia de la clase <see cref="UsuarioControlador"/>.
         /// </summary>
         /// <param name="gestorDatosUsuario">Instancia para la gestión de datos de usuarios.</param>
-        private UsuarioControlador(IGestorDatosUsuario gestorDatosUsuario)
+        internal UsuarioControlador(IGestorDatosUsuario gestorDatosUsuario)
         {
             _gestorDatosUsuario = gestorDatosUsuario;
         }

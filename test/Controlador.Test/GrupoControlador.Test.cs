@@ -1,20 +1,16 @@
 ﻿using Controlador;
-using Controlador.Interfaces;
 using GestorDatos.Interfaces;
 using Modelo;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System.Collections.Generic;
-using System.IO;
 
 namespace ControladorTests
 {
     [TestClass]
     public class GrupoControladorTests
     {
-        private Mock<IGestorDatosGrupos> mockDataManager;
-        private Mock<IGestorDatosUsuario> mockUserManager;
-        private GrupoControlador controller;
+        private Mock<IGestorDatosGrupos>? mockDataManager;
+        private Mock<IGestorDatosUsuario>? mockUserManager;
+        private GrupoControlador? controller;
 
         [TestInitialize]
         public void Setup()
@@ -33,15 +29,15 @@ namespace ControladorTests
             {
                 { "1", new Usuario("1", "pass123", "Juan", "Perez") }
             };
-            mockUserManager.Setup(m => m.CargarUsuarios()).Returns(users);
+            mockUserManager?.Setup(m => m.CargarUsuarios()).Returns(users);
 
             // Act
-            var result = controller.cargarPosiblesIntegrantes();
+            var result = controller?.cargarPosiblesIntegrantes();
 
             // Assert
-            Assert.AreEqual(1, result.Count);
-            Assert.IsTrue(result.ContainsKey("1"));
-            Assert.AreEqual("Juan", result["1"].Nombre);
+            Assert.AreEqual(1, result?.Count);
+            Assert.IsTrue(result?.ContainsKey("1"));
+            Assert.AreEqual("Juan", result?["1"].Nombre);
         }
 
         [TestMethod]
@@ -52,14 +48,14 @@ namespace ControladorTests
             {
                 new Usuario("1", "pass123", "Juan", "Perez")
             };
-            mockUserManager.Setup(m => m.CargarUsuarioPorGrupos(5)).Returns(userList);
+            mockUserManager?.Setup(m => m.CargarUsuarioPorGrupos(5)).Returns(userList);
 
             // Act
-            var result = controller.CargarUsuarioPorGrupos(5);
+            var result = controller?.CargarUsuarioPorGrupos(5);
 
             // Assert
-            Assert.AreEqual(1, result.Count);
-            Assert.AreEqual("Juan", result[0].Nombre);
+            Assert.AreEqual(1, result?.Count);
+            Assert.AreEqual("Juan", result?[0].Nombre);
         }
 
         [TestMethod]
@@ -70,15 +66,15 @@ namespace ControladorTests
             string groupName = "My Group";
             string filePath = Path.GetTempFileName();
             var members = new List<string> { "2" };
-            mockDataManager.Setup(m => m.GuardarUsuarioGrupo(It.IsAny<Grupo>(), members)).Returns(true);
+            mockDataManager?.Setup(m => m.GuardarUsuarioGrupo(It.IsAny<Grupo>(), members)).Returns(true);
 
             // Act
-            bool result = controller.guardaGrupo(userId, groupName, filePath, members);
+            bool? result = controller?.guardaGrupo(userId, groupName, filePath, members);
 
             // Assert
             Assert.IsTrue(result);
-            mockDataManager.Verify(m => m.GuardarGrupos(It.IsAny<Grupo>()), Times.Once);
-            mockDataManager.Verify(m => m.GuardarUsuarioGrupo(It.IsAny<Grupo>(), members), Times.Once);
+            mockDataManager?.Verify(m => m.GuardarGrupos(It.IsAny<Grupo>()), Times.Once);
+            mockDataManager?.Verify(m => m.GuardarUsuarioGrupo(It.IsAny<Grupo>(), members), Times.Once);
 
 
         }
@@ -94,7 +90,7 @@ namespace ControladorTests
             if (File.Exists(destFile)) File.Delete(destFile);
 
             // Act
-            controller.guardaLogo(sourceFile, newName);
+            controller?.guardaLogo(sourceFile, newName);
 
             // Assert
             Assert.IsTrue(File.Exists(destFile));

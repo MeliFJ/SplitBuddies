@@ -1,16 +1,14 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using Controlador;
-using GestorDatos.Interfaces;
+﻿using GestorDatos.Interfaces;
 using Modelo;
+using Moq;
 
 namespace Controlador.Tests
 {
     [TestClass]
     public class LoginControladorTests
     {
-        private Mock<IGestorDatosUsuario> mockUserManager;
-        private LoginControlador loginController;
+        private Mock<IGestorDatosUsuario>? mockUserManager;
+        private LoginControlador? loginController;
 
         [TestInitialize]
         public void Setup()
@@ -40,10 +38,10 @@ namespace Controlador.Tests
             var id = "123";
             var password = "pass";
             var user = new Usuario(id, password, "Juan", "Perez");
-            mockUserManager.Setup(m => m.BuscarUsuario(id)).Returns(user);
+            mockUserManager?.Setup(m => m.BuscarUsuario(id)).Returns(user);
 
             // Act
-            var result = loginController.ValidarLogin(id, password);
+            var result = loginController?.ValidarLogin(id, password);
 
             // Assert
             Assert.IsNotNull(result);
@@ -56,10 +54,10 @@ namespace Controlador.Tests
             // Arrange
             var id = "123";
             var user = new Usuario(id, "otherPass", "Juan", "Perez");
-            mockUserManager.Setup(m => m.BuscarUsuario(id)).Returns(user);
+            mockUserManager?.Setup(m => m.BuscarUsuario(id)).Returns(user);
 
             // Act
-            var result = loginController.ValidarLogin(id, "wrongPass");
+            var result = loginController?.ValidarLogin(id, "wrongPass");
 
             // Assert
             Assert.IsNull(result);
@@ -70,10 +68,10 @@ namespace Controlador.Tests
         {
             // Arrange
             var id = "999";
-            mockUserManager.Setup(m => m.BuscarUsuario(id)).Returns((Usuario?)null);
+            mockUserManager?.Setup(m => m.BuscarUsuario(id)).Returns((Usuario)null!);
 
             // Act
-            var result = loginController.ValidarLogin(id, "anyPass");
+            var result = loginController?.ValidarLogin(id, "anyPass");
 
             // Assert
             Assert.IsNull(result);
