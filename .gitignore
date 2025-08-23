@@ -13,3 +13,4 @@ test/Controlador.Test/bin/Debug/net9.0/runtimes/linux-musl-x64/native/Cov_x64.co
 /src/Modelo/obj
 /packages
 /Proyecto/obj
+/TestResults
