@@ -21,27 +21,17 @@ namespace WfVistaSplitBuddies.Vista
         /// <summary>
         /// Grupo al que pertenece el gasto.
         /// </summary>
-        private Grupo Grupo;
-
-        /// <summary>
-        /// Usuario actualmente logueado.
-        /// </summary>
-        private Usuario usuarioLogeado;
+        private readonly Grupo Grupo;
 
         /// <summary>
         /// Controlador encargado de la gestión de gastos.
         /// </summary>
-        private IGastosControlador gastosControlador;
-
-        /// <summary>
-        /// Controlador encargado de la gestión de grupos.
-        /// </summary>
-        private IGrupoControlador grupoControlador;
+        private readonly IGastosControlador gastosControlador;
 
         /// <summary>
         /// Controlador encargado de la gestión de usuario.
         /// </summary>
-        private IUsuarioControlador usuarioControlador;
+        private readonly IUsuarioControlador usuarioControlador;
 
         /// <summary>
         /// Monto total acumulado de los gastos ingresados.
@@ -51,12 +41,12 @@ namespace WfVistaSplitBuddies.Vista
         /// <summary>
         /// Lista de usuarios cargados.
         /// </summary>
-        private List<Usuario> integrantesDelGrupo;
+        private readonly List<Usuario> integrantesDelGrupo;
 
         /// <summary>
         /// Indica si el formulario está en modo modificación de gasto.
         /// </summary>
-        private bool esModificar = false;
+        private readonly bool esModificar = false;
 
         /// <summary>
         /// Constructor del formulario para crear y registrar un nuevo gasto en un grupo.
@@ -70,13 +60,11 @@ namespace WfVistaSplitBuddies.Vista
         {
             InitializeComponent();
             this.Grupo = grupo;
-            this.usuarioLogeado = usuario; // Usuario que está creando el grupo
-            this.grupoControlador = grupoControlador;
             this.gastosControlador = gastosControlador;
             this.integrantesDelGrupo = integrantesDelGrupo;
             this.usuarioControlador = UsuarioControlador.Instancia();
             mostrarPosiblesIntegrantes();
-            mostrarQuienPago();
+            MostrarQuienPago();
             montoTotal = 0.0;
             mostrarElementos();
         }
@@ -94,17 +82,15 @@ namespace WfVistaSplitBuddies.Vista
         {
             InitializeComponent();
             this.Grupo = grupo;
-            this.usuarioLogeado = usuario; // Usuario que está creando el grupo
-            this.grupoControlador = grupoControlador;
             this.gastosControlador = gastosControlador;
             this.integrantesDelGrupo = integrantesDelGrupo;
             this.usuarioControlador = UsuarioControlador.Instancia();
             mostrarPosiblesIntegrantes();
-            mostrarQuienPago();
+            MostrarQuienPago();
             montoTotal = 0.0;
             this.esModificar = esModificar;
             cargarModificadoGastos();
-            mostrarElementos();
+            mostrarElementos(); //Aqui ocultamos o mostramos los elementos segun el modo
         }
 
         /// <summary>
@@ -209,6 +195,7 @@ namespace WfVistaSplitBuddies.Vista
                     DateTime fechaSeleccionada = dtPckFecha.Value;
                     int gastoId = ((Gasto)cbxGastosId.SelectedItem).Id;
 
+                    // El controlador actualiza el gasto
                     bool guardado = this.gastosControlador.ActualizarGasto(gastoId, Grupo, quienPago, nombreGasto, descripcionGasto, enlaceGasto, montoTotal, integrantes, fechaSeleccionada);
 
                     if (guardado)
@@ -268,7 +255,7 @@ namespace WfVistaSplitBuddies.Vista
         /// <summary>
         /// Muestra en el ComboBox los posibles integrantes que pueden haber pagado el gasto.
         /// </summary>
-        private void mostrarQuienPago()
+        private void MostrarQuienPago()
         {
             foreach (Usuario usuario in integrantesDelGrupo)
             {
@@ -360,7 +347,6 @@ namespace WfVistaSplitBuddies.Vista
         /// </summary>
         private void FormGastos_Load(object sender, EventArgs e)
         {
-
         }
 
         /// <summary>
@@ -368,7 +354,6 @@ namespace WfVistaSplitBuddies.Vista
         /// </summary>
         private void cbBxQuienPago_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         /// <summary>
@@ -384,18 +369,16 @@ namespace WfVistaSplitBuddies.Vista
                 if (gastoSeleccionado != null)
                 {
                     // Cargar los detalles del gasto seleccionado
-                    List<Usuario> usuarioInvolucradoGasto = this.usuarioControlador.CargarUsuarioPorGastoId(gastoSeleccionado.Id);
-                    if (gastoSeleccionado != null)
-                    {
-                        // Mostrar los detalles del gasto en los controles correspondientes
-                        txtBnombre.Text = gastoSeleccionado.NombreGasto;
-                        txtBdescripcion.Text = gastoSeleccionado.DescripcionGasto;
-                        txtBenlace.Text = gastoSeleccionado.EnlaceGasto;
-                        txtBmonto.Text = gastoSeleccionado.MontoGasto.ToString("F2");
-                        mostrarQuienPago(gastoSeleccionado.QuienPagoId);
-                        dtPckFecha.Value = gastoSeleccionado.FechaSeleccionada;
-                        marcarIntegrantesGasto(usuarioInvolucradoGasto);
-                    }
+                    List<Usuario> integrantes = this.usuarioControlador.CargarUsuarioPorGastoId(gastoSeleccionado.Id);
+
+                    // Mostrar los detalles del gasto en el formulario
+                    txtBnombre.Text = gastoSeleccionado.NombreGasto;
+                    txtBdescripcion.Text = gastoSeleccionado.DescripcionGasto;
+                    txtBenlace.Text = gastoSeleccionado.EnlaceGasto;
+                    txtBmonto.Text = gastoSeleccionado.MontoGasto.ToString("F2");
+                    mostrarQuienPago(gastoSeleccionado.QuienPagoId); // Busca quien pago y lo muestra en el comboBox
+                    dtPckFecha.Value = gastoSeleccionado.FechaSeleccionada;
+                    marcarIntegrantesGasto(integrantes); // Marca los integrantes que participaron en el gasto
                 }
             }
         }
@@ -419,13 +402,13 @@ namespace WfVistaSplitBuddies.Vista
         /// <summary>
         /// Marca en el CheckedListBox los integrantes involucrados en el gasto.
         /// </summary>
-        /// <param name="usuarioInvolucradoGasto">Lista de usuarios involucrados en el gasto.</param>
-        private void marcarIntegrantesGasto(List<Usuario> usuarioInvolucradoGasto)
+        /// <param name="integrantes">Lista de usuarios involucrados en el gasto.</param>
+        private void marcarIntegrantesGasto(List<Usuario> integrantes)
         {
             for (int i = 0; i < chckListBoxIntegrantes.Items.Count; i++)
             {
                 Usuario usuarioItem = chckListBoxIntegrantes.Items[i] as Usuario;
-                if (usuarioItem != null && usuarioInvolucradoGasto.Contains(usuarioItem))
+                if (usuarioItem != null && integrantes.Contains(usuarioItem))
                 {
                     chckListBoxIntegrantes.SetItemChecked(i, true);
                 }
@@ -442,7 +425,6 @@ namespace WfVistaSplitBuddies.Vista
             if (gasto == null)
             {
                 MessageBox.Show("Debe seleccionar un gasto a eliminar.");
-                return;
             }
             else
             {

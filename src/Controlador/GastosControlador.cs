@@ -65,7 +65,8 @@ namespace Controlador
         public bool ActualizarGasto(int idGasto, Grupo grupo, Usuario quienPago, string nombreGasto, string descripcionGasto, string enlaceGasto, double montoGasto, List<string> integrantes, DateTime fechaSeleccionada)
         {
             Gasto gasto = new Gasto(idGasto,nombreGasto, descripcionGasto, enlaceGasto, montoGasto, quienPago.Identificacion, fechaSeleccionada);
-            //Verificar si el que pago esta como integrante del grupo
+
+            //Verificar si el que pago esta como integrante del grupo, si no lo agrega
             integrantes = ValidarIntegrantes(integrantes, quienPago);
 
             return gestorGastos.ActualizarGasto(gasto, integrantes, quienPago.Identificacion, grupo);

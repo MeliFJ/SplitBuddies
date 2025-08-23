@@ -55,7 +55,7 @@ namespace GestorDatos
             return true;
         }
 
-        public bool ActualizarGasto(Gasto gasto, List<string> nuevosIdIntegrantes, string quienPagoId, Grupo grupo)
+        public bool ActualizarGasto(Gasto gasto, List<string> integrantes, string quienPagoId, Grupo grupo)
         {
             List<Gasto> gastos = CargarDesdeJson<Gasto>(rutaArchivoGastos);
             List<RelacionUsuarioGasto> relacionesUsuarioGasto = CargarDesdeJson<RelacionUsuarioGasto>(rutaRelacionUsuarioGasto);
@@ -64,7 +64,7 @@ namespace GestorDatos
             relacionesUsuarioGasto.RemoveAll(g =>g.GastoId == gasto.Id);
 
             // Agregar nuevos integrantes
-            foreach (string integranteId in nuevosIdIntegrantes)
+            foreach (string integranteId in integrantes)
             {
                 // Se crea una nueva relación entre el usuario y el gasto
                 RelacionUsuarioGasto nuevaRelacion = new RelacionUsuarioGasto(integranteId, gasto.Id);
@@ -72,7 +72,7 @@ namespace GestorDatos
             }
 
             // Actualizamos la información del gasto
-            var gastoExistente = gastos.FirstOrDefault(g => g.Id == gasto.Id);
+            var gastoExistente = gastos.FirstOrDefault(g => g.Id == gasto.Id); // Se busca el gasto a modifcar
             gastoExistente.ActualizarDesde(gasto);
 
             // Se guarda el gasto en el archivo JSON
