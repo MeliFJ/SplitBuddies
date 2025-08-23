@@ -72,7 +72,22 @@ namespace GestorDatos.Interfaces
         /// <returns>Una lista de objetos <see cref="Gasto"/> asociados al grupo.</returns>
         List<Gasto> CargarGastosXGrupo(int idGrupo);
 
+        /// <summary>
+        /// Actualiza la información de un gasto existente, incluyendo los integrantes, el usuario que pagó y el grupo asociado.
+        /// </summary>
+        /// <param name="gasto">El objeto <see cref="Gasto"/> con los datos actualizados.</param>
+        /// <param name="integrantes">Lista de identificadores de los integrantes involucrados en el gasto.</param>
+        /// <param name="quienPagoId">Identificador del usuario que realizó el pago.</param>
+        /// <param name="grupo">El grupo al que pertenece el gasto.</param>
+        /// <returns>True si el gasto se actualizó correctamente; de lo contrario, false.</returns>
         bool ActualizarGasto(Gasto gasto, List<string> integrantes, string quienPagoId, Grupo grupo);
+
+        /// <summary>
+        /// Elimina un gasto específico de un grupo.
+        /// </summary>
+        /// <param name="idGasto">Identificador único del gasto a eliminar.</param>
+        /// <param name="grupoId">Identificador único del grupo al que pertenece el gasto.</param>
+        /// <returns>True si el gasto se eliminó correctamente; de lo contrario, false.</returns>
         bool EliminarGasto(int idGasto, int grupoId);
     }
 }

@@ -381,6 +381,10 @@ namespace WfVistaSplitBuddies.Vista
                     marcarIntegrantesGasto(integrantes); // Marca los integrantes que participaron en el gasto
                 }
             }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un gasto para cargar.");
+            }
         }
 
         /// <summary>

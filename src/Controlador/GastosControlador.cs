@@ -243,12 +243,15 @@ namespace Controlador
             return gastosPorUsuario;
         }
 
+        /// <summary>
+        /// Obtiene la lista de gastos asociados a un grupo específico.
+        /// </summary>
+        /// <param name="idGrupo">Identificador único del grupo.</param>
+        /// <returns>Una lista de objetos <see cref="Gasto"/> asociados al grupo.</returns>
         public List<Gasto> CargarGastoPorGrupo(int idGrupo)
         {
             List<Gasto> gastosXGrupo = gestorGastos.CargarGastosXGrupo(idGrupo);
             return gastosXGrupo;
         }
-
-
     }
 }
