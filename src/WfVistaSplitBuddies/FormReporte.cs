@@ -50,7 +50,7 @@ namespace WfVistaSplitBuddies
             else
             {
                 Reporte reporte = this.gestorGastos.GenerarReportePorFechas(fechaDesde, fechaHasta, this.usuarioLogeado);
-                lbMontoMontoGastado.Text = $"Monto pagado en el periodo: {reporte.GastoTotal}";
+                lbMontoMontoGastado.Text = $"Total pagado: {reporte.GastoTotal}";
                 lbMonteAdeudado.Text = $"Monto adeudado en el periodo: {reporte.Deuda}";
                 this.lbDisponible.ForeColor = reporte.Disponible > 0 ? System.Drawing.Color.Green : System.Drawing.Color.Red;
                 lbDisponible.Text = $"Monto disponible en el periodo: {reporte.Disponible}";
@@ -65,10 +65,10 @@ namespace WfVistaSplitBuddies
         {
             DateTime fechaMes = dtpMes.Value;
             Reporte reporte = this.gestorGastos.GenerarReportePorMes(fechaMes, this.usuarioLogeado);
-            lbMontoMontoGastado.Text = $"Monto pagado en el periodo: {reporte.GastoTotal}";
-            lbMonteAdeudado.Text = $"Monto adeudado en el periodo: {reporte.Deuda}";
+            lbMontoMontoGastado.Text = $"Total pagado: {reporte.GastoTotal}";
+            lbMonteAdeudado.Text = $"Total gasto pagados por otro integrante: {reporte.Deuda}";
             this.lbDisponible.ForeColor = reporte.Disponible > 0 ? System.Drawing.Color.Green : System.Drawing.Color.Red;
-            lbDisponible.Text = $"Monto disponible en el periodo: {reporte.Disponible}";
+            lbDisponible.Text = $"Diferencia actual: {reporte.Disponible}";
         }
 
         /// <summary>
@@ -77,9 +77,9 @@ namespace WfVistaSplitBuddies
         /// </summary>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            lbMontoMontoGastado.Text = $"Monto pagado en el periodo: 0";
-            lbMonteAdeudado.Text = $"Monto adeudado en el periodo: 0";
-            lbDisponible.Text = $"Monto disponible en el periodo: 0";
+            lbMontoMontoGastado.Text = $"Total pagado: 0";
+            lbMonteAdeudado.Text = $"Total gasto pagados por otro integrante: 0";
+            lbDisponible.Text = $"Diferencia actual: 0";
             this.lbDisponible.ForeColor = System.Drawing.Color.Black;
         }
 
@@ -91,10 +91,10 @@ namespace WfVistaSplitBuddies
         {
             DateTime fechaAnual = dtpAnno.Value;
             Reporte reporte = this.gestorGastos.GenerarReportePorAnno(fechaAnual, this.usuarioLogeado);
-            lbMontoMontoGastado.Text = $"Monto pagado en el periodo: {reporte.GastoTotal}";
-            lbMonteAdeudado.Text = $"Monto adeudado en el periodo: {reporte.Deuda}";
+            lbMontoMontoGastado.Text = $"Total pagado: {reporte.GastoTotal}";
+            lbMonteAdeudado.Text = $"Total gasto pagados por otro integrante: {reporte.Deuda}";
             this.lbDisponible.ForeColor = reporte.Disponible > 0 ? System.Drawing.Color.Green : System.Drawing.Color.Red;
-            lbDisponible.Text = $"Monto disponible en el periodo: {reporte.Disponible}";
+            lbDisponible.Text = $"Diferencia actual: {reporte.Disponible}";
         }
     }
 }

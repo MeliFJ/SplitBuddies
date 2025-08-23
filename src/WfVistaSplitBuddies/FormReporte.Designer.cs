@@ -52,20 +52,19 @@ namespace WfVistaSplitBuddies
             // 
             this.dtpDesde.CustomFormat = "dd MMMM yyyy";
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDesde.Location = new System.Drawing.Point(133, 108);
-            this.dtpDesde.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpDesde.Location = new System.Drawing.Point(177, 133);
+            this.dtpDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(130, 20);
+            this.dtpDesde.Size = new System.Drawing.Size(172, 22);
             this.dtpDesde.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 99);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(29, 122);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 31);
+            this.label1.Size = new System.Drawing.Size(58, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Desde";
             // 
@@ -73,10 +72,9 @@ namespace WfVistaSplitBuddies
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(270, 103);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(360, 127);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 31);
+            this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Hasta";
             // 
@@ -84,20 +82,19 @@ namespace WfVistaSplitBuddies
             // 
             this.dtpHasta.CustomFormat = "dd MMMM yyyy";
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpHasta.Location = new System.Drawing.Point(353, 109);
-            this.dtpHasta.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpHasta.Location = new System.Drawing.Point(471, 134);
+            this.dtpHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(130, 20);
+            this.dtpHasta.Size = new System.Drawing.Size(172, 22);
             this.dtpHasta.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 140);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(29, 172);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 31);
+            this.label3.Size = new System.Drawing.Size(41, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Mes";
             // 
@@ -105,18 +102,19 @@ namespace WfVistaSplitBuddies
             // 
             this.dtpMes.CustomFormat = "MMMM yyyy";
             this.dtpMes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpMes.Location = new System.Drawing.Point(133, 151);
-            this.dtpMes.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpMes.Location = new System.Drawing.Point(177, 186);
+            this.dtpMes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpMes.Name = "dtpMes";
             this.dtpMes.ShowUpDown = true;
-            this.dtpMes.Size = new System.Drawing.Size(130, 20);
+            this.dtpMes.Size = new System.Drawing.Size(172, 22);
             this.dtpMes.TabIndex = 6;
             // 
             // btnGenerarXFechas
             // 
-            this.btnGenerarXFechas.Location = new System.Drawing.Point(497, 109);
+            this.btnGenerarXFechas.Location = new System.Drawing.Point(663, 134);
+            this.btnGenerarXFechas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGenerarXFechas.Name = "btnGenerarXFechas";
-            this.btnGenerarXFechas.Size = new System.Drawing.Size(75, 23);
+            this.btnGenerarXFechas.Size = new System.Drawing.Size(100, 28);
             this.btnGenerarXFechas.TabIndex = 7;
             this.btnGenerarXFechas.Text = "Generar";
             this.btnGenerarXFechas.UseVisualStyleBackColor = true;
@@ -124,9 +122,10 @@ namespace WfVistaSplitBuddies
             // 
             // btnGenerarMes
             // 
-            this.btnGenerarMes.Location = new System.Drawing.Point(289, 151);
+            this.btnGenerarMes.Location = new System.Drawing.Point(385, 186);
+            this.btnGenerarMes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGenerarMes.Name = "btnGenerarMes";
-            this.btnGenerarMes.Size = new System.Drawing.Size(75, 23);
+            this.btnGenerarMes.Size = new System.Drawing.Size(100, 28);
             this.btnGenerarMes.TabIndex = 8;
             this.btnGenerarMes.Text = "Generar";
             this.btnGenerarMes.UseVisualStyleBackColor = true;
@@ -136,27 +135,30 @@ namespace WfVistaSplitBuddies
             // 
             this.lbMontoMontoGastado.AutoSize = true;
             this.lbMontoMontoGastado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMontoMontoGastado.Location = new System.Drawing.Point(19, 227);
+            this.lbMontoMontoGastado.Location = new System.Drawing.Point(29, 317);
+            this.lbMontoMontoGastado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMontoMontoGastado.Name = "lbMontoMontoGastado";
-            this.lbMontoMontoGastado.Size = new System.Drawing.Size(386, 30);
+            this.lbMontoMontoGastado.Size = new System.Drawing.Size(139, 20);
             this.lbMontoMontoGastado.TabIndex = 9;
-            this.lbMontoMontoGastado.Text = "Monto pagado en el periodo: 0";
+            this.lbMontoMontoGastado.Text = "Total pagado: 0";
             // 
             // lbMonteAdeudado
             // 
             this.lbMonteAdeudado.AutoSize = true;
             this.lbMonteAdeudado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMonteAdeudado.Location = new System.Drawing.Point(19, 276);
+            this.lbMonteAdeudado.Location = new System.Drawing.Point(25, 353);
+            this.lbMonteAdeudado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMonteAdeudado.Name = "lbMonteAdeudado";
-            this.lbMonteAdeudado.Size = new System.Drawing.Size(416, 30);
+            this.lbMonteAdeudado.Size = new System.Drawing.Size(441, 25);
             this.lbMonteAdeudado.TabIndex = 10;
-            this.lbMonteAdeudado.Text = "Monto adeudado en el periodo: 0";
+            this.lbMonteAdeudado.Text = "Total gasto pagado por otro integrante: 0";
             // 
             // btnGenerarAnual
             // 
-            this.btnGenerarAnual.Location = new System.Drawing.Point(289, 189);
+            this.btnGenerarAnual.Location = new System.Drawing.Point(385, 233);
+            this.btnGenerarAnual.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGenerarAnual.Name = "btnGenerarAnual";
-            this.btnGenerarAnual.Size = new System.Drawing.Size(75, 23);
+            this.btnGenerarAnual.Size = new System.Drawing.Size(100, 28);
             this.btnGenerarAnual.TabIndex = 13;
             this.btnGenerarAnual.Text = "Generar";
             this.btnGenerarAnual.UseVisualStyleBackColor = true;
@@ -166,21 +168,20 @@ namespace WfVistaSplitBuddies
             // 
             this.dtpAnno.CustomFormat = "yyyy";
             this.dtpAnno.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAnno.Location = new System.Drawing.Point(133, 189);
-            this.dtpAnno.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpAnno.Location = new System.Drawing.Point(177, 233);
+            this.dtpAnno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpAnno.Name = "dtpAnno";
             this.dtpAnno.ShowUpDown = true;
-            this.dtpAnno.Size = new System.Drawing.Size(130, 20);
+            this.dtpAnno.Size = new System.Drawing.Size(172, 22);
             this.dtpAnno.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 178);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(29, 219);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 31);
+            this.label4.Size = new System.Drawing.Size(38, 20);
             this.label4.TabIndex = 11;
             this.label4.Text = "Año";
             // 
@@ -188,17 +189,19 @@ namespace WfVistaSplitBuddies
             // 
             this.lbDisponible.AutoSize = true;
             this.lbDisponible.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDisponible.Location = new System.Drawing.Point(19, 318);
+            this.lbDisponible.Location = new System.Drawing.Point(25, 391);
+            this.lbDisponible.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDisponible.Name = "lbDisponible";
-            this.lbDisponible.Size = new System.Drawing.Size(421, 30);
+            this.lbDisponible.Size = new System.Drawing.Size(219, 25);
             this.lbDisponible.TabIndex = 14;
-            this.lbDisponible.Text = "Monto disponible en el periodo: 0";
+            this.lbDisponible.Text = "Diferencia actual: 0";
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(9, 395);
+            this.btnLimpiar.Location = new System.Drawing.Point(12, 486);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.Size = new System.Drawing.Size(100, 28);
             this.btnLimpiar.TabIndex = 15;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -208,17 +211,18 @@ namespace WfVistaSplitBuddies
             // 
             this.LbUsuario.AutoSize = true;
             this.LbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbUsuario.Location = new System.Drawing.Point(33, 28);
+            this.LbUsuario.Location = new System.Drawing.Point(44, 34);
+            this.LbUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LbUsuario.Name = "LbUsuario";
-            this.LbUsuario.Size = new System.Drawing.Size(0, 84);
+            this.LbUsuario.Size = new System.Drawing.Size(0, 29);
             this.LbUsuario.TabIndex = 16;
             // 
             // FormReporte
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1033, 738);
+            this.ClientSize = new System.Drawing.Size(1377, 908);
             this.Controls.Add(this.LbUsuario);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.lbDisponible);
@@ -235,7 +239,7 @@ namespace WfVistaSplitBuddies
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpDesde);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormReporte";
             this.Text = "FormReporte";
             this.ResumeLayout(false);
