@@ -28,7 +28,7 @@ namespace Tests.Controlador
         public void GuardarGastoRetornarTrueCuandoSeGuarda()
         {
             // Arrange
-            var grupo = new Grupo(1, "Amigos");
+            var grupo = new Grupo("11111", "logo.png", "Amigos");
             var usuario = new Usuario("U1", "1234", "Pedro", "Ramirez");
             var integrantes = new List<string> { "U2" };
 
@@ -50,7 +50,7 @@ namespace Tests.Controlador
         public void ActualizarGastoRetornarTrueCuandoSeActualiza()
         {
             // Arrange
-            var grupo = new Grupo(1, "Amigos");
+            var grupo = new Grupo("11111", "logo.png", "Amigos");
             var usuario = new Usuario("U1", "1234", "Pedro", "Ramirez");
             var integrantes = new List<string> { "U2" };
 
@@ -104,7 +104,7 @@ namespace Tests.Controlador
         public void ConsultarGastosPorGrupoyUsuarioCalcularTotalesCorrectamente()
         {
             // Arrange
-            var grupo = new Grupo(1, "Amigos");
+            var grupo = new Grupo("11111", "logo.png", "Amigos");
             var usuario = new Usuario("U1", "1234", "Pedro", "Ramirez");
 
             var gastos = new List<Gasto>

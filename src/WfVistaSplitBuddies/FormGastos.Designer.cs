@@ -292,7 +292,7 @@
             this.lbId.Name = "lbId";
             this.lbId.Size = new System.Drawing.Size(45, 37);
             this.lbId.TabIndex = 27;
-            this.lbId.Text = "Id";
+            this.lbId.Text = "Nombre del Gasto";
             // 
             // btnEliminar
             // 

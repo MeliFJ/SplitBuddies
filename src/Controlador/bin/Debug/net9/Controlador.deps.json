@@ -32,6 +32,9 @@
         }
       },
       "Modelo/1.0.0": {
+        "dependencies": {
+          "System.Text.Json": "9.0.7"
+        },
         "runtime": {
           "Modelo.dll": {
             "assemblyVersion": "1.0.0.0",

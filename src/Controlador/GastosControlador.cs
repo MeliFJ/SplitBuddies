@@ -131,21 +131,18 @@ namespace Controlador
             List<RelacionGrupoGasto> grupoGastos = resultadogestor.Item1;
             List<RelacionUsuarioGasto> usuariogastos = resultadogestor.Item2;
             List<Gasto> gastos = resultadogestor.Item3;
-            var gastosPorgrupoUsuario = from gasto
-                                       in gastos
-                                        join relaciongastousuario in usuariogastos
-                                        on gasto.QuienPagoId equals relaciongastousuario.UsuarioId
-                                        join relaciongastogrupo in grupoGastos
-                                        on relaciongastousuario.GastoId equals relaciongastogrupo.GastoId
-                                       //on new { relaciongastousuario.GastoId, relaciongastousuario.UsuarioId } equals new { relaciongastogrupo.GastoId, relaciongastogrupo.UsuarioId }
-                                       select gasto;
-            gastosPorgrupoUsuario = gastosPorgrupoUsuario.Distinct();
+
+            // First, declare and initialize gastosPorgrupo before using it
             var gastosPorgrupo = from gasto
                                  in gastos
                                  join relaciongastogrupo in grupoGastos
                                  on gasto.Id equals relaciongastogrupo.GastoId
                                  select gasto;
             gastosPorgrupo = gastosPorgrupo.Distinct();
+
+            var gastosPorgrupoUsuario = gastosPorgrupo.Where(g => g.QuienPagoId == usuario.Identificacion);
+            gastosPorgrupoUsuario = gastosPorgrupoUsuario.Distinct();
+
             GastoGrupoUsuario resultado = new GastoGrupoUsuario();
             foreach (var gasto in gastosPorgrupo)
             {

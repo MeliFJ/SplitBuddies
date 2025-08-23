@@ -4,6 +4,7 @@ using Controlador;
 using GestorDatos.Interfaces;
 using Modelo;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace ControladorTest
 {
@@ -18,7 +19,28 @@ namespace ControladorTest
         {
             // Arrange: crear mock y controlador
             mockUserManager = new Mock<IGestorDatosUsuario>();
-            controller = new UsuarioControlador(mockUserManager.Object);
+
+            // Usar reflexión para reemplazar la instancia singleton por una con el mock
+            var usuarioControladorType = typeof(UsuarioControlador);
+            var instanciaField = usuarioControladorType.GetField("instancia", BindingFlags.Static | BindingFlags.NonPublic);
+            if (instanciaField == null)
+            {
+                Assert.Fail("No se pudo encontrar el campo 'instancia' en UsuarioControlador.");
+            }
+            instanciaField.SetValue(null, null); // Limpia la instancia antes de crearla
+            instanciaField.SetValue(
+                null,
+                Activator.CreateInstance(
+                    usuarioControladorType,
+                    BindingFlags.Instance | BindingFlags.NonPublic,
+                    binder: null,
+                    args: new object[] { mockUserManager.Object },
+                    culture: null
+                )
+            );
+
+            // Obtener la instancia singleton para los tests
+            controller = (UsuarioControlador)UsuarioControlador.Instancia();
         }
 
         [TestMethod]

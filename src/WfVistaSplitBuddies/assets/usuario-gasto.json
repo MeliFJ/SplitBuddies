@@ -1,17 +1,5 @@
 [
   {
-    "UsuarioId": "155851059831",
-    "GastoId": 2
-  },
-  {
-    "UsuarioId": "frweiuyuuy",
-    "GastoId": 2
-  },
-  {
-    "UsuarioId": "116640546",
-    "GastoId": 2
-  },
-  {
     "UsuarioId": "116640546",
     "GastoId": 3
   },
@@ -1932,15 +1920,27 @@
     "GastoId": 104
   },
   {
+    "UsuarioId": "155851059831",
+    "GastoId": 7
+  },
+  {
+    "UsuarioId": "116640546",
+    "GastoId": 2
+  },
+  {
+    "UsuarioId": "155851059831",
+    "GastoId": 2
+  },
+  {
+    "UsuarioId": "frweiuyuuy",
+    "GastoId": 2
+  },
+  {
     "UsuarioId": "116640546",
     "GastoId": 1
   },
   {
     "UsuarioId": "frweiuyuuy",
     "GastoId": 1
-  },
-  {
-    "UsuarioId": "155851059831",
-    "GastoId": 7
   }
 ]
